@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="utf-8"?>
+<itemData>
+
+<!-- pills -->
+
+    <consumable name="Vitamins" type="pill" frequency="100">
+        <use type="consume" text="eat" flavor="You feel a little healthier... in an earthy, crunchy kind of way.">
+            <stat type="stamina" value="1"/>
+        </use>
+    </consumable>
+    <consumable name="HGH" type="pill" frequency="100">
+        <use type="consume" text="eat" flavor="If it's good enough for A. Rod, it's good enough for you.">
+            <stat type="strength" value="1"/>
+            <stat type="throwSpeed" value="1"/>
+            <stat type="moveSpeed" value="-1"/>
+            <stat type="intelligence" value="-1"/>
+            <stat type="happiness" value="-1"/>
+            <stat type="stamina" value="-1"/>
+        </use>
+    </consumable>
+		<consumable name="Androgenic Steroids" type="pill" frequency="100">
+			<use type="consume" text="eat" flavor="You feel like you could hit the ball over them mountains...">
+            <stat type="strength" value="2"/>
+            <stat type="throwSpeed" value="2"/>
+            <stat type="moveSpeed" value="-2"/>
+            <stat type="stamina" value="-2"/>
+            <stat type="intelligence" value="-2"/>
+            <stat type="happiness" value="-2"/>
+			</use>
+		</consumable>
+		<consumable name="Caffeine Pills" type="pill" frequency="100">
+        <use type="consume" text="eat" flavor="You feel a little jittery.">
+            <stat type="throwSpeed" value="1"/>
+            <stat type="moveSpeed" value="1"/>
+            <stat type="stamina" value="1"/>
+            <stat type="perception" value="1"/>
+            <stat type="dexterity" value="1"/>
+            <stat type="intelligence" value="1"/>
+            <stat type="charisma" value="-1"/>
+            <stat type="happiness" value="-1"/>
+        </use>
+    </consumable>
+		<consumable name="Amphetamines" type="pill" frequency="100">
+        <use type="consume" text="eat" flavor="You feel a surge of energy.">
+            <stat type="throwSpeed" value="2"/>
+            <stat type="moveSpeed" value="2"/>
+            <stat type="stamina" value="2"/>
+            <stat type="perception" value="2"/>
+            <stat type="dexterity" value="2"/>
+            <stat type="intelligence" value="2"/>
+            <stat type="charisma" value="-2"/>
+            <stat type="happiness" value="-2"/>
+        </use>
+    </consumable>
+		<consumable name="Ibuprofen" type="pill" frequency="100">
+        <use type="consume" text="eat" flavor="Your muscles ache a little bit less and your headache seems to have gone away.">
+            <stat type="stamina" value="1"/>
+            <stat type="perception" value="-1"/>
+            <stat type="dexterity" value="-1"/>
+            <stat type="charisma" value="-1"/>
+            <stat type="happiness" value="-1"/>
+        </use>
+    </consumable>
+		<consumable name="Oxycodone" type="pill" frequency="100">
+        <use type="consume" text="eat" flavor="You don't feel much of anything.">
+            <stat type="stamina" value="2"/>
+            <stat type="perception" value="-2"/>
+            <stat type="dexterity" value="-2"/>
+            <stat type="charisma" value="-2"/>
+            <stat type="happiness" value="-2"/>
+        </use>
+    </consumable>
+		<consumable name="MDMA" type="pill" frequency="100">
+        <use type="consume" text="eat" flavor="You feel an all encompassing love for your teammates... as well as the opposing team.">
+            <stat type="stamina" value="1"/>
+            <stat type="perception" value="-1"/>
+            <stat type="dexterity" value="-1"/>
+            <stat type="charisma" value="-1"/>
+            <stat type="happiness" value="-1"/>
+            <stat type="handed" value="1"/>
+        </use>
+    </consumable>
+		<consumable name="LSD" type="pill" frequency="100">
+        <use type="consume" text="eat" flavor="DOCK ELLIS CHALLENGE ACTIVATED">
+            <stat type="charisma" value="10"/>
+            <stat type="happiness" value="10"/>
+            <stat type="handed" value="1"/>
+            <stat type="hallucinating" value="1"/>
+						<!-- if hallucinating doesnt work leave on -->
+            <stat type="perception" value="-5"/>
+            <stat type="dexterity" value="-5"/>
+						<!-- if hallucinating doesnt work leave on -->
+        </use>
+    </consumable>
+
+<!-- elixirs -->
+
+    <consumable name="Brown-Sequard Elixir" type="elixir" frequency="100">
+        <use type="consume" text="drink" flavor="You try to remember if you heard about Babe Ruth violently throwing up or if you should call poison control...">
+            <stat type="strength" value="1"/>
+            <stat type="throwSpeed" value="1"/>
+            <stat type="stamina" value="-5"/>
+            <stat type="moveSpeed" value="-5"/>
+            <stat type="intelligence" value="-5"/>
+            <stat type="happiness" value="-10"/>
+        </use>
+        <use type="inject" text="inject" flavor="Be like The Great Bambino!">
+            <stat type="strength" value="2"/>
+            <stat type="throwSpeed" value="2"/>
+            <stat type="stamina" value="-5"/>
+            <stat type="moveSpeed" value="-5"/>
+            <stat type="intelligence" value="-5"/>
+            <stat type="happiness" value="-5"/>
+        </use>
+    </consumable>
+    <consumable name="Anabolic Steroids" type="elixir" frequency="100">
+        <use type="consume" text="drink" flavor="You think this may have been a waste of the good stuff, but you feel strong.">
+            <stat type="strength" value="1"/>
+            <stat type="throwSpeed" value="1"/>
+            <stat type="stamina" value="-2"/>
+            <stat type="moveSpeed" value="-2"/>
+            <stat type="intelligence" value="-2"/>
+            <stat type="happiness" value="-2"/>
+        </use>
+        <use type="inject" text="inject" flavor="You follow in the footsteps of your greatest heroes...">
+            <stat type="strength" value="4"/>
+            <stat type="throwSpeed" value="4"/>
+            <stat type="stamina" value="-2"/>
+            <stat type="moveSpeed" value="-2"/>
+            <stat type="intelligence" value="-2"/>
+            <stat type="happiness" value="-2"/>
+        </use>
+    </consumable>
+    <consumable name="Saline" type="elixir" frequency="100">
+        <use type="consume" text="drink" flavor="Hmm... Salty...">
+        </use>
+        <use type="inject" text="inject" flavor="You feel refreshed and healthy.">
+            <stat type="stamina" value="1"/>
+            <stat type="dexterity" value="1"/>
+        </use>
+    </consumable>
+    <consumable name="Cough Syrup with Codene" type="elixir" frequency="100">
+        <use type="consume" text="drink" flavor="You feel a little better but you're not sure how rappers can drink this stuff.">
+            <stat type="stamina" value="2"/>
+            <stat type="perception" value="-2"/>
+            <stat type="dexterity" value="-2"/>
+            <stat type="intelligence" value="-2"/>
+            <stat type="charisma" value="2"/>
+            <stat type="happiness" value="2"/>
+        </use>
+        <use type="inject" text="inject" flavor="The thick syrup barely squeezes through the syringe as you rethink your life choices and look up poison control.">
+            <stat type="stamina" value="1"/>
+            <stat type="perception" value="-5"/>
+            <stat type="dexterity" value="-5"/>
+            <stat type="charisma" value="-5"/>
+            <stat type="happiness" value="-5"/>
+        </use>
+    </consumable>
+    <consumable name="Morphine" type="elixir" frequency="100">
+        <use type="consume" text="drink" flavor="You think this may have been a waste of the good stuff, but your pain has gone away.">
+            <stat type="stamina" value="2"/>
+            <stat type="perception" value="-2"/>
+            <stat type="dexterity" value="-2"/>
+            <stat type="intelligence" value="-2"/>
+            <stat type="charisma" value="2"/>
+            <stat type="happiness" value="2"/>
+        </use>
+        <use type="inject" text="inject" flavor="The world spins but you have not a care in the world. Not even this ballgame.">
+            <stat type="stamina" value="5"/>
+            <stat type="perception" value="-2"/>
+            <stat type="dexterity" value="-2"/>
+            <stat type="charisma" value="-2"/>
+            <stat type="happiness" value="2"/>
+        </use>
+    </consumable>
+    <consumable name="Flavorade" type="elixir" frequency="100">
+        <use type="consume" text="drink" flavor="Refreshing... this drink really quenched your thirst.">
+            <stat type="stamina" value="1"/>
+            <stat type="dexterity" value="1"/>
+            <stat type="charisma" value="1"/>
+            <stat type="happiness" value="1"/>
+        </use>
+        <use type="inject" text="inject" flavor="You suspect you might not actually know what electrolytes are.">
+            <stat type="stamina" value="-1"/>
+        </use>
+    </consumable>
+    <consumable name="Red Thunder" type="elixir" frequency="100">
+        <use type="consume" text="drink" flavor="You flap your arms but nothing happens.">
+            <stat type="stamina" value="2"/>
+            <stat type="dexterity" value="2"/>
+            <stat type="perception" value="2"/>
+            <stat type="throwSpeed" value="2"/>
+            <stat type="moveSpeed" value="2"/>
+            <stat type="charisma" value="2"/>
+            <stat type="happiness" value="2"/>
+        </use>
+        <use type="inject" text="inject" flavor="You are pretty sure that doesn't go in there.">
+            <stat type="stamina" value="-1"/>
+        </use>
+    </consumable>
+    <consumable name="Colloidal Silver" type="elixir" frequency="100">
+        <use type="consume" text="drink" flavor="Your equipment feels lighter but you wonder if the healer that gave it to you had a degree in medicine.">
+            <stat type="stamina" value="-2"/>
+            <stat type="intelligence" value="-2"/>
+            <stat type="custom" value="1"/>
+        </use>
+        <use type="inject" text="inject" flavor="Your equipment feels light and effective... plus you had a pretty significant iron-silver alloy deficiency anyway.">
+            <stat type="stamina" value="-4"/>
+            <stat type="intelligence" value="-4"/>
+            <stat type="custom" value="1"/>
+        </use>
+    </consumable>
+
+<!-- books -->	
+
+    <consumable name="Pamphlet" type="book" frequency="100" custom="true">
+        <use type="read" text="read" flavor="">
+						<!-- will bump one stat up by 1-4 -->
+				</use>
+    </consumable>
+    <consumable name="Cursed Pamphlet" type="book" frequency="50" custom="true">
+        <use type="read" text="read" flavor="">
+						<!-- will bump one stat down by 1-4 -->
+				</use>
+    </consumable>
+    <consumable name="Playbook" type="book" frequency="100" custom="true">
+        <use type="read" text="read" flavor="">
+						<!-- will bump one stat up by 4-8 -->
+				</use>
+    </consumable>
+    <consumable name="Cursed Playbook" type="book" frequency="50" custom="true">
+        <use type="read" text="read" flavor="">
+						<!-- will bump one stat down by 4-8 -->
+				</use>
+    </consumable>
+		<consumable name="Rotisserie League Baseball" type="book" frequency="50">
+        <use type="read" text="read" flavor="You think about how you actually have to take shit on Twitter from these nerds.">
+						<stat type="moveSpeed" value="1"/>
+						<stat type="strength" value="1"/>
+						<stat type="dexterity" value="1"/>
+						<stat type="perception" value="1"/>
+						<stat type="stamina" value="1"/>
+						<stat type="throwSpeed" value="1"/>
+						<stat type="fastBall" value="1"/>
+						<stat type="curveBall" value="1"/>
+						<stat type="knuckleBall" value="1"/>
+						<stat type="slider" value="1"/>
+						<stat type="charisma" value="1"/>
+						<stat type="intelligence" value="1"/>
+						<stat type="happiness" value="1"/>
+				</use>
+		</consumable>
+		<consumable name="Moneyball: The Art of Winning an Unfair Game" type="book" frequency="50">
+        <use type="read" text="read" flavor="You consider how good of a movie this book about statistics could make someday.">
+						<stat type="perception" value="1"/>
+						<stat type="stamina" value="1"/>
+						<stat type="intelligence" value="1"/>
+				</use>
+		</consumable>
+		<consumable name="Eight Men Out: The Black Sox and The 1919 World Series" type="book" frequency="50">
+        <use type="read" text="read" flavor="You think to yourself about the good old days... it makes you feel like a cheater and a racist.">
+						<stat type="charisma" value="-1"/>
+						<stat type="stamina" value="-1"/>
+						<stat type="intelligence" value="1"/>
+				</use>
+		</consumable>
+		<consumable name="Script of NO, NO, NANETTE" type="book" frequency="50">
+        <use type="read" text="read" flavor="REVERSE THE CURSE!">
+						<stat type="charisma" value="-1"/>
+						<stat type="stamina" value="-1"/>
+						<stat type="dexterity" value="-1"/>
+						<stat type="happiness" value="-1"/>
+						<stat type="intelligence" value="1"/>
+				</use>
+		</consumable>
+
+		<consumable name="Film" type="film" frequency="100" custom="true">
+        <use type="watch" text="watch" flavor="">
+						<!-- will bump one stat up by 1-8 -->
+				</use>
+		</consumable>
+		<consumable name="Cursed Film" type="film" frequency="100" custom="true">
+        <use type="watch" text="watch" flavor="">
+						<!-- will bump one stat down by 1-8 -->
+				</use>
+		</consumable>
+		<consumable name="Rudy" type="film" frequency="100">
+        <use type="watch" text="watch" flavor="RUDY! RUDY! RUDY!">
+						<stat type="stamina" value="2"/>
+						<stat type="charisma" value="2"/>
+						<stat type="happiness" value="2"/>
+						<stat type="intelligence" value="2"/>
+				</use>
+		</consumable>
+		<consumable name="Remember The Titans" type="film" frequency="100">
+        <use type="watch" text="watch" flavor="LEFT SIDE! STRONG SIDE!">
+						<stat type="stamina" value="2"/>
+						<stat type="charisma" value="2"/>
+						<stat type="happiness" value="2"/>
+						<stat type="intelligence" value="2"/>
+				</use>
+		</consumable>
+		<consumable name="Major League" type="film" frequency="100">
+        <use type="watch" text="watch" flavor="You like the straightballs, it's just the curveballs you have trouble with.">
+						<stat type="curveBall" value="1"/>
+						<stat type="stamina" value="2"/>
+						<stat type="charisma" value="2"/>
+						<stat type="happiness" value="2"/>
+						<stat type="intelligence" value="2"/>
+				</use>
+		</consumable>
+		<consumable name="The Ring" type="film" frequency="100" custom="true">
+        <use type="watch" text="watch" flavor="Creepy...">
+						<!-- will curse all equipment currently equipped on player -->
+				</use>
+		</consumable>
+
+<!-- misc consumables -->
+
+		<consumable name="Chewing Tobacco" type="tin can" frequency="100">
+				<use type="consume" text="chew" flavor="It's a nasty habit, but it helps clear your mind.">
+						<stat type="stamina" value="1"/>
+				</use>
+		</consumable>
+		<consumable name="Big League Chew" type="pouch of gum" frequency="100">
+				<use type="consume" text="chew" flavor="Damn, you wish this was tobacco.">
+						<stat type="stamina" value="1"/>
+				</use>
+		</consumable>
+
+<!-- special items -->
+		<equipment name="Syringe" type="syringe" frequency="100" level="1" singular="1" extraFlavor="Ugh... you hate needles.">
+        <stat type="stamina" min="-1" max="-1"/>
+				<stat type="custom" min="0" max="0"/>
+		</equipment>
+
+		<equipment name="Projector" type="projector" frequency="100" level="1" singular="1" extraFlavor="You wonder if this old thing still works.">
+				<stat type="custom" min="0" max="0"/>
+		</equipment>
+
+<!-- equipment -->
+
+    <equipment name="Sun Visor" type="hat" curseable="true" frequency="100" level="1" singular="1">
+        <stat type="perception" min="1" max="4"/>
+        <stat type="fastBall" min="1" max="4"/>
+        <stat type="curveBall" min="1" max="4"/>
+        <stat type="slider" min="1" max="4"/>
+        <stat type="knuckleBall" min="1" max="4"/>
+        <stat type="happiness" min="1" max="4"/>
+        <stat type="charisma" min="1" max="4"/>
+    </equipment>
+    <equipment name="Baseball Hat" type="hat" curseable="true" frequency="100" level="2" singular="1">
+        <stat type="perception" min="4" max="8" />
+        <stat type="fastBall" min="4" max="8"/>
+        <stat type="curveBall" min="4" max="8"/>
+        <stat type="slider" min="4" max="8"/>
+        <stat type="knuckleBall" min="4" max="8"/>
+        <stat type="happiness" min="4" max="8"/>
+        <stat type="charisma" min="4" max="8"/>
+    </equipment>
+    <equipment name="Fedora" type="hat" curseable="true" frequency="5" level="1" singular="1" extraFlavor=" You look ridiculous.">
+        <stat type="intelligence" min="1" max="4"/>
+        <stat type="happiness" min="1" max="4"/>
+        <stat type="charisma" min="1" max="4"/>
+    </equipment>
+    <equipment name="Propeller Beanie" type="hat" curseable="true" frequency="5" level="1" singular="1" extraFlavor=".. nerd.">
+        <stat type="intelligence" min="1" max="4"/>
+        <stat type="happiness" min="1" max="4"/>
+        <stat type="charisma" min="1" max="4"/>
+    </equipment>
+    <equipment name="Sneakers" type="shoes" curseable="true" frequency="100" level="1">
+        <stat type="moveSpeed" min="1" max="4"/>
+        <stat type="dexterity" min="1" max="4"/>
+        <stat type="fastBall" min="1" max="4"/>
+        <stat type="curveBall" min="1" max="4"/>
+        <stat type="slider" min="1" max="4"/>
+        <stat type="knuckleBall" min="1" max="4"/>
+    </equipment>
+    <equipment name="Cleats" type="shoes" curseable="true" frequency="100" level="2">
+        <stat type="moveSpeed" min="4" max="8"/>
+        <stat type="dexterity" min="4" max="8"/>
+        <stat type="fastBall" min="4" max="8"/>
+        <stat type="curveBall" min="4" max="8"/>
+        <stat type="slider" min="4" max="8"/>
+        <stat type="knuckleBall" min="4" max="8"/>
+    </equipment>
+    <equipment name="Flip Flops" type="shoes" curseable="true" frequency="5" level="1" extraFlavor=" They are less than ideal.">
+        <stat type="moveSpeed" min="-4" max="-1"/>
+        <stat type="happiness" min="1" max="4"/>
+        <stat type="charisma" min="1" max="4"/>
+    </equipment>
+    <equipment name="Clown Shoes" type="shoes" curseable="true" frequency="5" level="1">
+        <stat type="moveSpeed" min="-4" max="-1"/>
+        <stat type="happiness" min="1" max="4"/>
+        <stat type="charisma" min="1" max="4"/>
+    </equipment>
+    <equipment name="Batting Gloves" type="gloves" curseable="true" frequency="100" level="1">
+        <stat type="dexterity" min="1" max="4"/>
+    </equipment>
+    <equipment name="Batting Gloves" type="gloves" curseable="true" frequency="100" level="2">
+        <stat type="dexterity" min="4" max="8"/>
+    </equipment>
+    <equipment name="Pitcher's Mitt" type="gloves" curseable="true" frequency="100" level="1" singular="1">
+        <stat type="throwSpeed" min="1" max="4"/>
+        <stat type="fastBall" min="1" max="4"/>
+        <stat type="curveBall" min="1" max="4"/>
+        <stat type="slider" min="1" max="4"/>
+        <stat type="knuckleBall" min="1" max="4"/>
+    </equipment>
+    <equipment name="Pitcher's Mitt" type="gloves" curseable="true" frequency="100" level="2" singular="1">
+        <stat type="throwSpeed" min="4" max="8"/>
+        <stat type="fastBall" min="4" max="8"/>
+        <stat type="curveBall" min="4" max="8"/>
+        <stat type="slider" min="4" max="8"/>
+        <stat type="knuckleBall" min="4" max="8"/>
+    </equipment>
+    <equipment name="Fielder's Mitt" type="gloves" curseable="true" frequency="100" level="1" singular="1">
+        <stat type="dexterity" min="1" max="4"/>
+        <stat type="throwSpeed" min="1" max="4"/>
+    </equipment>
+    <equipment name="Fielder's Mitt" type="gloves" curseable="true" frequency="100" level="2" singular="1">
+        <stat type="dexterity" min="4" max="8"/>
+        <stat type="throwSpeed" min="4" max="8"/>
+    </equipment>
+    <equipment name="Sunglasses" type="glasses" curseable="true" frequency="100" level="1">
+        <stat type="dexterity" min="1" max="4"/>
+        <stat type="perception" min="1" max="4"/>
+    </equipment>
+    <equipment name="Glasses" type="glasses" curseable="true" frequency="100" level="2">
+        <stat type="dexterity" min="4" max="8"/>
+        <stat type="perception" min="4" max="8"/>
+        <stat type="intelligence" min="4" max="8"/>
+    </equipment>
+    <equipment name="VR Headset" type="glasses" curseable="true" frequency="100" level="1">
+        <stat type="perception" min="1" max="4"/>
+        <stat type="charisma" min="1" max="4"/>
+        <stat type="happiness" min="1" max="4"/>
+        <stat type="intelligence" min="1" max="4"/>
+    </equipment>
+    <equipment name="Wooden Bat" type="bat" curseable="true" frequency="100" level="1" singular="1">
+        <stat type="strength" min="1" max="2"/>
+    </equipment>
+    <equipment name="Aluminum Bat" type="bat" curseable="true" frequency="100" level="1" singular="1">
+        <stat type="strength" min="2" max="4"/>
+    </equipment>
+    <equipment name="Corked Bat" type="bat" curseable="true" frequency="100" level="2" singular="1">
+        <stat type="strength" min="4" max="8"/>
+    </equipment>
+    <equipment name="Charm" type="charm" curseable="true" frequency="100" level="1" singular="1">
+        <stat type="moveSpeed" min="1" max="4"/>
+        <stat type="strength" min="1" max="4"/>
+        <stat type="dexterity" min="1" max="4"/>
+        <stat type="perception" min="1" max="4"/>
+        <stat type="stamina" min="1" max="4"/>
+        <stat type="throwSpeed" min="1" max="4"/>
+        <stat type="fastBall" min="1" max="4"/>
+        <stat type="curveBall" min="1" max="4"/>
+        <stat type="knuckleBall" min="1" max="4"/>
+        <stat type="slider" min="1" max="4"/>
+        <stat type="charisma" min="1" max="4"/>
+        <stat type="intelligence" min="1" max="4"/>
+        <stat type="happiness" min="1" max="4"/>
+    </equipment>
+    <equipment name="Charm" type="charm" curseable="true" frequency="100" level="2" singular="1">
+        <stat type="moveSpeed" min="4" max="8"/>
+        <stat type="strength" min="4" max="8"/>
+        <stat type="dexterity" min="4" max="8"/>
+        <stat type="perception" min="4" max="8"/>
+        <stat type="stamina" min="4" max="8"/>
+        <stat type="throwSpeed" min="4" max="8"/>
+        <stat type="fastBall" min="4" max="8"/>
+        <stat type="curveBall" min="4" max="8"/>
+        <stat type="knuckleBall" min="4" max="8"/>
+        <stat type="slider" min="4" max="8"/>
+        <stat type="charisma" min="4" max="8"/>
+        <stat type="intelligence" min="4" max="8"/>
+        <stat type="happiness" min="4" max="8"/>
+    </equipment>
+    <equipment name="Billy Goat's Foot" type="charm" frequency="50" level="1" singular="1" extraFlavor=" Goddamn Billy Sianis... You feel cursed.">
+        <stat type="strength" min="-4" max="-1"/>
+        <stat type="throwSpeed" min="-4" max="-1"/>
+    </equipment>
+    <equipment name="Billy Goat's Foot" type="charm" frequency="50" level="2" singular="1" extraFlavor=" Goddamn Billy Sianis... You feel cursed.">
+        <stat type="strength" min="-8" max="-4"/>
+        <stat type="throwSpeed" min="-8" max="-4"/>
+    </equipment>
+    <equipment name="Bartman's Foul Ball" type="charm" frequency="50" level="1" singular="1" extraFlavor=" You think it was a mistake to pick this ball up... You feel cursed.">
+        <stat type="perception" min="-4" max="-1"/>
+        <stat type="intelligence" min="-4" max="-1"/>
+    </equipment>
+    <equipment name="Bartman's Foul Ball" type="charm" frequency="50" level="2" singular="1" extraFlavor=" You think it was a mistake to pick this ball up... You feel cursed.">
+        <stat type="perception" min="-8" max="-4"/>
+        <stat type="intelligence" min="-8" max="-4"/>
+    </equipment>
+    <equipment name="Vial of Eleven Herbs and Spices" type="charm" frequency="50" level="1" singular="1" extraFlavor=" The Colonel is not amused... You feel cursed.">
+        <stat type="stamina" min="-4" max="-1"/>
+    </equipment>
+    <equipment name="Vial of Eleven Herbs and Spices" type="charm" frequency="50" level="2" singular="1" extraFlavor=" The Colonel is not amused... You feel cursed.">
+        <stat type="stamina" min="-8" max="-4"/>
+    </equipment>
+</itemData>
