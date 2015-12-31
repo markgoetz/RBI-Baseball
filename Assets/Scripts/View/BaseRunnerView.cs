@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MinimapUIView : MonoBehaviour {
+public class BaseRunnerView : MonoBehaviour {
 	
 	
 	// Update is called once per frame

@@ -4,7 +4,7 @@ using System.Collections;
 abstract public class FieldingUIController : MonoBehaviour {
 	public PitchIconView pitchIcons;
 	public StrikeZoneView strikeZone;
-	public Cursor cursor;
+	public FieldingCursor cursor;
 	public PitcherController pitcherController;
 	public PitchList pitches;
 

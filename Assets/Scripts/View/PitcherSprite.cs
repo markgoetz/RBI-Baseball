@@ -14,7 +14,9 @@ public class PitcherSprite : MonoBehaviour {
 	}
 	
 	public void playThrowAnimation (int pitch_number) {
-		anim.SetTrigger ("throwpitch" + pitch_number);
+		// TODO: Possibly set different animations depending on pitch location and type
+		Debug.Log ("playing throw animation");
+		anim.SetTrigger ("throwpitch");
 	}
 	
 	public void Fade() {

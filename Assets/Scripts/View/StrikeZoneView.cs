@@ -18,14 +18,18 @@ public class StrikeZoneView : MonoBehaviour {
 	public bool isInsideStrikeZone(Vector2 worldspacePoint) {
 		Vector2 strikeZonePoint = _worldSpaceToStrikeZone(worldspacePoint);
 		
-		if (strikeZonePoint.x < 0 || strikeZonePoint.x > 1) return false;
-		if (strikeZonePoint.y < 0 || strikeZonePoint.y > 1) return false;
+		if (strikeZonePoint.x < 0 || strikeZonePoint.x > 1)
+			return false;
+		if (strikeZonePoint.y < 0 || strikeZonePoint.y > 1)
+			return false;
 		
 		return true;
 	}
 	
 	public void Clicked(Vector2 worldspacePoint) {
-		if (!isInsideStrikeZone(worldspacePoint)) return;
+		if (!isInsideStrikeZone(worldspacePoint))
+			return;
+		
 		UIController.locationSelected(_worldSpaceToStrikeZone(worldspacePoint));
 	}
 	
@@ -43,9 +47,10 @@ public class StrikeZoneView : MonoBehaviour {
 		 
 		// finally, scale the local point to its location relative to the transform rectangle.
 		Vector2 strikeZonePoint = new Vector2(
-			(localPoint.x - localRect.x) / localRect.width,
-			(localPoint.y - localRect.y) / localRect.height
+			(localPoint.x - localRect.x) / (float)localRect.width,
+			(localPoint.y - localRect.y) / (float)localRect.height
 		);
+		
 		return strikeZonePoint;
 	}
 }

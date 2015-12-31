@@ -13,6 +13,22 @@ public class BatterSprite : MonoBehaviour {
 		sprite = GetComponent<SpriteRenderer>();
 	}
 	
+	public void playSwingAnimation (Vector2 location) {
+	
+		string swing_height;
+		if (location.y > .67f) {
+			swing_height = "high";
+		}
+		else if (location.y > .33f) {
+			swing_height = "mid";
+		}
+		else {
+			swing_height = "low";
+		}
+	
+		anim.SetTrigger ("swing" + swing_height);
+	}
+	
 	public void Fade() {
 		sprite.color = new Color(0f,0f,0f,.5f);
 	}

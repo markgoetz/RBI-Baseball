@@ -11,4 +11,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b156604a900f44438a392d8bb59ef98, type: 3}
   m_Name: Pitch List
   m_EditorClassIdentifier: 
-  pitches: []
+  pitches:
+  - name: Fastball
+    number: 0
+  - name: Curveball
+    number: 1
+  - name: Slider
+    number: 2
+  - name: Knuckleball
+    number: 3

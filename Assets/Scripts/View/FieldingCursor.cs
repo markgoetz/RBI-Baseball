@@ -23,29 +23,36 @@ public class FieldingCursor : MonoBehaviour {
 			Camera.main.ScreenToWorldPoint(screenpoint).y
 		);
 		
-		// TODO: Hide and ignore events if outside the strike zone
 		InsideStrikeZone = view.isInsideStrikeZone(screenpoint);
 		
 		// TODO: Scale in relation to distance from the sweet spot
 	}
 	
 	public void Clicked() {
-		if (!InsideStrikeZone) return;
+		if (!Enabled)
+			return;
+	
+		view.Clicked(Input.mousePosition);
 	}
 	
 	public bool InsideStrikeZone {
 		get { return inside_strike_zone; }
 		set {
 			inside_strike_zone = value;
-			GetComponent<SpriteRenderer>().enabled = value & Visible;
+			GetComponent<SpriteRenderer>().enabled = Enabled;
 		}
 	}
 	
 	public bool Visible {
 		get { return visible; }
-		set {
-			visible = value;
-			GetComponent<SpriteRenderer>().enabled = value & InsideStrikeZone;
-		}
+	}
+	
+	public void setVisible(bool value) {
+		visible = value;
+		GetComponent<SpriteRenderer>().enabled = Enabled;
+	}
+	
+	public bool Enabled {
+		get { return Visible && InsideStrikeZone; }
 	}
 }

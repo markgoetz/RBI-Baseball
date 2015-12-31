@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BaseRunners : MonoBehaviour {
+public class BaseRunners {
 
 	// Use this for initialization
 	void Start () {
