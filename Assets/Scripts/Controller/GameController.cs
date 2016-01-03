@@ -1,6 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-abstract public class GameController : MonoBehaviour {
+public class GameController : MonoBehaviour {
+	private BatterController batter;
+	private PitcherController pitcher;
+	
+	private BaseRunners runners;
 
+	public void PitchAdvanced() {
+	
+	}
 }

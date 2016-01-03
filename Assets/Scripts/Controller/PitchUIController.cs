@@ -15,7 +15,7 @@ public class PitchUIController : FieldingUIController {
 	
 	public override void locationSelected(Vector2 location) {
 		pitcherController.pitchLocation = location;
-		pitcherController.ThrowPitch();
+		pitcherController.StartPitch();
 		_hideUI ();
 	}
 	
