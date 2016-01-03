@@ -14,8 +14,12 @@ public class ThrownPitchController : MonoBehaviour {
 		get { return pitch; }
 		set {
 			pitch = value;
-			view.setLocation(pitch.getLocation (0));
 		}
+	}
+	
+	public void Prepare() {
+		time = 0;
+		view.setLocation(new Vector3(.5f,.5f,0));
 	}
 	
 	void Awake() {
@@ -41,11 +45,21 @@ public class ThrownPitchController : MonoBehaviour {
 			
 			time += (Time.deltaTime / pitchDuration);
 		}
-		
-		gameController.PitchAdvanced();
+				
+		if (time > 1) {
+			gameController.PitchDone();
+			Done();
+		}
+		else {
+			gameController.PitchAdvanced();
+		}
 	}
 	
 	public void SetVisible(bool status) {
 		view.SetVisible(status);
+	}
+	
+	public void Done() {
+		SetVisible (false);
 	}
 }

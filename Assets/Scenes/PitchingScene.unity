@@ -85,6 +85,45 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &49373752
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 49373753}
+  - 114: {fileID: 49373754}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &49373753
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 49373752}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 571545883}
+  m_RootOrder: 1
+--- !u!114 &49373754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 49373752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afd159872a1344077ab2b11d07f84b5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &261765306
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,6 +210,7 @@ GameObject:
   - 212: {fileID: 348519455}
   - 95: {fileID: 348519454}
   - 114: {fileID: 870669742}
+  - 114: {fileID: 348519456}
   m_Layer: 0
   m_Name: Pitcher
   m_TagString: Untagged
@@ -187,8 +227,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .294, y: 2.14499998, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
-  m_Children:
-  - {fileID: 1740334750}
+  m_Children: []
   m_Father: {fileID: 568436672}
   m_RootOrder: 0
 --- !u!95 &348519454
@@ -238,6 +277,19 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 16872307595ac43bf83c51136ef26e77, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &348519456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 348519452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ed5f65e4516842c0a10b61c27c47427, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 870669742}
+  pitchedBall: {fileID: 2037497005}
 --- !u!1 &371367437
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,33 +422,6 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1d09b9d1d76d246a7a70210fcf9ebd47, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!1 &566410120
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 566410122}
-  m_Layer: 0
-  m_Name: Batter Computer Controller
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &566410122
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 566410120}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 571545883}
-  m_RootOrder: 2
 --- !u!4 &568436672
 Transform:
   m_ObjectHideFlags: 0
@@ -413,7 +438,7 @@ Transform:
   - {fileID: 1809568322}
   - {fileID: 741496008}
   m_Father: {fileID: 1912503269}
-  m_RootOrder: 0
+  m_RootOrder: 2
 --- !u!1 &571545882
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,10 +466,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1296591566}
-  - {fileID: 1238813121}
-  - {fileID: 566410122}
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  - {fileID: 49373753}
+  m_Father: {fileID: 1912503269}
+  m_RootOrder: 0
 --- !u!114 &571545884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -457,7 +481,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UIController: {fileID: 1296591565}
-  pitcherController: {fileID: 1238813122}
+  pitcherController: {fileID: 348519456}
+  batterController: {fileID: 1377415687}
+  gameController: {fileID: 49373754}
 --- !u!1 &594194231
 GameObject:
   m_ObjectHideFlags: 0
@@ -1226,47 +1252,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!1 &1238813120
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1238813121}
-  - 114: {fileID: 1238813122}
-  m_Layer: 0
-  m_Name: Pitcher Player Controller
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1238813121
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1238813120}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 571545883}
-  m_RootOrder: 1
---- !u!114 &1238813122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1238813120}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ed5f65e4516842c0a10b61c27c47427, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprite: {fileID: 870669742}
-  pitchedBall: {fileID: 2037497005}
 --- !u!1 &1296591564
 GameObject:
   m_ObjectHideFlags: 0
@@ -1297,7 +1282,7 @@ MonoBehaviour:
   pitchIcons: {fileID: 1459982094}
   strikeZone: {fileID: 670471324}
   cursor: {fileID: 741496010}
-  pitcherController: {fileID: 1238813122}
+  pitcherController: {fileID: 348519456}
   pitches: {fileID: 11400000, guid: 0d9abe745f5384d5e87df3bcb6514a6f, type: 2}
 --- !u!4 &1296591566
 Transform:
@@ -1322,6 +1307,7 @@ GameObject:
   - 212: {fileID: 1377415685}
   - 95: {fileID: 1377415684}
   - 114: {fileID: 1377415686}
+  - 114: {fileID: 1377415687}
   m_Layer: 0
   m_Name: Batter
   m_TagString: Untagged
@@ -1398,6 +1384,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 75ad6c6d53192465c9029517bb39ca95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1377415687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1377415682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33ffa8dab1cb54637be4574c7bab9d43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1437007702
@@ -1710,33 +1707,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1623693545}
---- !u!1 &1740334749
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1740334750}
-  m_Layer: 0
-  m_Name: Release Point
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1740334750
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1740334749}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.101000004, y: .229000002, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 348519453}
-  m_RootOrder: 0
 --- !u!1 &1809568321
 GameObject:
   m_ObjectHideFlags: 0
@@ -1866,7 +1836,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -20, y: -20}
-  m_SizeDelta: {x: 222, y: 222}
+  m_SizeDelta: {x: 111, y: 111}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1818685607
 MonoBehaviour:
@@ -1937,6 +1907,8 @@ Transform:
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 571545883}
+  - {fileID: 2037497008}
   - {fileID: 568436672}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -2095,7 +2067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10eb965bea5314f869ff60eef58947fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pitchDuration: 2
+  pitchDuration: 1.5
 --- !u!114 &2037497006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2146,8 +2118,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1061955843}
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 1912503269}
+  m_RootOrder: 1
 --- !u!95 &2037497009
 Animator:
   serializedVersion: 3

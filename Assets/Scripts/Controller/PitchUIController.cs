@@ -16,24 +16,28 @@ public class PitchUIController : FieldingUIController {
 	public override void locationSelected(Vector2 location) {
 		pitcherController.pitchLocation = location;
 		pitcherController.StartPitch();
-		_hideUI ();
+		_changeToPitchView ();
 	}
 	
 	private void _changeToLocationView() {
-		pitchIcons.hide();
+		pitchIcons.setVisible(false);
 		cursor.setVisible (true);
-		strikeZone.show();
+		strikeZone.setVisible(true);
 	}
 	
-	private void _hideUI() {
-		pitchIcons.hide();
+	private void _changeToPitchView() {
+		pitchIcons.setVisible(false);
 		cursor.setVisible (false);
-		strikeZone.hide();
+		strikeZone.setVisible(true);
 	}
 	
 	private void _changeToSelectionView() {
-		pitchIcons.enable();
-		cursor.setVisible (false);
-		strikeZone.hide();
+		pitchIcons.setVisible(true);
+		cursor.setVisible(false);
+		strikeZone.setVisible(false);
+	}
+	
+	public override void PitchDone() {
+		_changeToSelectionView();
 	}
 }

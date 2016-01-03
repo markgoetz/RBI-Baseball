@@ -6,13 +6,17 @@ using System.Collections;
 [RequireComponent (typeof(Button))]
 public class StrikeZoneView : MonoBehaviour {
 	private FieldingUIController UIController;
+	private Button button;
 	
-	public void hide() { }
-	public void show() { }
+	public void setVisible(bool status) {
+		button.interactable = status;
+		button.image.color = (status) ? Color.white : Color.clear;
+	}
 	
 	void Awake() {
 		FieldingMasterController master = FieldingMasterController.getInstance();
 		UIController = master.UIController;
+		button = GetComponent<Button>();
 	}
 	
 	public bool isInsideStrikeZone(Vector2 worldspacePoint) {

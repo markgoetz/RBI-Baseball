@@ -25,4 +25,6 @@ public abstract class PitcherController : MonoBehaviour {
 	
 	abstract public void StartPitch();
 	abstract public void ThrowPitch();
+	abstract public void PitchAdvanced();
+	abstract public void PitchDone();
 }

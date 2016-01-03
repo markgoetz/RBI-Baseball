@@ -3,13 +3,15 @@ using System.Collections;
 
 public class BaseRunners {
 
-	// Use this for initialization
-	void Start () {
+	private bool firstBase;
+	private bool secondBase;
+	private bool thirdBase;
 	
+	public int Advance(int base_count) {
+		return 0;
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+	public bool FirstBase  { get { return firstBase;  } }
+	public bool SecondBase { get { return secondBase; } }
+	public bool ThirdBase  { get { return thirdBase;  } }
 }

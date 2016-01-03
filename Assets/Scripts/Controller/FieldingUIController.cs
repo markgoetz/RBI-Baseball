@@ -10,4 +10,7 @@ abstract public class FieldingUIController : MonoBehaviour {
 
 	public virtual void pitchSelected(int index) { }
 	public virtual void locationSelected(Vector2 location) { }
+	
+	public virtual void PitchAdvanced() {}
+	public virtual void PitchDone() {}
 }

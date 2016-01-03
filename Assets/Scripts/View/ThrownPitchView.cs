@@ -16,6 +16,7 @@ public class ThrownPitchView : MonoBehaviour {
 		sprite_bounds = sprite.bounds;
 	}
 
+	// TODO: The second time you throw a pitch, there's one frame with the wrong location.
 	public void setLocation(Vector3 location) {
 		anim.SetFloat ("z", location.z);	
 		ball.transform.localPosition = _pitchToSpritePosition(location);

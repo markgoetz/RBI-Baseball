@@ -15,13 +15,10 @@ public class PitchIconView : MonoBehaviour {
 		UIController = master.UIController;
 	}
 	
-	public void enable() { }
-	public void disable() { }
-	
-	public void hide() { 
+	public void setVisible(bool status) { 
 		foreach (Button icon in icons) {
-			icon.interactable = false;
-			icon.image.color = Color.clear;
+			icon.interactable = status;
+			icon.image.color = (status) ? Color.white : Color.clear;
 		}
 	}
 	
