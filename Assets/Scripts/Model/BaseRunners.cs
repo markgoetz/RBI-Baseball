@@ -7,6 +7,8 @@ public class BaseRunners {
 	private bool secondBase;
 	private bool thirdBase;
 	
+	// Move the baserunners forward this many bases
+	// return the number of runs scored
 	public int Advance(int base_count) {
 		return 0;
 	}

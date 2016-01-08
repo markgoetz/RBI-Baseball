@@ -2,15 +2,26 @@
 using System.Collections;
 
 abstract public class FieldingUIController : MonoBehaviour {
-	public PitchIconView pitchIcons;
 	public StrikeZoneView strikeZone;
 	public FieldingCursor cursor;
-	public PitcherController pitcherController;
 	public PitchList pitches;
+	public BaseRunnerView runners;
+	
+	protected GameController gameController;
+	
+	protected virtual void Awake() {
+		gameController = GameController.getInstance ();
+	}
+	
 
 	public virtual void pitchSelected(int index) { }
 	public virtual void locationSelected(Vector2 location) { }
 	
+	public virtual void StartPitch() {}
 	public virtual void PitchAdvanced() {}
 	public virtual void PitchDone() {}
+	
+	public static FieldingUIController getInstance() {
+		return GameObject.FindGameObjectWithTag("UI Controller").GetComponent<FieldingUIController>();
+	}
 }

@@ -2,9 +2,16 @@
 using System.Collections;
 
 public class PitchUIController : FieldingUIController {
+	public PitchIconView pitchIcons;
+	private PitcherController pitcherController;
+
+	protected override void Awake() {
+		pitcherController = PitcherController.getInstance();
+		runners.setIsPlayer(false);
+	}
+
 	void Start() {
 		_changeToSelectionView();
-		
 	}
 
 	public override void pitchSelected(int pitch_number) {
@@ -15,7 +22,7 @@ public class PitchUIController : FieldingUIController {
 	
 	public override void locationSelected(Vector2 location) {
 		pitcherController.pitchLocation = location;
-		pitcherController.StartPitch();
+		gameController.StartPitch();
 		_changeToPitchView ();
 	}
 	

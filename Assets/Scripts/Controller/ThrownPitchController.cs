@@ -60,6 +60,7 @@ public class ThrownPitchController : MonoBehaviour {
 	}
 	
 	public void Done() {
+		view.setLocation(pitch.start_location);  // this prevents a one-frame graphic glitch on the next pitch
 		SetVisible (false);
 	}
 }

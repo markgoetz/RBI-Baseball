@@ -9,10 +9,15 @@ public class GameController : MonoBehaviour {
 	private BaseRunners runners;
 
 	void Awake() {
-		FieldingMasterController master = FieldingMasterController.getInstance();
-		batter = master.batterController;
-		pitcher = master.pitcherController;
-		uiController = master.UIController;
+		batter = BatterController.getInstance();
+		pitcher = PitcherController.getInstance();
+		uiController = FieldingUIController.getInstance();
+	}
+	
+	public void StartPitch() {
+		batter.StartPitch();
+		pitcher.StartPitch();
+		uiController.StartPitch();
 	}
 
 	public void PitchAdvanced() {
@@ -25,5 +30,9 @@ public class GameController : MonoBehaviour {
 		batter.PitchDone();
 		pitcher.PitchDone();
 		uiController.PitchDone();
+	}
+	
+	public static GameController getInstance() {
+		return GameObject.FindGameObjectWithTag("Game Controller").GetComponent<GameController>();
 	}
 }

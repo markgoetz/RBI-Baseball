@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Master Controller
+  - Pitcher Controller
+  - Batter Controller
+  - UI Controller
   layers:
   - Default
   - TransparentFX

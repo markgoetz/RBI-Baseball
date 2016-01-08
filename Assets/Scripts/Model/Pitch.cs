@@ -5,4 +5,5 @@ using System.Collections;
 public class Pitch {
 	public string name;
 	public int number; 
+	public BezierCurve path;
 }

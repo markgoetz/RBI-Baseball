@@ -27,4 +27,8 @@ public abstract class PitcherController : MonoBehaviour {
 	abstract public void ThrowPitch();
 	abstract public void PitchAdvanced();
 	abstract public void PitchDone();
+	
+	public static PitcherController getInstance() {
+		return GameObject.FindGameObjectWithTag("Pitcher Controller").GetComponent<PitcherController>();
+	}
 }
