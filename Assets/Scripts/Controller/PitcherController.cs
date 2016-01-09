@@ -6,10 +6,13 @@ public abstract class PitcherController : MonoBehaviour {
 	public PitcherSprite sprite;
 	public ThrownPitchController pitchedBall;
 	
-	private Pitch selected_pitch;
-	private Vector2 pitch_location;
+	protected Pitch selected_pitch;
+	protected Vector2 pitch_location;
+	
+	protected Player player_stats;
 	
 	void Start() {
+		player_stats = new Player();
 		pitchedBall.SetVisible(false);
 	}
 	
@@ -21,6 +24,10 @@ public abstract class PitcherController : MonoBehaviour {
 	public Vector2 pitchLocation {
 		get { return pitch_location; }
 		set { pitch_location = value; }
+	}
+	
+	public Vector2 SweetSpot {
+		get { return player_stats.pitchingSweetSpot; }
 	}
 	
 	abstract public void StartPitch();

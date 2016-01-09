@@ -20,7 +20,7 @@ public class StrikeZoneView : MonoBehaviour {
 	}
 	
 	public bool isInsideStrikeZone(Vector2 worldspacePoint) {
-		Vector2 strikeZonePoint = _worldSpaceToStrikeZone(worldspacePoint);
+		Vector2 strikeZonePoint = worldSpaceToStrikeZone(worldspacePoint);
 		
 		if (strikeZonePoint.x < 0 || strikeZonePoint.x > 1)
 			return false;
@@ -34,12 +34,12 @@ public class StrikeZoneView : MonoBehaviour {
 		if (!isInsideStrikeZone(worldspacePoint))
 			return;
 		
-		UIController.locationSelected(_worldSpaceToStrikeZone(worldspacePoint));
+		UIController.locationSelected(worldSpaceToStrikeZone(worldspacePoint));
 	}
 	
 	// Convert a world space point in pixels to the corresponding point in the strike zone.
 	// If the point is inside the strike zone, the X and Y coordinates will be between 0 (lower-left) and 1 (upper-right)
-	private Vector2 _worldSpaceToStrikeZone(Vector2 worldspacePoint) {
+	public Vector2 worldSpaceToStrikeZone(Vector2 worldspacePoint) {
 	
 		// first, translate the point from world space to local space.
 		Vector2 localPoint = transform.InverseTransformPoint(worldspacePoint);

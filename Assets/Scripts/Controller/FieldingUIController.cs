@@ -9,7 +9,7 @@ abstract public class FieldingUIController : MonoBehaviour {
 	
 	protected GameController gameController;
 	
-	protected virtual void Awake() {
+	protected void _init() {
 		gameController = GameController.getInstance ();
 	}
 	

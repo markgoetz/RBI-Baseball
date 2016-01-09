@@ -5,7 +5,8 @@ public class PitchUIController : FieldingUIController {
 	public PitchIconView pitchIcons;
 	private PitcherController pitcherController;
 
-	protected override void Awake() {
+	void Awake() {
+		_init();
 		pitcherController = PitcherController.getInstance();
 		runners.setIsPlayer(false);
 	}

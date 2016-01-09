@@ -33,6 +33,6 @@ public class GameController : MonoBehaviour {
 	}
 	
 	public static GameController getInstance() {
-		return GameObject.FindGameObjectWithTag("Game Controller").GetComponent<GameController>();
+		return GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
 	}
 }
