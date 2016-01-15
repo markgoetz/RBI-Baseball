@@ -26,8 +26,19 @@ public abstract class PitcherController : MonoBehaviour {
 		set { pitch_location = value; }
 	}
 	
-	public Vector2 SweetSpot {
-		get { return player_stats.pitchingSweetSpot; }
+	public Player player {
+		get { return player_stats; }
+		set { player_stats = value; }
+	}
+	
+	public float spreadRadius(Vector2 pitch_location) {
+		return Vector2.Distance(pitch_location, player_stats.pitchingSweetSpot);
+	}
+	
+	protected Vector2 getPitchLocationWithSpread(Vector2 pitch_location) {
+		Vector2 spread = Random.insideUnitCircle * spreadRadius(pitch_location);
+		// QUESTION: Does this get capped at [0-1]?
+		return pitch_location + spread;
 	}
 	
 	abstract public void StartPitch();

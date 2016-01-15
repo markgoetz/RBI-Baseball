@@ -3,6 +3,7 @@ using System.Collections;
 
 public class PitchUIController : FieldingUIController {
 	public PitchIconView pitchIcons;
+	public PitchingCursor cursor;
 	private PitcherController pitcherController;
 
 	void Awake() {

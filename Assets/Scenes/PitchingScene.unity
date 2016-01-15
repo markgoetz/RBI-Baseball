@@ -436,7 +436,6 @@ Transform:
   - {fileID: 1377415683}
   - {fileID: 393972322}
   - {fileID: 1809568322}
-  - {fileID: 741496008}
   m_Father: {fileID: 1912503269}
   m_RootOrder: 2
 --- !u!1 &571545882
@@ -623,7 +622,7 @@ GameObject:
   - 114: {fileID: 670471324}
   m_Layer: 0
   m_Name: Strike Zone
-  m_TagString: Untagged
+  m_TagString: BaseRunners
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -822,9 +821,9 @@ GameObject:
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 741496008}
-  - 212: {fileID: 741496009}
+  - 224: {fileID: 741496008}
   - 114: {fileID: 741496010}
+  - 212: {fileID: 741496009}
   m_Layer: 0
   m_Name: cursor
   m_TagString: Untagged
@@ -832,8 +831,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &741496008
-Transform:
+--- !u!224 &741496008
+RectTransform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -842,8 +841,13 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 568436672}
+  m_Father: {fileID: 1459982093}
   m_RootOrder: 4
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: -390, y: -20}
+  m_SizeDelta: {x: 1.27999997, y: 1.27999997}
+  m_Pivot: {x: .5, y: .5}
 --- !u!212 &741496009
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1280,10 +1284,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   strikeZone: {fileID: 670471324}
-  cursor: {fileID: 741496010}
   pitches: {fileID: 11400000, guid: 0d9abe745f5384d5e87df3bcb6514a6f, type: 2}
   runners: {fileID: 1818685607}
   pitchIcons: {fileID: 1459982094}
+  cursor: {fileID: 741496010}
 --- !u!4 &1296591566
 Transform:
   m_ObjectHideFlags: 0
@@ -1563,6 +1567,7 @@ RectTransform:
   - {fileID: 1956418440}
   - {fileID: 785813336}
   - {fileID: 1623693546}
+  - {fileID: 741496008}
   m_Father: {fileID: 1809568322}
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: 0}
@@ -1814,6 +1819,7 @@ GameObject:
   - 222: {fileID: 1818685609}
   - 114: {fileID: 1818685608}
   - 114: {fileID: 1818685607}
+  - 114: {fileID: 1818685610}
   m_Layer: 5
   m_Name: Base Runner View
   m_TagString: Untagged
@@ -1849,8 +1855,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f8240b1bdefa417ca36143f54914ee2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerRunnerImage: {fileID: 21300000, guid: 8979df9372ce1469f998ccada90c9cf4, type: 3}
-  enemyRunnerImage: {fileID: 21300000, guid: be1677df8cceb429e9d9e6ba24636750, type: 3}
+  playerRunnerSprite: {fileID: 0}
+  enemyRunnerSprite: {fileID: 0}
+  firstBase: {fileID: 0}
+  secondBase: {fileID: 0}
+  thirdBase: {fileID: 0}
 --- !u!114 &1818685608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1884,6 +1893,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1818685605}
+--- !u!114 &1818685610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1818685605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61e3b885c06194c229170393ff8f8854, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1912503268
 GameObject:
   m_ObjectHideFlags: 0

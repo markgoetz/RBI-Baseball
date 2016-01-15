@@ -8,7 +8,7 @@ public class PitchIconView : MonoBehaviour {
 	private Canvas canvas;
 	private Button[] icons;
 	
-	void Start() {
+	void Awake() {
 		icons = GetComponentsInChildren<Button>();
 		
 		FieldingMasterController master = FieldingMasterController.getInstance();

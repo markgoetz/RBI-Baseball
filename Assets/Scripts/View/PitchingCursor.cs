@@ -1,25 +1,28 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent (typeof(SpriteRenderer))]
-public class FieldingCursor : MonoBehaviour {
+[RequireComponent (typeof(RectTransform))]
+public class PitchingCursor : MonoBehaviour {
 	private FieldingUIController UIController;
 	private PitcherController pitcherController; // TODO: THIS NEEDS TO BE REFACTORED!!!!
 	private StrikeZoneView view;
 	private bool inside_strike_zone;
 	private bool visible;
-	private Vector2 sweet_spot; // TODO: THIS TOO!!!
+	private Rect rect;
+	
+	private float strike_zone_width;
 	
 	void Start () {
 		UIController = FieldingUIController.getInstance();
 		view = UIController.strikeZone;
+		strike_zone_width = view.pixelWidth;
 		pitcherController = PitcherController.getInstance();
-		sweet_spot = pitcherController.SweetSpot;
+		rect = GetComponent<RectTransform>().rect;
 	}
 	
 	// Move the fielding cursor so that it follows the mouse.
 	void Update () {
-		if (!visible) return;
+		if (!Visible) return;
 	
 		Vector3 screenpoint = Input.mousePosition;
 	
@@ -30,10 +33,12 @@ public class FieldingCursor : MonoBehaviour {
 		
 		InsideStrikeZone = view.isInsideStrikeZone(screenpoint);
 		
-		// TODO: Scale in relation to distance from the sweet spot
-		// TODO: THIS NEEDS TO BE REFACTORED!!!
+		// Scale in relation to distance from the sweet spot
 		Vector2 strike_zone_location = view.worldSpaceToStrikeZone(screenpoint);
-		float scale = Vector2.Distance(strike_zone_location, sweet_spot);
+		float radius = pitcherController.spreadRadius(strike_zone_location);
+		
+		float scale = getScale(radius);
+		
 		transform.localScale = new Vector2(scale, scale);
 	}
 	
@@ -52,8 +57,22 @@ public class FieldingCursor : MonoBehaviour {
 		}
 	}
 	
+	private float getScale(float radius) {
+		// How wide is the strike zone in pixels?
+		// scale the radius until it matches the strike zone * radius.
+		float cursor_pixel_size = radius * strike_zone_width;
+		Debug.Log ("Radius: " + radius + "  Strike zone width: " + strike_zone_width + "  Cursor size:" + cursor_pixel_size);
+		
+		Debug.Log ("sprite size:" + rect.width + "   scale: " + (cursor_pixel_size * rect.width));
+		return cursor_pixel_size * rect.width / 100; // HACK: The 100 is hardcoded!
+	}
+	
 	public bool Visible {
 		get { return visible; }
+		set {
+			visible = value;
+			GetComponent<SpriteRenderer>().enabled = Enabled;
+		}
 	}
 	
 	public void setVisible(bool value) {

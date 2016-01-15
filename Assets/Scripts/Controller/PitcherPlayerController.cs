@@ -7,7 +7,7 @@ public class PitcherPlayerController : PitcherController {
 	}
 	
 	public override void ThrowPitch() {
-		ThrownPitch pitch = new ThrownPitch(currentPitch, new Vector2(.5f,.5f), pitchLocation);
+		ThrownPitch pitch = new ThrownPitch(currentPitch, new Vector2(.5f,.5f), getPitchLocationWithSpread(pitchLocation));
 		pitchedBall.Pitch = pitch;	
 		pitchedBall.Prepare();	
 	

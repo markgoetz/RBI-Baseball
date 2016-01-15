@@ -7,6 +7,7 @@ using System.Collections;
 public class StrikeZoneView : MonoBehaviour {
 	private FieldingUIController UIController;
 	private Button button;
+	private Rect rect;
 	
 	public void setVisible(bool status) {
 		button.interactable = status;
@@ -14,9 +15,13 @@ public class StrikeZoneView : MonoBehaviour {
 	}
 	
 	void Awake() {
-		FieldingMasterController master = FieldingMasterController.getInstance();
-		UIController = master.UIController;
+		UIController = FieldingUIController.getInstance();
 		button = GetComponent<Button>();
+	}
+	
+	void Start() {		
+		RectTransform rect_transform = transform as RectTransform;
+		rect = rect_transform.rect;
 	}
 	
 	public bool isInsideStrikeZone(Vector2 worldspacePoint) {
@@ -45,16 +50,16 @@ public class StrikeZoneView : MonoBehaviour {
 		Vector2 localPoint = transform.InverseTransformPoint(worldspacePoint);
 		
 		// now, determine where it is within local space from 0 to 1.
-		// start this by getting the strike zone's transform rectangle in pixel coordinates.
-		RectTransform rect_transform = transform as RectTransform;
-		Rect localRect = rect_transform.rect;
-		 
 		// finally, scale the local point to its location relative to the transform rectangle.
 		Vector2 strikeZonePoint = new Vector2(
-			(localPoint.x - localRect.x) / (float)localRect.width,
-			(localPoint.y - localRect.y) / (float)localRect.height
+			(localPoint.x - rect.x) / (float)rect.width,
+			(localPoint.y - rect.y) / (float)rect.height
 		);
 		
 		return strikeZonePoint;
+	}
+	
+	public float pixelWidth {
+		get { return rect.width; }
 	}
 }

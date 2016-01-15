@@ -5,13 +5,13 @@ public class GameController : MonoBehaviour {
 	private BatterController batter;
 	private PitcherController pitcher;
 	private FieldingUIController uiController;
+	private BaseRunnerController baseRunners;
 	
-	private BaseRunners runners;
-
 	void Awake() {
 		batter = BatterController.getInstance();
 		pitcher = PitcherController.getInstance();
 		uiController = FieldingUIController.getInstance();
+		baseRunners = BaseRunnerController.getInstance();
 	}
 	
 	public void StartPitch() {

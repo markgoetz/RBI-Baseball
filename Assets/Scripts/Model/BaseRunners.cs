@@ -7,13 +7,16 @@ public class BaseRunners {
 	private bool secondBase;
 	private bool thirdBase;
 	
-	// Move the baserunners forward this many bases
-	// return the number of runs scored
-	public int Advance(int base_count) {
-		return 0;
+	public bool FirstBase  {
+		get { return firstBase;  }
+		set { firstBase = value; }
 	}
-	
-	public bool FirstBase  { get { return firstBase;  } }
-	public bool SecondBase { get { return secondBase; } }
-	public bool ThirdBase  { get { return thirdBase;  } }
+	public bool SecondBase {
+		get { return secondBase; }
+		set { secondBase = value; }
+	}
+	public bool ThirdBase  {
+		get { return thirdBase;  }
+		set { thirdBase = value; }
+	}
 }

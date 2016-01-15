@@ -3,7 +3,6 @@ using System.Collections;
 
 abstract public class FieldingUIController : MonoBehaviour {
 	public StrikeZoneView strikeZone;
-	public FieldingCursor cursor;
 	public PitchList pitches;
 	public BaseRunnerView runners;
 	
