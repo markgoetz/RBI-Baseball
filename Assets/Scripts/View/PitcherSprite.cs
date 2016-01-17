@@ -12,9 +12,7 @@ public class PitcherSprite : MonoBehaviour {
 	void Start () {
 		anim = GetComponent<Animator>();
 		sprite = GetComponent<SpriteRenderer>();
-		
-		FieldingMasterController master = FieldingMasterController.getInstance();
-		controller = master.pitcherController;
+		controller = PitcherController.getInstance();
 	}
 	
 	public void playThrowAnimation (int pitch_number) {
@@ -26,14 +24,7 @@ public class PitcherSprite : MonoBehaviour {
 		sprite.color = new Color(0f,0f,0f,.5f);
 	}
 	
-	public void ThrowPitchTrigger() {
-		controller.ThrowPitch();
-	}
-	
-	public GameObject ReleasePoint {
-		get {
-			Transform child = transform.GetChild (0) as Transform;
-			return child.gameObject;
-		}
+	public void SpawnPitchTrigger() {
+		controller.SpawnPitch();
 	}
 }

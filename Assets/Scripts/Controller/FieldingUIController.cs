@@ -6,10 +6,7 @@ abstract public class FieldingUIController : MonoBehaviour {
 	public PitchList pitches;
 	public BaseRunnerView runners;
 	
-	protected GameController gameController;
-	
 	protected void _init() {
-		gameController = GameController.getInstance ();
 	}
 	
 

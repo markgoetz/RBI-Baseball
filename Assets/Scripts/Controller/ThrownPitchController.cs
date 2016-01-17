@@ -8,7 +8,9 @@ public class ThrownPitchController : MonoBehaviour {
 	private float time = 0f;
 	private ThrownPitchView view;
 	
-	private GameController gameController;
+	private bool is_done;
+	private bool is_spawned;
+	private bool is_moving;
 	
 	public ThrownPitch Pitch {
 		get { return pitch; }
@@ -17,15 +19,8 @@ public class ThrownPitchController : MonoBehaviour {
 		}
 	}
 	
-	public void Prepare() {
-		time = 0;
-		view.setLocation(new Vector3(.5f,.5f,0));
-	}
-	
 	void Awake() {
 		view = GetComponent<ThrownPitchView>();
-		FieldingMasterController master = FieldingMasterController.getInstance();
-		gameController = master.gameController;
 	}
 	
 	public void AdvanceBy(float t) {
@@ -34,6 +29,7 @@ public class ThrownPitchController : MonoBehaviour {
 	
 	private IEnumerator advanceCoroutine(float t) {
 		float new_time = time + t;
+		is_moving = true;
 		
 		while (time < new_time) {
 			
@@ -46,21 +42,47 @@ public class ThrownPitchController : MonoBehaviour {
 			time += (Time.deltaTime / pitchDuration);
 		}
 				
+		is_moving = false;
+				
 		if (time > 1) {
-			gameController.PitchDone();
-			Done();
-		}
-		else {
-			gameController.PitchAdvanced();
+			Finish();
 		}
 	}
 	
-	public void SetVisible(bool status) {
+	public bool IsMoving {
+		get { return is_moving; }
+	}
+	
+	private void _SetVisible(bool status) {
 		view.SetVisible(status);
 	}
 	
-	public void Done() {
+	public void Spawn() {
+		is_spawned = true;
+		_SetVisible (true);
+	}
+	
+	public void Finish() {
+		is_done = true;
+	
+		view.showIcon();
+	}
+	
+	public void Reset() {
+		is_done = false;
+		is_spawned = false;
+		
+		time = 0;
+		
 		view.setLocation(pitch.start_location);  // this prevents a one-frame graphic glitch on the next pitch
-		SetVisible (false);
+		_SetVisible (false);
+	}
+	
+	public bool IsDone {
+		get { return is_done; }
+	}
+	
+	public bool IsSpawned {
+		get { return is_spawned; }
 	}
 }

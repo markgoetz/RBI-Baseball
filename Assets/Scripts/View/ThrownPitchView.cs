@@ -4,6 +4,8 @@ using System.Collections;
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(SpriteRenderer))]
 public class ThrownPitchView : MonoBehaviour {
+	public GameObject pitchLandedIcon;
+	
 	private Animator anim;
 	private GameObject ball;
 	private SpriteRenderer sprite;
@@ -16,10 +18,13 @@ public class ThrownPitchView : MonoBehaviour {
 		sprite_bounds = sprite.bounds;
 	}
 
-	// TODO: The second time you throw a pitch, there's one frame with the wrong location.
 	public void setLocation(Vector3 location) {
-		anim.SetFloat ("z", location.z);	
+		anim.SetFloat ("z", _scaleZ(location.z));
 		ball.transform.localPosition = _pitchToSpritePosition(location);
+	}
+	
+	public void showIcon() {
+		Instantiate(pitchLandedIcon, ball.transform.position, Quaternion.identity);
 	}
 	
 	private Vector2 _pitchToSpritePosition(Vector2 pitch_location) {
@@ -32,5 +37,9 @@ public class ThrownPitchView : MonoBehaviour {
 	public void SetVisible(bool status) {
 		//sprite.enabled = status;
 		ball.GetComponent<SpriteRenderer>().enabled = status;
+	}
+	
+	private float _scaleZ(float z) {
+		return Mathf.Pow(z, 3);	
 	}
 }

@@ -8,7 +8,7 @@ public class BatterSprite : MonoBehaviour {
 	private Animator anim;
 	private SpriteRenderer sprite;
 	
-	void Start () {
+	void Awake() {
 		anim = GetComponent<Animator>();
 		sprite = GetComponent<SpriteRenderer>();
 	}
@@ -30,6 +30,6 @@ public class BatterSprite : MonoBehaviour {
 	}
 	
 	public void Fade() {
-		sprite.color = new Color(0f,0f,0f,.5f);
+		sprite.color = new Color(1f,1f,1f,.5f);
 	}
 }

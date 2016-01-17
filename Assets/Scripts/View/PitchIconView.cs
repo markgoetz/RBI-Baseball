@@ -10,9 +10,7 @@ public class PitchIconView : MonoBehaviour {
 	
 	void Awake() {
 		icons = GetComponentsInChildren<Button>();
-		
-		FieldingMasterController master = FieldingMasterController.getInstance();
-		UIController = master.UIController;
+		UIController = FieldingUIController.getInstance();
 	}
 	
 	public void setVisible(bool status) { 

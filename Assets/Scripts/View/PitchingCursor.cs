@@ -6,11 +6,11 @@ using System.Collections;
 [RequireComponent (typeof(Image))]
 public class PitchingCursor : MonoBehaviour {
 	private FieldingUIController UIController;
-	private PitcherController pitcherController; // TODO: THIS NEEDS TO BE REFACTORED!!!!
+	private PitcherController pitcherController;
 	private StrikeZoneView view;
 	private bool inside_strike_zone;
 	private bool visible;
-	private RectTransform transform;
+	private RectTransform rect_transform;
 	
 	private float strike_zone_width;
 	
@@ -19,7 +19,7 @@ public class PitchingCursor : MonoBehaviour {
 		view = UIController.strikeZone;
 		strike_zone_width = view.pixelWidth;
 		pitcherController = PitcherController.getInstance();
-		transform = GetComponent<RectTransform>();
+		rect_transform = GetComponent<RectTransform>();
 	}
 	
 	// Move the fielding cursor so that it follows the mouse.
@@ -28,14 +28,14 @@ public class PitchingCursor : MonoBehaviour {
 	
 		Vector3 screenpoint = Input.mousePosition;
 	
-		transform.position = screenpoint;
+		rect_transform.position = screenpoint;
 		
 		InsideStrikeZone = view.isInsideStrikeZone(screenpoint);
 		
 		// Scale in relation to distance from the sweet spot
 		Vector2 strike_zone_location = view.worldSpaceToStrikeZone(screenpoint);
 		float radius = strike_zone_width * pitcherController.spreadRadius(strike_zone_location);
-		transform.sizeDelta = new Vector2(radius, radius);
+		rect_transform.sizeDelta = new Vector2(radius, radius);
 	}
 	
 	public void Clicked() {

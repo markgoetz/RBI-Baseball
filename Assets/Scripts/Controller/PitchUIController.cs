@@ -9,10 +9,15 @@ public class PitchUIController : FieldingUIController {
 	void Awake() {
 		_init();
 		pitcherController = PitcherController.getInstance();
+		
 		runners.setIsPlayer(false);
 	}
 
 	void Start() {
+		Reset ();
+	}
+	
+	public void Reset() {
 		_changeToSelectionView();
 	}
 
@@ -24,7 +29,6 @@ public class PitchUIController : FieldingUIController {
 	
 	public override void locationSelected(Vector2 location) {
 		pitcherController.pitchLocation = location;
-		gameController.StartPitch();
 		_changeToPitchView ();
 	}
 	
@@ -43,7 +47,7 @@ public class PitchUIController : FieldingUIController {
 	private void _changeToSelectionView() {
 		pitchIcons.setVisible(true);
 		cursor.setVisible(false);
-		strikeZone.setVisible(false);
+		strikeZone.setVisible(true);
 	}
 	
 	public override void PitchDone() {

@@ -20,9 +20,9 @@ public class BaseRunnerView : MonoBehaviour {
 		is_player = status;
 		runner_sprite = (is_player) ? playerRunnerSprite : enemyRunnerSprite;
 		
-		//firstBase.sprite  = runner_sprite;
-		//secondBase.sprite = runner_sprite;
-		//thirdBase.sprite  = runner_sprite;
+		firstBase.sprite  = runner_sprite;
+		secondBase.sprite = runner_sprite;
+		thirdBase.sprite  = runner_sprite;
 	}
 	
 	void Start() {

@@ -1,23 +1,18 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class PitcherPlayerController : PitcherController {
-	public override void StartPitch() {
-		sprite.playThrowAnimation(this.currentPitch.number);
-	}
-	
-	public override void ThrowPitch() {
-		ThrownPitch pitch = new ThrownPitch(currentPitch, new Vector2(.5f,.5f), getPitchLocationWithSpread(pitchLocation));
-		pitchedBall.Pitch = pitch;	
-		pitchedBall.Prepare();	
-	
-		pitchedBall.SetVisible(true);	
-		pitchedBall.AdvanceBy(1);
-	}
-	
-	public override void PitchDone() {
+	private PitchUIController uiController;
+
+	void Awake() {
+		_init();
 		
+		uiController = PitchUIController.getInstance() as PitchUIController;
+		uiController.Reset();
 	}
 	
-	public override void PitchAdvanced() {}
+	public override void PromptForPitch () {
+		pitch_ready = false;
+		uiController.Reset();
+	}
 }
