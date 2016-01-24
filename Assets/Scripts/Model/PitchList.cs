@@ -5,7 +5,7 @@ using System.Collections;
 public class PitchList : ScriptableObject {
 	public Pitch[] pitches;
 	
-	public Pitch get(int index) {
+	public Pitch Get(int index) {
 		return pitches[index];
 	}
 }

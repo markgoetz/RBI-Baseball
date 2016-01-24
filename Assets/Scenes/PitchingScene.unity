@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pitchedBall: {fileID: 2037497005}
-  TickTime: .330000013
+  tickTime: .330000013
 --- !u!1 &261765306
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,7 +546,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1459982094}
-        m_MethodName: pitchIconPressed
+        m_MethodName: PitchIconPressed
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -956,7 +956,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1459982094}
-        m_MethodName: pitchIconPressed
+        m_MethodName: PitchIconPressed
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1343,7 +1343,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   strikeZone: {fileID: 670471324}
   pitches: {fileID: 11400000, guid: 0d9abe745f5384d5e87df3bcb6514a6f, type: 2}
-  runners: {fileID: 1818685607}
   pitchIcons: {fileID: 1459982094}
   cursor: {fileID: 741496010}
 --- !u!4 &1296591566
@@ -1460,7 +1459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   batterSwingIcon: {fileID: 134226, guid: cd2f877c603b945feb1d810b428a7145, type: 2}
-  thrown_pitch: {fileID: 2037497005}
+  thrownPitch: {fileID: 2037497005}
 --- !u!1 &1437007702
 GameObject:
   m_ObjectHideFlags: 0
@@ -1724,7 +1723,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1459982094}
-        m_MethodName: pitchIconPressed
+        m_MethodName: PitchIconPressed
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2209,7 +2208,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1459982094}
-        m_MethodName: pitchIconPressed
+        m_MethodName: PitchIconPressed
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -3,20 +3,20 @@ using System.Collections;
 
 public class BaseRunners {
 
-	private bool firstBase;
-	private bool secondBase;
-	private bool thirdBase;
+	private bool _firstBase;
+	private bool _secondBase;
+	private bool _thirdBase;
 	
-	public bool FirstBase  {
-		get { return firstBase;  }
-		set { firstBase = value; }
+	public bool firstBase  {
+		get { return _firstBase;  }
+		set { _firstBase = value; }
 	}
-	public bool SecondBase {
-		get { return secondBase; }
-		set { secondBase = value; }
+	public bool secondBase {
+		get { return _secondBase; }
+		set { _secondBase = value; }
 	}
-	public bool ThirdBase  {
-		get { return thirdBase;  }
-		set { thirdBase = value; }
+	public bool thirdBase  {
+		get { return _thirdBase;  }
+		set { _thirdBase = value; }
 	}
 }

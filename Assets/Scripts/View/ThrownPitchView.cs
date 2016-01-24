@@ -6,40 +6,40 @@ using System.Collections;
 public class ThrownPitchView : MonoBehaviour {
 	public GameObject pitchLandedIcon;
 	
-	private Animator anim;
-	private GameObject ball;
-	private SpriteRenderer sprite;
-	private Bounds sprite_bounds;
+	private Animator _anim;
+	private GameObject _ball;
+	private SpriteRenderer _sprite;
+	private Bounds _spriteBounds;
 	
 	void Awake() {
-		anim = GetComponent<Animator>();
-		ball = transform.GetChild(0).gameObject;
-		sprite = GetComponent<SpriteRenderer>(); 
-		sprite_bounds = sprite.bounds;
+		_anim = GetComponent<Animator>();
+		_ball = transform.GetChild(0).gameObject;
+		_sprite = GetComponent<SpriteRenderer>(); 
+		_spriteBounds = _sprite.bounds;
 	}
 
 	public void setLocation(Vector3 location) {
-		anim.SetFloat ("z", _scaleZ(location.z));
-		ball.transform.localPosition = _pitchToSpritePosition(location);
+		_anim.SetFloat ("z", _ScaleZ(location.z));
+		_ball.transform.localPosition = _PitchToSpritePosition(location);
 	}
 	
-	public void showIcon() {
-		Instantiate(pitchLandedIcon, ball.transform.position, Quaternion.identity);
+	public void ShowIcon() {
+		Instantiate(pitchLandedIcon, _ball.transform.position, Quaternion.identity);
 	}
 	
-	private Vector2 _pitchToSpritePosition(Vector2 pitch_location) {
+	private Vector2 _PitchToSpritePosition(Vector2 pitch_location) {
 		Vector2 sprite_position;
-		sprite_position.x = Mathf.Lerp (sprite_bounds.min.x, sprite_bounds.max.x, pitch_location.x);
-		sprite_position.y = Mathf.Lerp (sprite_bounds.min.y, sprite_bounds.max.y, pitch_location.y);
+		sprite_position.x = Mathf.Lerp (_spriteBounds.min.x, _spriteBounds.max.x, pitch_location.x);
+		sprite_position.y = Mathf.Lerp (_spriteBounds.min.y, _spriteBounds.max.y, pitch_location.y);
 		return sprite_position;
 	}
 	
 	public void SetVisible(bool status) {
 		//sprite.enabled = status;
-		ball.GetComponent<SpriteRenderer>().enabled = status;
+		_ball.GetComponent<SpriteRenderer>().enabled = status;
 	}
 	
-	private float _scaleZ(float z) {
+	private float _ScaleZ(float z) {
 		return Mathf.Pow(z, 3);	
 	}
 }

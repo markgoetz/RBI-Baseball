@@ -2,24 +2,24 @@
 using System.Collections;
 
 public class BatterComputerController : BatterController {
-	public ThrownPitchController thrown_pitch;
+	public ThrownPitchController thrownPitch;
 
 	void Awake() {
-		_init();
-		sprite.Fade();
+		_Init();
+		_sprite.Fade();
 	}
 
 	public override void PromptForSwing() {
-		swing_location = _getLocation();
-		swing_ready = true;
+		_swingLocation = _GetLocation();
+		_swingReady = true;
 	}
 
 	public void PitchDone() {
 		//TODO: animation has to anticipate the pitch somehow.
-		sprite.playSwingAnimation(swing_location);
+		_sprite.PlaySwingAnimation(_swingLocation);
 	}
 	
-	private Vector2 _getLocation() {
+	private Vector2 _GetLocation() {
 		return new Vector2(Random.value, Random.value);
 	}
 }

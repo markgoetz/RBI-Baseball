@@ -4,13 +4,11 @@ using System.Collections;
 public class PitchUIController : FieldingUIController {
 	public PitchIconView pitchIcons;
 	public PitchingCursor cursor;
-	private PitcherController pitcherController;
+	private PitcherController _pitcherController;
 
 	void Awake() {
-		_init();
-		pitcherController = PitcherController.getInstance();
-		
-		runners.setIsPlayer(false);
+		_Init();
+		_pitcherController = PitcherController.GetInstance();
 	}
 
 	void Start() {
@@ -18,39 +16,39 @@ public class PitchUIController : FieldingUIController {
 	}
 	
 	public void Reset() {
-		_changeToSelectionView();
+		_ChangeToSelectionView();
 	}
 
-	public override void pitchSelected(int pitch_number) {
-		pitcherController.currentPitch = pitches.get(pitch_number);
+	public override void PitchSelected(int pitch_number) {
+		_pitcherController.currentPitch = pitches.Get(pitch_number);
 		
-		_changeToLocationView();
+		_ChangeToLocationView();
 	}
 	
-	public override void locationSelected(Vector2 location) {
-		pitcherController.pitchLocation = location;
-		_changeToPitchView ();
+	public override void LocationSelected(Vector2 location) {
+		_pitcherController.pitchLocation = location;
+		_ChangeToPitchView ();
 	}
 	
-	private void _changeToLocationView() {
-		pitchIcons.setVisible(false);
-		cursor.setVisible (true);
-		strikeZone.setVisible(true);
+	private void _ChangeToLocationView() {
+		pitchIcons.SetVisible(false);
+		cursor.SetVisible (true);
+		strikeZone.SetVisible(true);
 	}
 	
-	private void _changeToPitchView() {
-		pitchIcons.setVisible(false);
-		cursor.setVisible (false);
-		strikeZone.setVisible(true);
+	private void _ChangeToPitchView() {
+		pitchIcons.SetVisible(false);
+		cursor.SetVisible (false);
+		strikeZone.SetVisible(true);
 	}
 	
-	private void _changeToSelectionView() {
-		pitchIcons.setVisible(true);
-		cursor.setVisible(false);
-		strikeZone.setVisible(true);
+	private void _ChangeToSelectionView() {
+		pitchIcons.SetVisible(true);
+		cursor.SetVisible(false);
+		strikeZone.SetVisible(true);
 	}
 	
 	public override void PitchDone() {
-		_changeToSelectionView();
+		_ChangeToSelectionView();
 	}
 }

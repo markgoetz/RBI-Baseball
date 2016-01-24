@@ -5,26 +5,26 @@ using System.Collections;
 [RequireComponent (typeof(SpriteRenderer))]
 public class PitcherSprite : MonoBehaviour {
 
-	private Animator anim;
-	private SpriteRenderer sprite;
-	private PitcherController controller;
+	private Animator _anim;
+	private SpriteRenderer _sprite;
+	private PitcherController _controller;
 
 	void Start () {
-		anim = GetComponent<Animator>();
-		sprite = GetComponent<SpriteRenderer>();
-		controller = PitcherController.getInstance();
+		_anim = GetComponent<Animator>();
+		_sprite = GetComponent<SpriteRenderer>();
+		_controller = PitcherController.GetInstance();
 	}
 	
-	public void playThrowAnimation (int pitch_number) {
+	public void PlayThrowAnimation (int pitch_number) {
 		// TODO: Possibly set different animations depending on pitch location and type
-		anim.SetTrigger ("throwpitch");
+		_anim.SetTrigger ("throwpitch");
 	}
 	
 	public void Fade() {
-		sprite.color = new Color(0f,0f,0f,.5f);
+		_sprite.color = new Color(0f,0f,0f,.5f);
 	}
 	
 	public void SpawnPitchTrigger() {
-		controller.SpawnPitch();
+		_controller.SpawnPitch();
 	}
 }

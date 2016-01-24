@@ -3,11 +3,11 @@ using System.Collections;
 
 public class BaseRunnerController : MonoBehaviour {
 
-	private BaseRunners base_runners;
+	private BaseRunners _baseRunners;
 
 	// Use this for initialization
 	void Awake () {
-		base_runners = new BaseRunners();
+		_baseRunners = new BaseRunners();
 	}
 	
 	
@@ -17,10 +17,10 @@ public class BaseRunnerController : MonoBehaviour {
 	}
 	
 	public BaseRunners baseRunners {
-		get { return base_runners; }
+		get { return _baseRunners; }
 	}
 	
-	public static BaseRunnerController getInstance() {
+	public static BaseRunnerController GetInstance() {
 		return GameObject.FindGameObjectWithTag("BaseRunners").GetComponent<BaseRunnerController>();
 	}
 }

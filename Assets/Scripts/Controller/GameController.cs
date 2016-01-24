@@ -3,18 +3,18 @@ using System.Collections;
 
 public class GameController : MonoBehaviour {
 	public ThrownPitchController pitchedBall;
-	public float TickTime;
+	public float tickTime;
 		
-	private BatterController batter;
-	private PitcherController pitcher;
-	private BaseRunnerController baseRunners;
+	private BatterController _batter;
+	private PitcherController _pitcher;
+	private BaseRunnerController _baseRunners;
 	
-	private int outs;
+	private int _outs;
 	
 	void Awake() {
-		batter = BatterController.getInstance();
-		pitcher = PitcherController.getInstance();
-		baseRunners = BaseRunnerController.getInstance();
+		_batter = BatterController.GetInstance();
+		_pitcher = PitcherController.GetInstance();
+		_baseRunners = BaseRunnerController.GetInstance();
 	}
 	
 	void Start() {
@@ -28,45 +28,45 @@ public class GameController : MonoBehaviour {
 		while (!_isInningOver()) {
 			
 			// Step 1: Wait for the pitcher to select a pitch
-			pitcher.PromptForPitch();
+			_pitcher.PromptForPitch();
 			
-			while (!pitcher.pitchReady) {
+			while (!_pitcher.pitchReady) {
 				yield return null;
 			}
 			
-			pitchedBall.Pitch = pitcher.getThrownPitch();
+			pitchedBall.pitch = _pitcher.GetThrownPitch();
 			
 			// Step 2: Throw the pitch.
-			pitcher.StartPitch();
+			_pitcher.StartPitch();
 			
-			while (!pitchedBall.IsSpawned) {
+			while (!pitchedBall.isSpawned) {
 				yield return null;
 			}
 			
 			// Step 3: Batter adjusts their location and pitch advances.  Loop until pitch is done.
-			while (!pitchedBall.IsDone) {
+			while (!pitchedBall.isDone) {
 			
-				batter.PromptForSwing();
-				while (!batter.swingReady) {
+				_batter.PromptForSwing();
+				while (!_batter.swingReady) {
 					yield return null;
 				}
 				
-				pitchedBall.AdvanceBy(TickTime);
-				while (pitchedBall.IsMoving) {
+				pitchedBall.AdvanceBy(tickTime);
+				while (pitchedBall.isMoving) {
 					yield return null;
 				}
 			}
 			
 			// Step 4: Batter swings at the pitch
-			batter.Swing();
+			_batter.Swing();
 			
 			// Step 5: process the outcome.
 			
 			
 			// Step 6: Get ready for next time
 			pitchedBall.Reset();
-			batter.Reset();
-			pitcher.Reset();
+			_batter.Reset();
+			_pitcher.Reset();
 		}
 		
 		_inningOver();
@@ -82,7 +82,7 @@ public class GameController : MonoBehaviour {
 	}
 	
 	public void Out() {
-		outs++;
+		_outs++;
 	}
 	
 	private void _nextBatter() {
@@ -90,11 +90,11 @@ public class GameController : MonoBehaviour {
 	}
 	
 	private void _inningStart() {
-		outs = 0;
+		_outs = 0;
 	}
 	
 	private bool _isInningOver() {
-		return (outs >= 3);
+		return (_outs >= 3);
 	}
 	
 	private void _inningOver() {

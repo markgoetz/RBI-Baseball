@@ -5,68 +5,68 @@ using System.Collections;
 [RequireComponent (typeof(RectTransform))]
 [RequireComponent (typeof(Image))]
 public class PitchingCursor : MonoBehaviour {
-	private FieldingUIController UIController;
-	private PitcherController pitcherController;
-	private StrikeZoneView view;
-	private bool inside_strike_zone;
-	private bool visible;
-	private RectTransform rect_transform;
+	private FieldingUIController _UIController;
+	private PitcherController _pitcherController;
+	private StrikeZoneView _view;
+	private bool _insideStrikeZone;
+	private bool _visible;
+	private RectTransform _rectTransform;
 	
-	private float strike_zone_width;
+	private float _strikeZoneWidth;
 	
 	void Start () {
-		UIController = FieldingUIController.getInstance();
-		view = UIController.strikeZone;
-		strike_zone_width = view.pixelWidth;
-		pitcherController = PitcherController.getInstance();
-		rect_transform = GetComponent<RectTransform>();
+		_UIController = FieldingUIController.GetInstance();
+		_view = _UIController.strikeZone;
+		_strikeZoneWidth = _view.pixelWidth;
+		_pitcherController = PitcherController.GetInstance();
+		_rectTransform = GetComponent<RectTransform>();
 	}
 	
 	// Move the fielding cursor so that it follows the mouse.
 	void Update () {
-		if (!Visible) return;
+		if (!visible) return;
 	
 		Vector3 screenpoint = Input.mousePosition;
 	
-		rect_transform.position = screenpoint;
+		_rectTransform.position = screenpoint;
 		
-		InsideStrikeZone = view.isInsideStrikeZone(screenpoint);
+		insideStrikeZone = _view.IsInsideStrikeZone(screenpoint);
 		
 		// Scale in relation to distance from the sweet spot
-		Vector2 strike_zone_location = view.screenPointToStrikeZone(screenpoint);
-		float radius = strike_zone_width * pitcherController.spreadRadius(strike_zone_location);
-		rect_transform.sizeDelta = new Vector2(radius, radius);
+		Vector2 strike_zone_location = _view.ScreenPointToStrikeZone(screenpoint);
+		float radius = _strikeZoneWidth * _pitcherController.SpreadRadius(strike_zone_location);
+		_rectTransform.sizeDelta = new Vector2(radius, radius);
 	}
 	
 	public void Clicked() {
-		if (!Enabled)
+		if (!active)
 			return;
 	
-		view.Clicked(Input.mousePosition);
+		_view.Clicked(Input.mousePosition);
 	}
 	
-	public bool InsideStrikeZone {
-		get { return inside_strike_zone; }
+	public bool insideStrikeZone {
+		get { return _insideStrikeZone; }
 		set {
-			inside_strike_zone = value;
-			GetComponent<Image>().enabled = Enabled;
+			_insideStrikeZone = value;
+			GetComponent<Image>().enabled = active;
 		}
 	}
 
-	public bool Visible {
-		get { return visible; }
+	public bool visible {
+		get { return _visible; }
 		set {
-			visible = value;
-			GetComponent<Image>().enabled = Enabled;
+			_visible = value;
+			GetComponent<Image>().enabled = active;
 		}
 	}
 	
-	public void setVisible(bool value) {
-		visible = value;
-		GetComponent<Image>().enabled = Enabled;
+	public void SetVisible(bool value) {
+		_visible = value;
+		GetComponent<Image>().enabled = active;
 	}
 	
-	public bool Enabled {
-		get { return Visible && InsideStrikeZone; }
+	public bool active {
+		get { return _visible && _insideStrikeZone; }
 	}
 }

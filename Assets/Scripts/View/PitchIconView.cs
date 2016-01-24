@@ -4,23 +4,23 @@ using System.Collections;
 
 [RequireComponent(typeof(Canvas))]
 public class PitchIconView : MonoBehaviour {
-	private FieldingUIController UIController;
-	private Canvas canvas;
-	private Button[] icons;
+	private FieldingUIController _UIController;
+	private Canvas _canvas;
+	private Button[] _icons;
 	
 	void Awake() {
-		icons = GetComponentsInChildren<Button>();
-		UIController = FieldingUIController.getInstance();
+		_icons = GetComponentsInChildren<Button>();
+		_UIController = FieldingUIController.GetInstance();
 	}
 	
-	public void setVisible(bool status) { 
-		foreach (Button icon in icons) {
+	public void SetVisible(bool status) { 
+		foreach (Button icon in _icons) {
 			icon.interactable = status;
 			icon.image.color = (status) ? Color.white : Color.clear;
 		}
 	}
 	
-	public void pitchIconPressed(int pitch_number) {
-		UIController.pitchSelected(pitch_number);
+	public void PitchIconPressed(int pitch_number) {
+		_UIController.PitchSelected(pitch_number);
 	}
 }

@@ -6,69 +6,69 @@ public abstract class PitcherController : MonoBehaviour {
 	public PitcherSprite sprite;
 
 	
-	protected Pitch selected_pitch;
-	protected Vector2 pitch_location;
+	protected Pitch _selectedPitch;
+	protected Vector2 _pitchLocation;
 	
-	protected Player player_stats;
-	protected bool has_pitch_location;
-	protected bool pitch_ready;
+	protected Player _playerStats;
+	protected bool _hasPitchLocation;
+	protected bool _pitchReady;
 	
 	protected void _init() {
-		player_stats = new Player();
+		_playerStats = new Player();
 	}
 	
 	public void Reset() {
-		selected_pitch = null;
-		has_pitch_location = false;
+		_selectedPitch = null;
+		_hasPitchLocation = false;
 	}
 	
 	protected void _checkReady() {
-		if (selected_pitch != null && has_pitch_location == true)
-			pitch_ready = true;
+		if (_selectedPitch != null && _hasPitchLocation == true)
+			_pitchReady = true;
 	}
 	
 	public Pitch currentPitch {
 		set {
-			selected_pitch = value;
+			_selectedPitch = value;
 			_checkReady();
 		}
-		get { return selected_pitch; }
+		get { return _selectedPitch; }
 	}
 	
 	public Vector2 pitchLocation {
-		get { return pitch_location; }
+		get { return _pitchLocation; }
 		set {
-			pitch_location = value;
-			has_pitch_location = true;
+			_pitchLocation = value;
+			_hasPitchLocation = true;
 			_checkReady();
 		}
 	}
 	
 	public bool pitchReady {
-		get { return pitch_ready; }
+		get { return _pitchReady; }
 	}
 	
 	public Player player {
-		get { return player_stats; }
-		set { player_stats = value; }
+		get { return _playerStats; }
+		set { _playerStats = value; }
 	}
 	
-	public float spreadRadius(Vector2 pitch_location) {
-		return Vector2.Distance(pitch_location, player_stats.pitchingSweetSpot);
+	public float SpreadRadius(Vector2 pitch_location) {
+		return Vector2.Distance(pitch_location, _playerStats.pitchingSweetSpot);
 	}
 	
-	protected Vector2 _getPitchLocationWithSpread(Vector2 pitch_location) {
-		Vector2 spread = Random.insideUnitCircle * spreadRadius(pitch_location);
+	protected Vector2 _GetPitchLocationWithSpread(Vector2 pitch_location) {
+		Vector2 spread = Random.insideUnitCircle * SpreadRadius(pitch_location);
 		return pitch_location + spread;
 	}
 	
-	public ThrownPitch getThrownPitch() {
-		ThrownPitch pitch = new ThrownPitch(currentPitch, new Vector2(.5f,.5f), _getPitchLocationWithSpread(pitchLocation));
+	public ThrownPitch GetThrownPitch() {
+		ThrownPitch pitch = new ThrownPitch(currentPitch, new Vector2(.5f,.5f), _GetPitchLocationWithSpread(pitchLocation));
 		return pitch;	
 	}
 	
 	public void StartPitch() {
-		sprite.playThrowAnimation(this.currentPitch.number);
+		sprite.PlayThrowAnimation(currentPitch.number);
 	}
 	
 	public void SpawnPitch() {
@@ -77,7 +77,7 @@ public abstract class PitcherController : MonoBehaviour {
 	
 	abstract public void PromptForPitch();
 	
-	public static PitcherController getInstance() {
+	public static PitcherController GetInstance() {
 		return GameObject.FindGameObjectWithTag("Pitcher Controller").GetComponent<PitcherController>();
 	}
 }

@@ -4,20 +4,19 @@ using System.Collections;
 abstract public class FieldingUIController : MonoBehaviour {
 	public StrikeZoneView strikeZone;
 	public PitchList pitches;
-	public BaseRunnerView runners;
 	
-	protected void _init() {
+	protected void _Init() {
 	}
 	
 
-	public virtual void pitchSelected(int index) { }
-	public virtual void locationSelected(Vector2 location) { }
+	public virtual void PitchSelected(int index) { }
+	public virtual void LocationSelected(Vector2 location) { }
 	
 	public virtual void StartPitch() {}
 	public virtual void PitchAdvanced() {}
 	public virtual void PitchDone() {}
 	
-	public static FieldingUIController getInstance() {
+	public static FieldingUIController GetInstance() {
 		return GameObject.FindGameObjectWithTag("UI Controller").GetComponent<FieldingUIController>();
 	}
 }

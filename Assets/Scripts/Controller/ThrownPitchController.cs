@@ -4,23 +4,24 @@ using System.Collections;
 [RequireComponent(typeof(ThrownPitchView))]
 public class ThrownPitchController : MonoBehaviour {
 	public float pitchDuration;
-	private ThrownPitch pitch;
-	private float time = 0f;
-	private ThrownPitchView view;
 	
-	private bool is_done;
-	private bool is_spawned;
-	private bool is_moving;
+	private ThrownPitch _pitch;
+	private float _time = 0f;
+	private ThrownPitchView _view;
 	
-	public ThrownPitch Pitch {
-		get { return pitch; }
+	private bool _isDone;
+	private bool _isSpawned;
+	private bool _isMoving;
+	
+	public ThrownPitch pitch {
+		get { return _pitch; }
 		set {
-			pitch = value;
+			_pitch = value;
 		}
 	}
 	
 	void Awake() {
-		view = GetComponent<ThrownPitchView>();
+		_view = GetComponent<ThrownPitchView>();
 	}
 	
 	public void AdvanceBy(float t) {
@@ -28,61 +29,60 @@ public class ThrownPitchController : MonoBehaviour {
 	}
 	
 	private IEnumerator advanceCoroutine(float t) {
-		float new_time = time + t;
-		is_moving = true;
+		float new_time = _time + t;
+		_isMoving = true;
 		
-		while (time < new_time) {
+		while (_time < new_time) {
+			Vector3 pitch_location = _pitch.getLocation(_time);
+			pitch_location.z = _time;
 			
-			Vector3 pitch_location = pitch.getLocation(time);
-			pitch_location.z = time;
-			
-			view.setLocation(pitch_location);
+			_view.setLocation(pitch_location);
 			yield return null;
 			
-			time += (Time.deltaTime / pitchDuration);
+			_time += (Time.deltaTime / pitchDuration);
 		}
 				
-		is_moving = false;
+		_isMoving = false;
 				
-		if (time > 1) {
+		if (_time >= 1) {
 			Finish();
 		}
 	}
 	
-	public bool IsMoving {
-		get { return is_moving; }
+	public bool isMoving {
+		get { return _isMoving; }
 	}
 	
 	private void _SetVisible(bool status) {
-		view.SetVisible(status);
+		_view.SetVisible(status);
 	}
 	
 	public void Spawn() {
-		is_spawned = true;
+		_isSpawned = true;
 		_SetVisible (true);
 	}
 	
 	public void Finish() {
-		is_done = true;
+		_isDone = true;
 	
-		view.showIcon();
+		_view.ShowIcon();
 	}
 	
 	public void Reset() {
-		is_done = false;
-		is_spawned = false;
+		_isDone = false;
+		_isSpawned = false;
 		
-		time = 0;
+		_time = 0;
 		
-		view.setLocation(pitch.start_location);  // this prevents a one-frame graphic glitch on the next pitch
+		_view.setLocation(_pitch.startLocation);  // this prevents a one-frame graphic glitch on the next pitch
 		_SetVisible (false);
 	}
 	
-	public bool IsDone {
-		get { return is_done; }
+	public bool isDone {
+		get { return _isDone; }
 	}
 	
-	public bool IsSpawned {
-		get { return is_spawned; }
+	public bool isSpawned {
+		get { return _isSpawned; }
 	}
 }

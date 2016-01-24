@@ -2,17 +2,17 @@ using UnityEngine;
 using System.Collections;
 
 public class PitcherPlayerController : PitcherController {
-	private PitchUIController uiController;
+	private PitchUIController _uiController;
 
 	void Awake() {
 		_init();
 		
-		uiController = PitchUIController.getInstance() as PitchUIController;
-		uiController.Reset();
+		_uiController = PitchUIController.GetInstance() as PitchUIController;
+		_uiController.Reset();
 	}
 	
 	public override void PromptForPitch () {
-		pitch_ready = false;
-		uiController.Reset();
+		_pitchReady = false;
+		_uiController.Reset();
 	}
 }

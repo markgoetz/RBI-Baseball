@@ -5,11 +5,11 @@ using System.Collections;
 public class SpriteFader : MonoBehaviour {
 	public float fadeTime;
 	
-	private SpriteRenderer sprite;
+	private SpriteRenderer _sprite;
 
 	// Use this for initialization
 	void Start () {
-		sprite = GetComponent<SpriteRenderer>();
+		_sprite = GetComponent<SpriteRenderer>();
 		
 		StartCoroutine("FadeOutCoroutine");
 	}

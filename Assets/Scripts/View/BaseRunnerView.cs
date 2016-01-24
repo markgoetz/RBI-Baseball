@@ -10,34 +10,34 @@ public class BaseRunnerView : MonoBehaviour {
 	public Image secondBase;
 	public Image thirdBase;
 	
-	private Sprite runner_sprite;
+	private Sprite _runnerSprite;
 	
-	private BaseRunnerController controller;
+	private BaseRunnerController _controller;
 	
-	private bool is_player;
+	private bool _isPlayer;
 	
-	public void setIsPlayer(bool status) {
-		is_player = status;
-		runner_sprite = (is_player) ? playerRunnerSprite : enemyRunnerSprite;
+	public void SetIsPlayer(bool status) {
+		_isPlayer = status;
+		_runnerSprite = (_isPlayer) ? playerRunnerSprite : enemyRunnerSprite;
 		
-		firstBase.sprite  = runner_sprite;
-		secondBase.sprite = runner_sprite;
-		thirdBase.sprite  = runner_sprite;
+		firstBase.sprite  = _runnerSprite;
+		secondBase.sprite = _runnerSprite;
+		thirdBase.sprite  = _runnerSprite;
 	}
 	
 	void Start() {
-		controller = GetComponent<BaseRunnerController>();
+		_controller = GetComponent<BaseRunnerController>();
 	}
 	
 	void Update () {
 	
 	}
 	
-	private void updateView() {	
+	private void _updateView() {	
 		// TODO: Tween this shit
-		BaseRunners runners = controller.baseRunners;
-		firstBase.color  = (runners.FirstBase)  ? Color.white : Color.clear;
-		secondBase.color = (runners.SecondBase) ? Color.white : Color.clear;
-		thirdBase.color  = (runners.ThirdBase)  ? Color.white : Color.clear;
+		BaseRunners runners = _controller.baseRunners;
+		firstBase.color  = (runners.firstBase)  ? Color.white : Color.clear;
+		secondBase.color = (runners.secondBase) ? Color.white : Color.clear;
+		thirdBase.color  = (runners.thirdBase)  ? Color.white : Color.clear;
 	}
 }
