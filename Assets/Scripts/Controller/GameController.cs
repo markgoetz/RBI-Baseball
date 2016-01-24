@@ -18,6 +18,11 @@ public class GameController : MonoBehaviour {
 	}
 	
 	void Start() {
+		//failsafe against an infinite loop.
+		if (tickTime <= 0) {
+			Debug.LogWarning("GameController::tickTime was set to 0.");
+			tickTime = 1;
+		}
 		StartCoroutine("gameLoop");
 	}
 	
