@@ -3,6 +3,9 @@ using System.Collections;
 
 [RequireComponent(typeof(BatterSprite))]
 public abstract class BatterController : MonoBehaviour {
+	public GameObject batterSwingIcon;
+	
+	protected StrikeZoneView strike_zone_view;
 	protected Player player_stats;
 	protected BatterSprite sprite;
 	
@@ -23,10 +26,18 @@ public abstract class BatterController : MonoBehaviour {
 	protected void _init() {
 		sprite = GetComponent<BatterSprite>();
 		player_stats = new Player();
+		strike_zone_view = StrikeZoneView.getInstance();
 	}
 	
 	public void Swing() {
 		sprite.playSwingAnimation(swing_location);
+		showIcon(swing_location);
+	}
+	
+	
+	public void showIcon(Vector2 location) {	
+		Vector2 icon_position = strike_zone_view.strikeZoneToWorldSpace(location);
+		Instantiate(batterSwingIcon, icon_position, Quaternion.identity);
 	}
 	
 	public static BatterController getInstance() {

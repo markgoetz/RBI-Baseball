@@ -33,7 +33,7 @@ public class PitchingCursor : MonoBehaviour {
 		InsideStrikeZone = view.isInsideStrikeZone(screenpoint);
 		
 		// Scale in relation to distance from the sweet spot
-		Vector2 strike_zone_location = view.worldSpaceToStrikeZone(screenpoint);
+		Vector2 strike_zone_location = view.screenPointToStrikeZone(screenpoint);
 		float radius = strike_zone_width * pitcherController.spreadRadius(strike_zone_location);
 		rect_transform.sizeDelta = new Vector2(radius, radius);
 	}

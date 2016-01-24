@@ -607,7 +607,7 @@ GameObject:
   - 114: {fileID: 670471324}
   m_Layer: 0
   m_Name: Strike Zone
-  m_TagString: BaseRunners
+  m_TagString: Strike Zone View
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1459,7 +1459,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33ffa8dab1cb54637be4574c7bab9d43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrown_pitch: {fileID: 0}
+  batterSwingIcon: {fileID: 134226, guid: cd2f877c603b945feb1d810b428a7145, type: 2}
+  thrown_pitch: {fileID: 2037497005}
 --- !u!1 &1437007702
 GameObject:
   m_ObjectHideFlags: 0
@@ -1948,7 +1949,7 @@ GameObject:
   - 114: {fileID: 1818685610}
   m_Layer: 5
   m_Name: Base Runner View
-  m_TagString: Untagged
+  m_TagString: BaseRunners
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
