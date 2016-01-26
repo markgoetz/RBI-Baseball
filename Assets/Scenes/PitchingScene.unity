@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pitchedBall: {fileID: 2037497005}
-  tickTime: .330000013
+  tickTime: 100
 --- !u!1 &261765306
 GameObject:
   m_ObjectHideFlags: 0
@@ -1475,6 +1475,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   batterSwingIcon: {fileID: 134226, guid: cd2f877c603b945feb1d810b428a7145, type: 2}
   thrownPitch: {fileID: 2037497005}
+  delayBeforeSwing: 0
 --- !u!1 &1437007702
 GameObject:
   m_ObjectHideFlags: 0

@@ -62,8 +62,35 @@ public abstract class PitcherController : MonoBehaviour {
 		return pitch_location + spread;
 	}
 	
+	private float _GetMovementMultiplier(Vector2 end_location) {
+		float multiplier = 1.0f;
+		// Distance from sweet spot
+		multiplier -= SpreadRadius(end_location);
+	
+		// TODO: dexterity stat
+		// TODO: fatigue
+		
+		multiplier = Mathf.Clamp01(multiplier);
+		
+		// TODO: Pitcher's handedness.  If left-handed, multiply X by -1.
+		
+		return multiplier;
+	}
+	
+	private float _GetSpeedMultiplier(Vector2 end_location) {
+		// TODO: strength stat
+		// TODO: fatigue
+		return 1;
+	}
+	
 	public ThrownPitch GetThrownPitch() {
-		ThrownPitch pitch = new ThrownPitch(currentPitch, new Vector2(.5f,.5f), _GetPitchLocationWithSpread(pitchLocation));
+		ThrownPitch pitch = new ThrownPitch(
+			currentPitch,
+			new Vector2(.5f,.5f),
+			_GetPitchLocationWithSpread(pitchLocation),
+			_GetMovementMultiplier(pitchLocation),
+			_GetSpeedMultiplier(pitchLocation)
+		);
 		return pitch;	
 	}
 	

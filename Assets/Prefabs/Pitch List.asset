@@ -14,17 +14,17 @@ MonoBehaviour:
   pitches:
   - name: Fastball
     number: 0
-    path: {fileID: 11499734, guid: 22f5753a2b70b46da8c1353467d57285, type: 2}
+    movement: {x: 0, y: 0}
     speed: 1
   - name: Curveball
     number: 1
-    path: {fileID: 11499734, guid: 3cfe0d7000bec40a9b0f7003783e0cea, type: 2}
+    movement: {x: 0, y: 1}
     speed: .75
   - name: Slider
     number: 2
-    path: {fileID: 11499734, guid: 3cfdd9e2de09045fd81d943f7534a784, type: 2}
+    movement: {x: 1, y: 0}
     speed: .75
   - name: Knuckleball
     number: 3
-    path: {fileID: 11499734, guid: 3807f666f94f84462bb7b4bbec61701c, type: 2}
+    movement: {x: 0, y: 0}
     speed: .5

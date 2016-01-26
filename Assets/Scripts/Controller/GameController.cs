@@ -21,7 +21,7 @@ public class GameController : MonoBehaviour {
 		//failsafe against an infinite loop.
 		if (tickTime <= 0) {
 			Debug.LogWarning("GameController::tickTime was set to 0.");
-			tickTime = 1;
+			tickTime = 100;
 		}
 		StartCoroutine("gameLoop");
 	}

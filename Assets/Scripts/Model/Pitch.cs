@@ -5,6 +5,6 @@ using System.Collections;
 public class Pitch {
 	public string name;
 	public int number; 
-	public BezierCurve path;
+	public Vector2 movement;
 	public float speed;
 }
