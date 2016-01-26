@@ -5,7 +5,7 @@ using System.Collections;
 public class ThrownPitchController : MonoBehaviour {
 	public float pitchDuration;
 	
-	private ThrownPitch _pitch;
+	private ThrownPitch _thrownPitch;
 	private float _time = 0f;
 	private ThrownPitchView _view;
 	
@@ -13,10 +13,10 @@ public class ThrownPitchController : MonoBehaviour {
 	private bool _isSpawned;
 	private bool _isMoving;
 	
-	public ThrownPitch pitch {
-		get { return _pitch; }
+	public ThrownPitch thrownPitch {
+		get { return _thrownPitch; }
 		set {
-			_pitch = value;
+			_thrownPitch = value;
 		}
 	}
 	
@@ -32,21 +32,26 @@ public class ThrownPitchController : MonoBehaviour {
 		float new_time = _time + t;
 		_isMoving = true;
 		
+		Vector3 pitch_location;
+		
 		while (_time < new_time) {
-			Vector3 pitch_location = _pitch.getLocation(_time);
-			pitch_location.z = _time;
+			pitch_location = _thrownPitch.getLocation(_time);
+			pitch_location.z = _time * _thrownPitch.pitch.speed;
 			
 			_view.setLocation(pitch_location);
+			
+			
+			if (pitch_location.z >= 1) {
+				Finish();
+				yield break;
+			}
+			
 			yield return null;
 			
 			_time += (Time.deltaTime / pitchDuration);
 		}
 				
 		_isMoving = false;
-				
-		if (_time >= 1) {
-			Finish();
-		}
 	}
 	
 	public bool isMoving {
@@ -63,6 +68,7 @@ public class ThrownPitchController : MonoBehaviour {
 	}
 	
 	public void Finish() {
+		_isMoving = false;
 		_isDone = true;
 	
 		_view.ShowIcon();
@@ -74,7 +80,7 @@ public class ThrownPitchController : MonoBehaviour {
 		
 		_time = 0;
 		
-		_view.setLocation(_pitch.startLocation);  // this prevents a one-frame graphic glitch on the next pitch
+		_view.setLocation(_thrownPitch.startLocation);  // this prevents a one-frame graphic glitch on the next pitch
 		_SetVisible (false);
 	}
 	

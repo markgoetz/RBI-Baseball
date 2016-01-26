@@ -1181,6 +1181,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1061955843}
   - 212: {fileID: 1061955842}
+  - 114: {fileID: 1061955844}
   m_Layer: 0
   m_Name: Pitch Location
   m_TagString: Untagged
@@ -1228,6 +1229,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2037497008}
   m_RootOrder: 0
+--- !u!114 &1061955844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1061955841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1099bf9dbdcb4be7b13fc26528b1ea9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trailRootObject: {fileID: 0}
+  trailObject: {fileID: 0}
+  distanceBetweenTrails: 0
 --- !u!1 &1164830832
 GameObject:
   m_ObjectHideFlags: 0
@@ -2285,7 +2300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10eb965bea5314f869ff60eef58947fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pitchDuration: .75
+  pitchDuration: .5
 --- !u!114 &2037497006
 MonoBehaviour:
   m_ObjectHideFlags: 0

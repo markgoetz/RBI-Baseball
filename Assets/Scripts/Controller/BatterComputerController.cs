@@ -3,6 +3,7 @@ using System.Collections;
 
 public class BatterComputerController : BatterController {
 	public ThrownPitchController thrownPitch;
+	public float delayBeforeSwing;
 
 	void Awake() {
 		_Init();
@@ -10,6 +11,12 @@ public class BatterComputerController : BatterController {
 	}
 
 	public override void PromptForSwing() {
+		StartCoroutine("_DelaySwingCoroutine");
+	}
+	
+	private IEnumerator _DelaySwingCoroutine() {
+		yield return new WaitForSeconds(delayBeforeSwing);
+	
 		_swingLocation = _GetLocation();
 		_swingReady = true;
 	}

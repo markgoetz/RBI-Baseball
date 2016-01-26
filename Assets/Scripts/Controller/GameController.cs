@@ -39,7 +39,7 @@ public class GameController : MonoBehaviour {
 				yield return null;
 			}
 			
-			pitchedBall.pitch = _pitcher.GetThrownPitch();
+			pitchedBall.thrownPitch = _pitcher.GetThrownPitch();
 			
 			// Step 2: Throw the pitch.
 			_pitcher.StartPitch();
@@ -50,7 +50,7 @@ public class GameController : MonoBehaviour {
 			
 			// Step 3: Batter adjusts their location and pitch advances.  Loop until pitch is done.
 			while (!pitchedBall.isDone) {
-			
+				_batter.SetUnready();
 				_batter.PromptForSwing();
 				while (!_batter.swingReady) {
 					yield return null;

@@ -19,6 +19,10 @@ public abstract class BatterController : MonoBehaviour {
 
 	abstract public void PromptForSwing();
 	
+	public void SetUnready() {
+		_swingReady = false;
+	}
+	
 	public bool swingReady {
 		get { return _swingReady; }
 	}

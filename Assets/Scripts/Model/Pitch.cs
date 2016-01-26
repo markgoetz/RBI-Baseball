@@ -6,4 +6,5 @@ public class Pitch {
 	public string name;
 	public int number; 
 	public BezierCurve path;
+	public float speed;
 }
