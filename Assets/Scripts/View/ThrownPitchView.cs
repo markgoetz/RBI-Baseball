@@ -6,6 +6,8 @@ using System.Collections;
 public class ThrownPitchView : MonoBehaviour {
 	public GameObject pitchLandedIcon;
 	
+	public bool DEBUGShowPerspective;
+	
 	private Animator _anim;
 	private GameObject _ball;
 	private SpriteRenderer _sprite;
@@ -16,6 +18,10 @@ public class ThrownPitchView : MonoBehaviour {
 		_ball = transform.GetChild(0).gameObject;
 		_sprite = GetComponent<SpriteRenderer>(); 
 		_spriteBounds = _sprite.bounds;
+	}
+	
+	void Start() {
+		SetVisible(false);
 	}
 
 	public void setLocation(Vector3 location) {
@@ -29,8 +35,14 @@ public class ThrownPitchView : MonoBehaviour {
 	
 	private Vector2 _PitchToSpritePosition(Vector2 pitch_location) {
 		Vector2 sprite_position;
-		sprite_position.x = Mathf.Lerp (_spriteBounds.min.x, _spriteBounds.max.x, pitch_location.x);
-		sprite_position.y = Mathf.Lerp (_spriteBounds.min.y, _spriteBounds.max.y, pitch_location.y);
+		
+		float location_x = pitch_location.x;
+		float location_y = pitch_location.y;
+		
+		// Do not use Mathf.Lerp because it clamps to the edge of the strike zone.
+		sprite_position.x = location_x * _spriteBounds.max.x + (1-location_x) * _spriteBounds.min.x;
+		sprite_position.y = location_y * _spriteBounds.max.y + (1-location_y) * _spriteBounds.min.y;
+		
 		return sprite_position;
 	}
 	
@@ -40,6 +52,9 @@ public class ThrownPitchView : MonoBehaviour {
 	}
 	
 	private float _ScaleZ(float z) {
-		return Mathf.Pow(z, 3);	
+		if (DEBUGShowPerspective)
+			return Mathf.Pow (z, 3);
+		else
+			return 1;
 	}
 }

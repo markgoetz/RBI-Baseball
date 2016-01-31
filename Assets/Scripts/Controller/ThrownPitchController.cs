@@ -35,8 +35,10 @@ public class ThrownPitchController : MonoBehaviour {
 		Vector3 pitch_location;
 		
 		while (_time < new_time) {
-			pitch_location = _thrownPitch.getLocation(_time);
-			pitch_location.z = _time * _thrownPitch.pitch.speed;
+			float z = _time * _thrownPitch.pitch.speed;
+		
+			pitch_location = _thrownPitch.getLocation(z);
+			pitch_location.z = z;
 			
 			_view.setLocation(pitch_location);
 			
@@ -90,5 +92,19 @@ public class ThrownPitchController : MonoBehaviour {
 	
 	public bool isSpawned {
 		get { return _isSpawned; }
+	}
+	
+	void OnDrawGizmos() {
+		if (_thrownPitch == null) return;
+	
+		StrikeZoneView debug_view = StrikeZoneView.GetInstance();
+	
+		Gizmos.color = Color.green;
+		Gizmos.DrawSphere(debug_view.StrikeZoneToWorldSpace(_thrownPitch.startLocation), .1f);
+		Gizmos.color = Color.white;
+		Gizmos.DrawSphere(debug_view.StrikeZoneToWorldSpace(_thrownPitch.controlPointA), .1f);
+		Gizmos.DrawSphere(debug_view.StrikeZoneToWorldSpace(_thrownPitch.controlPointB), .1f);
+		Gizmos.color = Color.red;
+		Gizmos.DrawSphere (debug_view.StrikeZoneToWorldSpace(_thrownPitch.endLocation), .1f);
 	}
 }

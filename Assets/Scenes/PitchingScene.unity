@@ -1214,7 +1214,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2089958769
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 4c4baac6d7a734c60ac57931955549bf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1061955843
@@ -2314,6 +2314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pitchLandedIcon: {fileID: 113366, guid: b1eafc9ecabe244e69b7d6320239e5d0, type: 2}
+  DEBUGShowPerspective: 1
 --- !u!212 &2037497007
 SpriteRenderer:
   m_ObjectHideFlags: 0
