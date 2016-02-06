@@ -38,6 +38,13 @@ public abstract class BatterController : MonoBehaviour {
 		ShowIcon(_swingLocation);
 	}
 	
+	// The time between prompts to swing.
+	public float swingPromptDelay {
+		get {
+			return .33f;
+		}
+	}
+	
 	
 	public void ShowIcon(Vector2 location) {	
 		Vector2 icon_position = _strikeZoneView.StrikeZoneToWorldSpace(location);

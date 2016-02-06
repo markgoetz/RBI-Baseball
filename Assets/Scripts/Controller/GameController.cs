@@ -3,7 +3,6 @@ using System.Collections;
 
 public class GameController : MonoBehaviour {
 	public ThrownPitchController pitchedBall;
-	public float tickTime;
 		
 	private BatterController _batter;
 	private PitcherController _pitcher;
@@ -18,11 +17,6 @@ public class GameController : MonoBehaviour {
 	}
 	
 	void Start() {
-		//failsafe against an infinite loop.
-		if (tickTime <= 0) {
-			Debug.LogWarning("GameController::tickTime was set to 0.");
-			tickTime = 100;
-		}
 		StartCoroutine("gameLoop");
 	}
 	
@@ -56,7 +50,7 @@ public class GameController : MonoBehaviour {
 					yield return null;
 				}
 				
-				pitchedBall.AdvanceBy(tickTime);
+				pitchedBall.AdvanceBy(_batter.swingPromptDelay);
 				while (pitchedBall.isMoving) {
 					yield return null;
 				}
