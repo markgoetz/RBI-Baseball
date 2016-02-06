@@ -35,7 +35,7 @@ public class PitchingCursor : MonoBehaviour {
 		// Scale in relation to distance from the sweet spot
 		Vector2 strike_zone_location = _view.ScreenPointToStrikeZone(screenpoint);
 		float radius = _strikeZoneWidth * _pitcherController.SpreadRadius(strike_zone_location);
-		_rectTransform.sizeDelta = new Vector2(radius, radius);
+		_rectTransform.sizeDelta = new Vector2(radius * 2, radius * 2);
 	}
 	
 	public void Clicked() {
@@ -68,5 +68,18 @@ public class PitchingCursor : MonoBehaviour {
 	
 	public bool active {
 		get { return _visible && _insideStrikeZone; }
+	}
+	
+	void OnDrawGizmos() {
+		if (!visible) return;
+		
+		Vector2 strike_zone_location = _view.ScreenPointToStrikeZone(Input.mousePosition);
+		float radius = _pitcherController.SpreadRadius(strike_zone_location);
+		
+		Gizmos.DrawSphere(_view.StrikeZoneToWorldSpace(strike_zone_location + Vector2.up    * radius), .1f);
+		Gizmos.DrawSphere(_view.StrikeZoneToWorldSpace(strike_zone_location + Vector2.down  * radius), .1f);
+		Gizmos.DrawSphere(_view.StrikeZoneToWorldSpace(strike_zone_location + Vector2.left  * radius), .1f);
+		Gizmos.DrawSphere(_view.StrikeZoneToWorldSpace(strike_zone_location + Vector2.right * radius), .1f);
+		
 	}
 }
