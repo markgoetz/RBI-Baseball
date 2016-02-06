@@ -8,11 +8,14 @@ public class PitcherPlayerController : PitcherController {
 		_init();
 		
 		_uiController = PitchUIController.GetInstance() as PitchUIController;
-		_uiController.Reset();
+	}
+	
+	void Start() {
+		_uiController.ResetView();
 	}
 	
 	public override void PromptForPitch () {
 		_pitchReady = false;
-		_uiController.Reset();
+		_uiController.ResetView();
 	}
 }

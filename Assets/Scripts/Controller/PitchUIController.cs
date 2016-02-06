@@ -12,10 +12,10 @@ public class PitchUIController : FieldingUIController {
 	}
 
 	void Start() {
-		Reset ();
+		ResetView ();
 	}
 	
-	public void Reset() {
+	public void ResetView() {
 		_ChangeToSelectionView();
 	}
 

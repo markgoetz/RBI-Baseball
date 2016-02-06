@@ -9,8 +9,8 @@ public class PitchIconView : MonoBehaviour {
 	private Button[] _icons;
 	
 	void Awake() {
-		_icons = GetComponentsInChildren<Button>();
 		_UIController = FieldingUIController.GetInstance();
+		_icons = GetComponentsInChildren<Button>();
 	}
 	
 	public void SetVisible(bool status) { 
