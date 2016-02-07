@@ -15,6 +15,7 @@ public abstract class BatterController : MonoBehaviour {
 	
 	public void Reset() {
 		_swingReady = false;
+		_swingLocation = _playerStats.battingSweetSpot;
 	}
 
 	abstract public void PromptForSwing();
@@ -45,6 +46,14 @@ public abstract class BatterController : MonoBehaviour {
 		}
 	}
 	
+	// The amount that the batter can adjust their swing spot by.
+	// Will be influenced by stats
+	protected float _swingAdjustRadius {
+		get {
+			return .2f;
+		}
+	}
+	
 	
 	public void ShowIcon(Vector2 location) {	
 		Vector2 icon_position = _strikeZoneView.StrikeZoneToWorldSpace(location);
@@ -53,5 +62,20 @@ public abstract class BatterController : MonoBehaviour {
 	
 	public static BatterController GetInstance() {
 		return GameObject.FindGameObjectWithTag("Batter Controller").GetComponent<BatterController>();
+	}
+	
+	void OnDrawGizmos() {
+		try {
+		
+			Gizmos.color = Color.magenta;
+			Gizmos.DrawSphere(
+				_strikeZoneView.StrikeZoneToWorldSpace(
+					_swingLocation
+			),
+			.1f);
+		}
+		catch {
+		
+		}
 	}
 }

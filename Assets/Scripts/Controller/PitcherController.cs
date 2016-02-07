@@ -88,8 +88,8 @@ public abstract class PitcherController : MonoBehaviour {
 			currentPitch,
 			new Vector2(.5f,.5f),
 			_GetPitchLocationWithSpread(pitchLocation),
-			_GetMovementMultiplier(pitchLocation),
-			_GetSpeedMultiplier(pitchLocation)
+			_GetSpeedMultiplier(pitchLocation),
+			_GetMovementMultiplier(pitchLocation)
 		);
 		return pitch;	
 	}

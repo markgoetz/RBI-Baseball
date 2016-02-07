@@ -31,6 +31,7 @@ public class ThrownPitchController : MonoBehaviour {
 	private IEnumerator advanceCoroutine(float t) {
 		float new_time = _time + t;
 		_isMoving = true;
+		_view.Unpause();
 		
 		Vector3 pitch_location;
 		
@@ -52,7 +53,8 @@ public class ThrownPitchController : MonoBehaviour {
 			
 			_time += (Time.deltaTime / pitchDuration);
 		}
-				
+		
+		_view.Pause ();
 		_isMoving = false;
 	}
 	

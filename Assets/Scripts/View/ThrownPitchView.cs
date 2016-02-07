@@ -13,9 +13,16 @@ public class ThrownPitchView : MonoBehaviour {
 	private SpriteRenderer _sprite;
 	private Bounds _spriteBounds;
 	
+	private ParticleSystem _ballTrail;
+	private SpriteRenderer _ballSprite;
+	
 	void Awake() {
 		_anim = GetComponent<Animator>();
 		_ball = transform.GetChild(0).gameObject;
+		
+		_ballTrail = _ball.GetComponent<ParticleSystem>();
+		_ballSprite = _ball.GetComponent<SpriteRenderer>();
+		
 		_sprite = GetComponent<SpriteRenderer>(); 
 		_spriteBounds = _sprite.bounds;
 	}
@@ -47,8 +54,25 @@ public class ThrownPitchView : MonoBehaviour {
 	}
 	
 	public void SetVisible(bool status) {
-		//sprite.enabled = status;
-		_ball.GetComponent<SpriteRenderer>().enabled = status;
+		_ballSprite.enabled = status;
+		
+		if (status) {
+			_ballTrail.enableEmission = true;
+			_ballTrail.Play();
+		}
+		else {
+			_ballTrail.Clear (true);
+			_ballTrail.enableEmission = false;
+		}
+		
+	}
+	
+	public void Pause() {
+	
+	}
+	
+	public void Unpause() {
+	
 	}
 	
 	private float _ScaleZ(float z) {

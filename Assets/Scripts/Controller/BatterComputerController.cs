@@ -9,6 +9,10 @@ public class BatterComputerController : BatterController {
 		_Init();
 		_sprite.Fade();
 	}
+	
+	void Start() {
+		Reset ();
+	}
 
 	public override void PromptForSwing() {
 		StartCoroutine("_DelaySwingCoroutine");
@@ -27,6 +31,6 @@ public class BatterComputerController : BatterController {
 	}
 	
 	private Vector2 _GetLocation() {
-		return new Vector2(Random.value, Random.value);
+		return _swingLocation + Random.insideUnitCircle * _swingAdjustRadius;
 	}
 }
