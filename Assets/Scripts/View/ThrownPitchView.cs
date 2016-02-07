@@ -34,6 +34,7 @@ public class ThrownPitchView : MonoBehaviour {
 	public void setLocation(Vector3 location) {
 		_anim.SetFloat ("z", _ScaleZ(location.z));
 		_ball.transform.localPosition = _PitchToSpritePosition(location);
+		_ballTrail.startSize = _ScaleZ(location.z) * .5f;
 	}
 	
 	public void ShowIcon() {
@@ -68,11 +69,11 @@ public class ThrownPitchView : MonoBehaviour {
 	}
 	
 	public void Pause() {
-	
+		_ballTrail.Pause(true);
 	}
 	
 	public void Unpause() {
-	
+		_ballTrail.Play (true);
 	}
 	
 	private float _ScaleZ(float z) {
