@@ -112,7 +112,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 571545883}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!114 &49373754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -463,6 +463,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1914453700}
   - {fileID: 1296591566}
   - {fileID: 49373753}
   m_Father: {fileID: 1912503269}
@@ -1180,7 +1181,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1061955843}
   - 212: {fileID: 1061955842}
-  - 114: {fileID: 1061955844}
   - 198: {fileID: 1061955846}
   - 199: {fileID: 1061955845}
   m_Layer: 0
@@ -1230,20 +1230,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2037497008}
   m_RootOrder: 0
---- !u!114 &1061955844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1061955841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1099bf9dbdcb4be7b13fc26528b1ea9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trailRootObject: {fileID: 0}
-  trailObject: {fileID: 0}
-  distanceBetweenTrails: 0
 --- !u!199 &1061955845
 ParticleSystemRenderer:
   m_ObjectHideFlags: 0
@@ -2463,7 +2449,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 571545883}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!1 &1377415682
 GameObject:
   m_ObjectHideFlags: 0
@@ -2566,6 +2552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   batterSwingIcon: {fileID: 134226, guid: cd2f877c603b945feb1d810b428a7145, type: 2}
+  swingLocation: {x: 0, y: 0}
   thrownPitch: {fileID: 2037497005}
   delayBeforeSwing: 1
 --- !u!1 &1437007702
@@ -3238,6 +3225,46 @@ Transform:
   - {fileID: 568436672}
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!1 &1914453699
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1914453700}
+  - 114: {fileID: 1914453701}
+  m_Layer: 0
+  m_Name: Pitch Result Controller
+  m_TagString: Pitch Result Controller
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1914453700
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1914453699}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 571545883}
+  m_RootOrder: 0
+--- !u!114 &1914453701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1914453699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 205bff7f9f3d048b89f0797458d86c28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitRadius: .150000006
 --- !u!1 &1956418439
 GameObject:
   m_ObjectHideFlags: 0

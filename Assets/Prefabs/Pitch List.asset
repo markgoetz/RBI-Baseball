@@ -22,7 +22,7 @@ MonoBehaviour:
     speed: .75
   - name: Slider
     number: 2
-    movement: {x: 1, y: 0}
+    movement: {x: -1, y: 0}
     speed: .75
   - name: Knuckleball
     number: 3

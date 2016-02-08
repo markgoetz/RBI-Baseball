@@ -9,6 +9,7 @@ TagManager:
   - Batter Controller
   - UI Controller
   - BaseRunners
+  - Pitch Result Controller
   layers:
   - Default
   - TransparentFX

@@ -9,13 +9,13 @@ public abstract class BatterController : MonoBehaviour {
 	protected Player _playerStats;
 	protected BatterSprite _sprite;
 	
-	protected Vector2 _swingLocation;
+	public Vector2 swingLocation;
 	
 	protected bool _swingReady;
 	
 	public void Reset() {
 		_swingReady = false;
-		_swingLocation = _playerStats.battingSweetSpot;
+		swingLocation = _playerStats.battingSweetSpot;
 	}
 
 	abstract public void PromptForSwing();
@@ -35,11 +35,12 @@ public abstract class BatterController : MonoBehaviour {
 	}
 	
 	public void Swing() {
-		_sprite.PlaySwingAnimation(_swingLocation);
-		ShowIcon(_swingLocation);
+		_sprite.PlaySwingAnimation(swingLocation);
+		ShowIcon(swingLocation);
 	}
 	
 	// The time between prompts to swing.
+	// Will be influenced by stats
 	public float swingPromptDelay {
 		get {
 			return .33f;
@@ -70,7 +71,7 @@ public abstract class BatterController : MonoBehaviour {
 			Gizmos.color = Color.magenta;
 			Gizmos.DrawSphere(
 				_strikeZoneView.StrikeZoneToWorldSpace(
-					_swingLocation
+					swingLocation
 			),
 			.1f);
 		}

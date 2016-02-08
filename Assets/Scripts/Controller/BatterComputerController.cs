@@ -21,16 +21,11 @@ public class BatterComputerController : BatterController {
 	private IEnumerator _DelaySwingCoroutine() {
 		yield return new WaitForSeconds(delayBeforeSwing);
 	
-		_swingLocation = _GetLocation();
+		swingLocation = _GetLocation();
 		_swingReady = true;
-	}
-
-	public void PitchDone() {
-		//TODO: animation has to anticipate the pitch somehow.
-		_sprite.PlaySwingAnimation(_swingLocation);
 	}
 	
 	private Vector2 _GetLocation() {
-		return _swingLocation + Random.insideUnitCircle * _swingAdjustRadius;
+		return swingLocation + Random.insideUnitCircle * _swingAdjustRadius;
 	}
 }
