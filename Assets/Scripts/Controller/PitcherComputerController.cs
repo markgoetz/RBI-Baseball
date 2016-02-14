@@ -6,6 +6,9 @@ public class PitcherComputerController : PitcherController {
 
 	void Awake() {
 		_Init();
+	}
+
+	void Start() {
 		_sprite.Fade();
 	}
 

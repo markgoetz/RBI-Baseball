@@ -21,7 +21,7 @@ public class PitcherSprite : MonoBehaviour {
 	}
 	
 	public void Fade() {
-		_sprite.color = new Color(0f,0f,0f,.5f);
+		_sprite.color = new Color(1f,1f,1f,.5f);
 	}
 	
 	public void SpawnPitchTrigger() {
