@@ -26,6 +26,7 @@ public class BatterComputerController : BatterController {
 	}
 	
 	private Vector2 _GetLocation() {
-		return swingLocation + Random.insideUnitCircle * _swingAdjustRadius;
+		// TODO: AI.
+		return swingLocation + Random.insideUnitCircle * swingAdjustRadius;
 	}
 }

@@ -9,8 +9,8 @@ public abstract class BatterController : MonoBehaviour {
 	protected Player _playerStats;
 	protected BatterSprite _sprite;
 	
-	public Vector2 swingLocation;
-	
+	private Vector2 _swingLocation;
+		
 	protected bool _swingReady;
 	
 	public void Reset() {
@@ -49,15 +49,28 @@ public abstract class BatterController : MonoBehaviour {
 	
 	// The amount that the batter can adjust their swing spot by.
 	// Will be influenced by stats
-	protected float _swingAdjustRadius {
+	public float swingAdjustRadius {
 		get {
 			return .2f;
 		}
 	}
 	
+	public Vector2 swingLocation {
+		get { return _swingLocation; }
+		set {
+			_swingLocation = value;
+			_swingReady = true;
+		}
+	}
 	
-	public void ShowIcon(Vector2 location) {	
-		Vector2 icon_position = _strikeZoneView.StrikeZoneToWorldSpace(location);
+	
+	public bool isInsideRadius(Vector2 strike_zone_location) {
+		return (strike_zone_location - swingLocation).magnitude <= swingAdjustRadius;
+	}
+	
+	
+	public void ShowIcon(Vector2 strike_zone_location) {	
+		Vector2 icon_position = _strikeZoneView.StrikeZoneToWorldSpace(strike_zone_location);
 		Instantiate(batterSwingIcon, icon_position, Quaternion.identity);
 	}
 	

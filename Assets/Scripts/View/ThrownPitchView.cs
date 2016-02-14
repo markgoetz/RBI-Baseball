@@ -58,12 +58,11 @@ public class ThrownPitchView : MonoBehaviour {
 		_ballSprite.enabled = status;
 		
 		if (status) {
-			_ballTrail.enableEmission = true;
 			_ballTrail.Play();
 		}
 		else {
 			_ballTrail.Clear (true);
-			_ballTrail.enableEmission = false;
+			_ballTrail.Stop();
 		}
 		
 	}

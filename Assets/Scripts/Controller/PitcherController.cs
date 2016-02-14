@@ -3,8 +3,9 @@ using System.Collections;
 
 [RequireComponent(typeof(PitcherSprite))]
 public abstract class PitcherController : MonoBehaviour {
-	public PitcherSprite sprite;
+	public PitchList pitches;
 
+	protected PitcherSprite _sprite;
 	
 	protected Pitch _selectedPitch;
 	protected Vector2 _pitchLocation;
@@ -13,13 +14,19 @@ public abstract class PitcherController : MonoBehaviour {
 	protected bool _hasPitchLocation;
 	protected bool _pitchReady;
 	
-	protected void _init() {
+	protected void _Init() {
 		_playerStats = new Player();
+		_sprite = GetComponent<PitcherSprite>();
 	}
 	
 	public void Reset() {
 		_selectedPitch = null;
 		_hasPitchLocation = false;
+	}
+	
+	public void SelectPitch(int pitch_index) {
+		_selectedPitch = pitches.Get(pitch_index);
+		_checkReady();
 	}
 	
 	protected void _checkReady() {
@@ -28,10 +35,6 @@ public abstract class PitcherController : MonoBehaviour {
 	}
 	
 	public Pitch currentPitch {
-		set {
-			_selectedPitch = value;
-			_checkReady();
-		}
 		get { return _selectedPitch; }
 	}
 	
@@ -95,7 +98,7 @@ public abstract class PitcherController : MonoBehaviour {
 	}
 	
 	public void StartPitch() {
-		sprite.PlayThrowAnimation(currentPitch.number);
+		_sprite.PlayThrowAnimation(currentPitch.number);
 	}
 	
 	public void SpawnPitch() {

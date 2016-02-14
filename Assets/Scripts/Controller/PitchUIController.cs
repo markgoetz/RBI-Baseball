@@ -20,7 +20,7 @@ public class PitchUIController : FieldingUIController {
 	}
 
 	public override void PitchSelected(int pitch_number) {
-		_pitcherController.currentPitch = pitches.Get(pitch_number);
+		_pitcherController.SelectPitch(pitch_number);
 		
 		_ChangeToLocationView();
 	}

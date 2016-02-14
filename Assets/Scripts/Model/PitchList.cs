@@ -8,4 +8,8 @@ public class PitchList : ScriptableObject {
 	public Pitch Get(int index) {
 		return pitches[index];
 	}
+
+	public int size {
+		get { return pitches.GetLength(0); }
+	}
 }

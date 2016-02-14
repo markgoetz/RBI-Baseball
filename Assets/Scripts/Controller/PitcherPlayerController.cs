@@ -5,7 +5,7 @@ public class PitcherPlayerController : PitcherController {
 	private PitchUIController _uiController;
 
 	void Awake() {
-		_init();
+		_Init();
 		
 		_uiController = PitchUIController.GetInstance() as PitchUIController;
 	}
