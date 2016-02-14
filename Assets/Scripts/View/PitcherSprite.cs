@@ -9,7 +9,7 @@ public class PitcherSprite : MonoBehaviour {
 	private SpriteRenderer _sprite;
 	private PitcherController _controller;
 
-	void Start () {
+	void Awake () {
 		_anim = GetComponent<Animator>();
 		_sprite = GetComponent<SpriteRenderer>();
 		_controller = PitcherController.GetInstance();

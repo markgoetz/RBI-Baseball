@@ -7,10 +7,11 @@ public class SpriteFader : MonoBehaviour {
 	
 	private SpriteRenderer _sprite;
 
-	// Use this for initialization
-	void Start () {
+	void Awake () {
 		_sprite = GetComponent<SpriteRenderer>();
-		
+	}
+
+	void Start() {
 		StartCoroutine("FadeOutCoroutine");
 	}
 	
