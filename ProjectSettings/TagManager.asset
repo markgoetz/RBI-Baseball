@@ -10,6 +10,7 @@ TagManager:
   - UI Controller
   - BaseRunners
   - Pitch Result Controller
+  - View Translator
   layers:
   - Default
   - TransparentFX
