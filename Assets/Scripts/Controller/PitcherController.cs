@@ -10,12 +10,12 @@ public abstract class PitcherController : MonoBehaviour {
 	protected Pitch _selectedPitch;
 	protected Vector2 _pitchLocation;
 	
-	protected Player _playerStats;
+	protected Character _characterStats;
 	protected bool _hasPitchLocation;
 	protected bool _pitchReady;
-	
+
 	protected void _Init() {
-		_playerStats = new Player();
+		_characterStats = new Character();
 		_sprite = GetComponent<PitcherSprite>();
 	}
 	
@@ -51,13 +51,18 @@ public abstract class PitcherController : MonoBehaviour {
 		get { return _pitchReady; }
 	}
 	
-	public Player player {
-		get { return _playerStats; }
-		set { _playerStats = value; }
+	public Character character {
+		get { return _characterStats; }
+		set { _characterStats = value; }
 	}
-	
+
+
+
+
+	/* ---- BEGIN CALCULATED STATISTIC SECTION ------- */
+
 	public float SpreadRadius(Vector2 pitch_location) {
-		return Vector2.Distance(pitch_location, _playerStats.pitchingSweetSpot);
+		return Vector2.Distance(pitch_location, _characterStats.pitchingSweetSpot);
 	}
 	
 	protected Vector2 _GetPitchLocationWithSpread(Vector2 pitch_location) {
@@ -85,6 +90,11 @@ public abstract class PitcherController : MonoBehaviour {
 		// TODO: fatigue
 		return 1;
 	}
+
+	/* ---- END CALCULATED STATISTIC SECTION ------- */
+
+
+
 	
 	public ThrownPitch GetThrownPitch() {
 		ThrownPitch pitch = new ThrownPitch(

@@ -6,7 +6,7 @@ public abstract class BatterController : MonoBehaviour {
 	public GameObject batterSwingIcon;
 	
 	protected StrikeZoneView _strikeZoneView;
-	protected Player _playerStats;
+	protected Character _characterStats;
 	protected BatterSprite _sprite;
 	
 	private Vector2 _swingLocation;
@@ -15,7 +15,7 @@ public abstract class BatterController : MonoBehaviour {
 	
 	public void Reset() {
 		_swingReady = false;
-		swingLocation = _playerStats.battingSweetSpot;
+		swingLocation = _characterStats.battingSweetSpot;
 	}
 
 	abstract public void PromptForSwing();
@@ -23,14 +23,14 @@ public abstract class BatterController : MonoBehaviour {
 	public void SetUnready() {
 		_swingReady = false;
 	}
-	
+
 	public bool swingReady {
 		get { return _swingReady; }
 	}
 	
 	protected void _Init() {
 		_sprite = GetComponent<BatterSprite>();
-		_playerStats = new Player();
+		_characterStats = new Character();
 		_strikeZoneView = StrikeZoneView.GetInstance();
 	}
 	
