@@ -18,17 +18,23 @@ public abstract class BatterController : MonoBehaviour {
 		swingLocation = _characterStats.battingSweetSpot;
 	}
 
-	abstract public void PromptForSwing();
-	
-	public void SetUnready() {
-		_swingReady = false;
-	}
+	abstract protected void PromptForSwing();
 
 	public bool swingReady {
 		get { return _swingReady; }
 	}
+
+	public void BeforeTurn() {
+		_swingReady = false;
+		PromptForSwing();
+		_sprite.SetRunning(false);
+	}
+
+	public void AfterTurn() {
+		_sprite.SetRunning(true);
+	}
 	
-	protected void _Init() {
+	protected virtual void Awake() {
 		_sprite = GetComponent<BatterSprite>();
 		_characterStats = new Character();
 		_strikeZoneView = StrikeZoneView.GetInstance();

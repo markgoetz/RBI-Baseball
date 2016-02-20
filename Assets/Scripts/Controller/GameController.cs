@@ -50,11 +50,15 @@ public class GameController : MonoBehaviour {
 			
 			// Step 3: Batter adjusts their location and pitch advances.  Loop until pitch is done.
 			while (!pitchedBall.isDone) {
-				_batter.SetUnready();
-				_batter.PromptForSwing();
+				_pitcher.BeforeTurn();
+				_batter.BeforeTurn();
+
 				while (!_batter.swingReady) {
 					yield return null;
 				}
+
+				_pitcher.AfterTurn();
+				_batter.AfterTurn();
 				
 				pitchedBall.AdvanceBy(_batter.swingPromptDelay);
 				while (pitchedBall.isMoving) {

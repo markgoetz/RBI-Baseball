@@ -4,14 +4,9 @@ using System.Collections;
 public class PitcherComputerController : PitcherController {
 	public float delayBetweenPitches;
 
-	void Awake() {
-		_Init();
-	}
-
 	void Start() {
 		_sprite.Fade();
 	}
-
 	
 	public override void PromptForPitch () {
 		_pitchReady = false;
@@ -24,8 +19,7 @@ public class PitcherComputerController : PitcherController {
 		
 		_selectPitchAndLocation();
 	}
-	
-	
+
 	private void _selectPitchAndLocation() {
 		// TODO: AI.
 		SelectPitch(Random.Range(0, pitches.size - 1));

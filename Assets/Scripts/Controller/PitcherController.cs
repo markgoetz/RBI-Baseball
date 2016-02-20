@@ -14,7 +14,7 @@ public abstract class PitcherController : MonoBehaviour {
 	protected bool _hasPitchLocation;
 	protected bool _pitchReady;
 
-	protected void _Init() {
+	protected virtual void Awake() {
 		_characterStats = new Character();
 		_sprite = GetComponent<PitcherSprite>();
 	}
@@ -113,6 +113,14 @@ public abstract class PitcherController : MonoBehaviour {
 	
 	public void SpawnPitch() {
 		GameController.getInstance().SpawnPitch();
+	}
+
+	public void BeforeTurn() {
+		_sprite.SetRunning(false);
+	}
+
+	public void AfterTurn() {
+		_sprite.SetRunning(true);
 	}
 	
 	abstract public void PromptForPitch();

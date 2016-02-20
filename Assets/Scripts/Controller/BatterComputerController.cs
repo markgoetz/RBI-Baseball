@@ -5,8 +5,8 @@ public class BatterComputerController : BatterController {
 	public ThrownPitchController thrownPitch;
 	public float delayBeforeSwing;
 
-	void Awake() {
-		_Init();
+	protected override void Awake() {
+		base.Awake();
 		_sprite.Fade();
 	}
 	
@@ -14,7 +14,7 @@ public class BatterComputerController : BatterController {
 		Reset ();
 	}
 
-	public override void PromptForSwing() {
+	protected override void PromptForSwing() {
 		StartCoroutine("_DelaySwingCoroutine");
 	}
 	

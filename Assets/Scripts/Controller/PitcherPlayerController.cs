@@ -4,8 +4,8 @@ using System.Collections;
 public class PitcherPlayerController : PitcherController {
 	private PitchUIController _uiController;
 
-	void Awake() {
-		_Init();
+	protected override void Awake() {
+		base.Awake();
 		
 		_uiController = PitchUIController.GetInstance() as PitchUIController;
 	}

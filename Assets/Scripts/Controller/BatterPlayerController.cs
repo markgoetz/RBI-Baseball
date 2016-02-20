@@ -4,8 +4,8 @@ using System.Collections;
 public class BatterPlayerController : BatterController {
 	private BatUIController _uiController;
 
-	void Awake() {
-		_Init();
+	protected override void Awake() {
+		base.Awake();
 		_uiController = BatUIController.GetInstance() as BatUIController;
 	}
 	
@@ -13,7 +13,7 @@ public class BatterPlayerController : BatterController {
 		Reset ();
 	}
 
-	public override void PromptForSwing() {
+	protected override void PromptForSwing() {
 		_uiController.PromptForSwing();
 	}
 }
