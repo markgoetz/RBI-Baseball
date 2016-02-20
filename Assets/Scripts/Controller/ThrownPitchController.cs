@@ -69,6 +69,7 @@ public class ThrownPitchController : MonoBehaviour {
 	
 	public void Spawn() {
 		_isSpawned = true;
+		_view.setLocation(thrownPitch.startLocation); // Use this to prevent a one-frame graphic glitch when the pitch is displayed
 		_SetVisible (true);
 	}
 	

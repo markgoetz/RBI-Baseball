@@ -15,6 +15,8 @@ public class ThrownPitchView : MonoBehaviour {
 	
 	private ParticleSystem _ballTrail;
 	private SpriteRenderer _ballSprite;
+
+	private float _ballTrailScale;
 	
 	void Awake() {
 		_anim = GetComponent<Animator>();
@@ -29,12 +31,13 @@ public class ThrownPitchView : MonoBehaviour {
 	
 	void Start() {
 		SetVisible(false);
+		_ballTrailScale = _ballTrail.startSize;
 	}
 
 	public void setLocation(Vector3 location) {
 		_anim.SetFloat ("z", _ScaleZ(location.z));
 		_ball.transform.localPosition = _PitchToSpritePosition(location);
-		_ballTrail.startSize = _ScaleZ(location.z) * .5f;
+		_ballTrail.startSize = _ballTrailScale * _ball.transform.lossyScale.x;
 	}
 	
 	public void ShowIcon() {
