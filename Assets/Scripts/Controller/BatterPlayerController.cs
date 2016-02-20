@@ -9,7 +9,8 @@ public class BatterPlayerController : BatterController {
 		_uiController = BatUIController.GetInstance() as BatUIController;
 	}
 	
-	void Start() {
+	protected override void Start() {
+		base.Start();
 		Reset ();
 	}
 

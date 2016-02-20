@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 79823b1c9786a447195e8fc4580e2d35
-timeCreated: 1449800376
+timeCreated: 1455977513
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -21,7 +21,7 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: .25
+    heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
@@ -46,7 +46,7 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: .5, y: .5}
+  spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
@@ -61,9 +61,17 @@ TextureImporter:
         y: 0
         width: 210
         height: 145
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 9
+      pivot: {x: 0.87, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128.7, y: 71.5}
+        - {x: -128.7, y: 20.5}
+        - {x: -105.7, y: -72.5}
+        - {x: -66.7, y: -72.5}
+        - {x: -44.699997, y: -65.5}
+        - {x: -44.699997, y: 70.5}
+        - {x: -46.699997, y: 71.5}
     - name: batter_idle_1
       rect:
         serializedVersion: 2
@@ -71,9 +79,18 @@ TextureImporter:
         y: 0
         width: 210
         height: 145
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 9
+      pivot: {x: 0.87, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -127.70001, y: 62.5}
+        - {x: -127.70001, y: 27.5}
+        - {x: -103.70001, y: -72.5}
+        - {x: -60.700012, y: -72.5}
+        - {x: -41.700012, y: -54.5}
+        - {x: -41.700012, y: 72.5}
+        - {x: -113.70001, y: 72.5}
+        - {x: -122.70001, y: 69.5}
     - name: batter_idle_2
       rect:
         serializedVersion: 2
@@ -81,9 +98,17 @@ TextureImporter:
         y: 0
         width: 210
         height: 145
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 9
+      pivot: {x: 0.87, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128.70001, y: 71.5}
+        - {x: -128.70001, y: 20.5}
+        - {x: -105.70001, y: -72.5}
+        - {x: -66.70001, y: -72.5}
+        - {x: -44.700012, y: -65.5}
+        - {x: -44.700012, y: 70.5}
+        - {x: -46.700012, y: 71.5}
     - name: batter_idle_3
       rect:
         serializedVersion: 2
@@ -91,9 +116,19 @@ TextureImporter:
         y: 0
         width: 210
         height: 145
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 9
+      pivot: {x: 0.87, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -127.70001, y: 62.5}
+        - {x: -127.70001, y: 27.5}
+        - {x: -103.70001, y: -72.5}
+        - {x: -60.700012, y: -72.5}
+        - {x: -41.700012, y: -54.5}
+        - {x: -41.700012, y: 72.5}
+        - {x: -113.70001, y: 72.5}
+        - {x: -122.70001, y: 69.5}
+    outline: []
   spritePackingTag: 
   userData: 
   assetBundleName: 

@@ -39,6 +39,10 @@ public abstract class BatterController : MonoBehaviour {
 		_characterStats = new Character();
 		_strikeZoneView = StrikeZoneView.GetInstance();
 	}
+
+	protected virtual void Start() {
+		_setCharacter();
+	}
 	
 	public void Swing() {
 		_sprite.PlaySwingAnimation(swingLocation);
@@ -78,6 +82,19 @@ public abstract class BatterController : MonoBehaviour {
 	public void ShowIcon(Vector2 strike_zone_location) {	
 		Vector2 icon_position = _strikeZoneView.StrikeZoneToWorldSpace(strike_zone_location);
 		Instantiate(batterSwingIcon, icon_position, Quaternion.identity);
+	}
+
+	public Character character {
+		get { return _characterStats; }
+		set { 
+			_characterStats = value;
+			_setCharacter();
+		}
+	}
+
+	// Must be called after _characterStats is changed!
+	private void _setCharacter() {
+		_sprite.SetDirection(character.isRightHanded);
 	}
 	
 	public static BatterController GetInstance() {

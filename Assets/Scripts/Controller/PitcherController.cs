@@ -18,6 +18,10 @@ public abstract class PitcherController : MonoBehaviour {
 		_characterStats = new Character();
 		_sprite = GetComponent<PitcherSprite>();
 	}
+
+	protected virtual void Start() {
+		_setCharacter();
+	}
 	
 	public void Reset() {
 		_selectedPitch = null;
@@ -53,9 +57,16 @@ public abstract class PitcherController : MonoBehaviour {
 	
 	public Character character {
 		get { return _characterStats; }
-		set { _characterStats = value; }
+		set { 
+			_characterStats = value;
+			_setCharacter();
+		}
 	}
 
+	// Must be called after _characterStats is changed!
+	private void _setCharacter() {
+		_sprite.SetDirection(character.isRightHanded);
+	}
 
 
 
@@ -79,9 +90,7 @@ public abstract class PitcherController : MonoBehaviour {
 		// TODO: fatigue
 		
 		multiplier = Mathf.Clamp01(multiplier);
-		
-		// TODO: Pitcher's handedness.  If left-handed, multiply X by -1.
-		
+
 		return multiplier;
 	}
 	
@@ -102,7 +111,8 @@ public abstract class PitcherController : MonoBehaviour {
 			new Vector2(.5f,.5f),
 			_GetPitchLocationWithSpread(pitchLocation),
 			_GetSpeedMultiplier(pitchLocation),
-			_GetMovementMultiplier(pitchLocation)
+			_GetMovementMultiplier(pitchLocation),
+			_characterStats.isRightHanded
 		);
 		return pitch;	
 	}

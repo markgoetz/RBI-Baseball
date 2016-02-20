@@ -10,7 +10,8 @@ public class BatterComputerController : BatterController {
 		_sprite.Fade();
 	}
 	
-	void Start() {
+	protected override void Start() {
+		base.Start();
 		Reset ();
 	}
 

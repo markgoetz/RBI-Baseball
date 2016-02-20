@@ -10,7 +10,8 @@ public class PitcherPlayerController : PitcherController {
 		_uiController = PitchUIController.GetInstance() as PitchUIController;
 	}
 	
-	void Start() {
+	protected override void Start() {
+		base.Start();
 		_uiController.ResetView();
 	}
 	

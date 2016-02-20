@@ -4,7 +4,8 @@ using System.Collections;
 public class PitcherComputerController : PitcherController {
 	public float delayBetweenPitches;
 
-	void Start() {
+	protected override void Start() {
+		base.Start();
 		_sprite.Fade();
 	}
 	

@@ -23,4 +23,11 @@ public class GameCharacterSprite : MonoBehaviour {
 			_anim.speed = 0;
 		}
 	}
+
+	public void SetDirection(bool right) {
+		if (right)
+			_sprite.flipX = false;
+		else
+			_sprite.flipX = true;
+	}
 }

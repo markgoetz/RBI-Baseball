@@ -17,6 +17,7 @@ public class ThrownPitchController : MonoBehaviour {
 		get { return _thrownPitch; }
 		set {
 			_thrownPitch = value;
+			_view.facingRight = _thrownPitch.facingRight;
 		}
 	}
 	

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 995ce7ab6e4bd4d69923712b255848ae
-timeCreated: 1449800431
+timeCreated: 1455977587
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -24,7 +24,7 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: .25
+    heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
@@ -49,7 +49,7 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: .5, y: .5}
+  spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
@@ -64,9 +64,17 @@ TextureImporter:
         y: 0
         width: 210
         height: 145
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 9
+      pivot: {x: 0.87, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128.7, y: 71.5}
+        - {x: -128.7, y: 20.5}
+        - {x: -105.7, y: -72.5}
+        - {x: -66.7, y: -72.5}
+        - {x: -44.699997, y: -65.5}
+        - {x: -44.699997, y: 70.5}
+        - {x: -46.699997, y: 71.5}
     - name: batter_swing_high_1
       rect:
         serializedVersion: 2
@@ -74,9 +82,15 @@ TextureImporter:
         y: 0
         width: 210
         height: 145
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 9
+      pivot: {x: 0.87, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -132.70001, y: 72.5}
+        - {x: -132.70001, y: -30.5}
+        - {x: -103.70001, y: -72.5}
+        - {x: -45.700012, y: -72.5}
+        - {x: -45.700012, y: 72.5}
     - name: batter_swing_high_2
       rect:
         serializedVersion: 2
@@ -84,9 +98,24 @@ TextureImporter:
         y: 0
         width: 210
         height: 145
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 9
+      pivot: {x: 0.87, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14.700012, y: 67.5}
+        - {x: -71.70001, y: 67.5}
+        - {x: -86.70001, y: 48.5}
+        - {x: -96.70001, y: 23.5}
+        - {x: -99.70001, y: 1.5}
+        - {x: -99.70001, y: -34.5}
+        - {x: -97.70001, y: -55.5}
+        - {x: -90.70001, y: -70.5}
+        - {x: -87.70001, y: -72.5}
+        - {x: -70.70001, y: -72.5}
+        - {x: -67.70001, y: -71.5}
+        - {x: -35.700012, y: -70.5}
+        - {x: 26.299988, y: -16.5}
+        - {x: 26.299988, y: 33.5}
     - name: batter_swing_high_3
       rect:
         serializedVersion: 2
@@ -94,9 +123,18 @@ TextureImporter:
         y: 0
         width: 210
         height: 145
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 9
+      pivot: {x: 0.87, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -121.70001, y: 70.5}
+        - {x: -182.70001, y: 50.5}
+        - {x: -182.70001, y: -23.5}
+        - {x: -143.70001, y: -72.5}
+        - {x: -46.700012, y: -72.5}
+        - {x: -44.700012, y: -69.5}
+        - {x: -44.700012, y: 62.5}
+        - {x: -61.700012, y: 70.5}
     - name: batter_swing_high_4
       rect:
         serializedVersion: 2
@@ -104,9 +142,18 @@ TextureImporter:
         y: 0
         width: 210
         height: 145
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 9
+      pivot: {x: 0.87, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -104.70001, y: 70.5}
+        - {x: -182.70001, y: 33.5}
+        - {x: -182.70001, y: -55.5}
+        - {x: -168.70001, y: -72.5}
+        - {x: -56.700012, y: -72.5}
+        - {x: -46.700012, y: -63.5}
+        - {x: -46.700012, y: 62.5}
+        - {x: -61.700012, y: 70.5}
     - name: batter_swing_high_5
       rect:
         serializedVersion: 2
@@ -114,9 +161,21 @@ TextureImporter:
         y: 0
         width: 210
         height: 145
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 9
+      pivot: {x: 0.87, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -52.69995, y: 61.5}
+        - {x: -63.69995, y: 72.5}
+        - {x: -87.69995, y: 72.5}
+        - {x: -112.69995, y: 22.5}
+        - {x: -112.69995, y: -30.5}
+        - {x: -99.69995, y: -72.5}
+        - {x: -68.69995, y: -72.5}
+        - {x: -64.69995, y: -71.5}
+        - {x: -38.69995, y: -41.5}
+        - {x: -36.69995, y: -30.5}
+        - {x: -36.69995, y: 44.5}
     - name: batter_swing_high_6
       rect:
         serializedVersion: 2
@@ -124,9 +183,25 @@ TextureImporter:
         y: 0
         width: 210
         height: 145
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 9
+      pivot: {x: 0.87, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8.699951, y: -10.5}
+        - {x: -26.699951, y: 18.5}
+        - {x: -35.69995, y: 26.5}
+        - {x: -40.69995, y: 25.5}
+        - {x: -45.69995, y: 23.5}
+        - {x: -56.69995, y: 64.5}
+        - {x: -65.69995, y: 72.5}
+        - {x: -91.69995, y: 72.5}
+        - {x: -98.69995, y: 65.5}
+        - {x: -98.69995, y: -71.5}
+        - {x: -60.69995, y: -71.5}
+        - {x: -38.69995, y: -64.5}
+        - {x: -0.6999512, y: -43.5}
+        - {x: -0.6999512, y: -15.5}
+    outline: []
   spritePackingTag: 
   userData: 
   assetBundleName: 

@@ -7,23 +7,29 @@ public class ThrownPitch {
 	public Vector2 endLocation;
 	public float speedMultiplier;
 	public float movementMultiplier;
+	public bool facingRight;
 
 	private Vector2 _bezierControlPointA;
 	private Vector2 _bezierControlPointB;
 	
-	
-	public ThrownPitch(Pitch p, Vector2 start, Vector2 end, float speed, float movement) {
+
+	public ThrownPitch(Pitch p, Vector2 start, Vector2 end, float speed, float movement, bool right) {
 		pitch = p;
 		startLocation = start;
 		endLocation = end;
 		speedMultiplier = speed;
 		movementMultiplier = movement;
+		facingRight = right;
 		
 		_setControlPoint();
 	}
 	
 	private void _setControlPoint() {
 		Vector2 deflection = pitch.movement * movementMultiplier;
+
+		if (!facingRight) {
+			deflection.Scale(new Vector2(-1, 1));
+		}
 
 		_bezierControlPointA = startLocation + deflection;
 		_bezierControlPointB = endLocation + deflection;

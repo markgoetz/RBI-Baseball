@@ -74,6 +74,12 @@ public class ThrownPitchView : MonoBehaviour {
 	public void Unpause() {
 		_ballTrail.Play (true);
 	}
+
+	public bool facingRight {
+		set {
+			_anim.SetBool("facingRight", value);
+		}
+	}
 	
 	private float _ScaleZ(float z) {
 		if (DEBUGShowPerspective)
