@@ -293,6 +293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pitches: {fileID: 11400000, guid: 0d9abe745f5384d5e87df3bcb6514a6f, type: 2}
+  settings: {fileID: 11400000, guid: b14ce034075d44ac888d11fd9cf92e38, type: 2}
 --- !u!1 &371367437
 GameObject:
   m_ObjectHideFlags: 0
@@ -3012,6 +3013,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   batterSwingIcon: {fileID: 134226, guid: cd2f877c603b945feb1d810b428a7145, type: 2}
+  settings: {fileID: 11400000, guid: b14ce034075d44ac888d11fd9cf92e38, type: 2}
   thrownPitch: {fileID: 2037497005}
   delayBeforeSwing: 1
 --- !u!1 &1437007702
@@ -3727,7 +3729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 205bff7f9f3d048b89f0797458d86c28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitRadius: 0.15
+  settings: {fileID: 11400000, guid: b14ce034075d44ac888d11fd9cf92e38, type: 2}
 --- !u!1 &1956418439
 GameObject:
   m_ObjectHideFlags: 0

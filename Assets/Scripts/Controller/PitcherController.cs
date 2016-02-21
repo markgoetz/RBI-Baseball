@@ -4,6 +4,7 @@ using System.Collections;
 [RequireComponent(typeof(PitcherSprite))]
 public abstract class PitcherController : MonoBehaviour {
 	public PitchList pitches;
+	public GameSettings settings;
 
 	protected PitcherSprite _sprite;
 	

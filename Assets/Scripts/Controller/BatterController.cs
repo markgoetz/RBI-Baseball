@@ -4,6 +4,7 @@ using System.Collections;
 [RequireComponent(typeof(BatterSprite))]
 public abstract class BatterController : MonoBehaviour {
 	public GameObject batterSwingIcon;
+	public GameSettings settings;
 	
 	protected StrikeZoneView _strikeZoneView;
 	protected Character _characterStats;
@@ -50,18 +51,16 @@ public abstract class BatterController : MonoBehaviour {
 	}
 	
 	// The time between prompts to swing.
-	// Will be influenced by stats
 	public float swingPromptDelay {
 		get {
-			return .33f;
+			return settings.BatterSwingDelay(_characterStats);
 		}
 	}
 	
 	// The amount that the batter can adjust their swing spot by.
-	// Will be influenced by stats
 	public float swingAdjustRadius {
 		get {
-			return .2f;
+			return settings.BatterSwingRadius(_characterStats);
 		}
 	}
 	
