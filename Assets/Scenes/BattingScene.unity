@@ -620,9 +620,9 @@ GameObject:
   m_Component:
   - 224: {fileID: 741496008}
   - 222: {fileID: 741496011}
-  - 114: {fileID: 741496009}
   - 114: {fileID: 741496010}
   - 114: {fileID: 741496012}
+  - 114: {fileID: 741496009}
   m_Layer: 0
   m_Name: Radius
   m_TagString: Untagged
@@ -655,25 +655,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 741496007}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a69e186799964598820e8bff59e01d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 17ba706bf85af4400b1322f547c5ad7c, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_Texture: {fileID: 0}
+  fillPercent: 100
+  fill: 0
+  thickness: 3
+  segments: 360
 --- !u!114 &741496010
 MonoBehaviour:
   m_ObjectHideFlags: 0

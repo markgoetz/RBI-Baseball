@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 
 [RequireComponent (typeof(RectTransform))]
-[RequireComponent (typeof(Image))]
+[RequireComponent (typeof(UICircle))]
 public class PitchingCursor : MonoBehaviour {
 	private FieldingUIController _UIController;
 	private PitcherController _pitcherController;
@@ -11,15 +11,20 @@ public class PitchingCursor : MonoBehaviour {
 	private bool _insideStrikeZone;
 	private bool _visible;
 	private RectTransform _rectTransform;
+	private UICircle _circle;
 	
 	private float _strikeZoneWidth;
 	
-	void Start () {
+	void Awake () {
 		_UIController = FieldingUIController.GetInstance();
 		_view = _UIController.strikeZone;
-		_strikeZoneWidth = _view.pixelWidth;
 		_pitcherController = PitcherController.GetInstance();
 		_rectTransform = GetComponent<RectTransform>();
+		_circle = GetComponent<UICircle>();
+	}
+
+	void Start() {
+		_strikeZoneWidth = _view.pixelWidth;
 	}
 	
 	// Move the fielding cursor so that it follows the mouse.
@@ -34,6 +39,7 @@ public class PitchingCursor : MonoBehaviour {
 		
 		// Scale in relation to distance from the sweet spot
 		Vector2 strike_zone_location = _view.ScreenPointToStrikeZone(screenpoint);
+
 		float radius = _strikeZoneWidth * _pitcherController.SpreadRadius(strike_zone_location);
 		_rectTransform.sizeDelta = new Vector2(radius * 2, radius * 2);
 	}
@@ -49,7 +55,7 @@ public class PitchingCursor : MonoBehaviour {
 		get { return _insideStrikeZone; }
 		set {
 			_insideStrikeZone = value;
-			GetComponent<Image>().enabled = active;
+			_circle.enabled = active;
 		}
 	}
 
@@ -57,13 +63,13 @@ public class PitchingCursor : MonoBehaviour {
 		get { return _visible; }
 		set {
 			_visible = value;
-			GetComponent<Image>().enabled = active;
+			_circle.enabled = active;
 		}
 	}
 	
 	public void SetVisible(bool value) {
 		_visible = value;
-		GetComponent<Image>().enabled = active;
+		_circle.enabled = active;
 	}
 	
 	public bool active {

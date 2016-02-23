@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 
 [RequireComponent (typeof(RectTransform))]
-[RequireComponent (typeof(Image))]
+[RequireComponent (typeof(UICircle))]
 public class BattingRadiusView : MonoBehaviour {
 	private bool _visible;
 	private float _radius;
@@ -12,14 +12,14 @@ public class BattingRadiusView : MonoBehaviour {
 	private RectTransform _rectTransform;
 	
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		_rectTransform = GetComponent<RectTransform>();
 		_view = StrikeZoneView.GetInstance();
 	}
 	
 	public void SetVisible(bool value) {
 		_visible = value;
-		GetComponent<Image>().enabled = _visible;
+		GetComponent<UICircle>().enabled = _visible;
 	}
 	
 	public void SetStrikeZoneLocation(Vector2 strike_zone_location) {

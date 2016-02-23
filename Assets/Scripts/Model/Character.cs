@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[System.Serializable]
 public class Character {
 	public Vector2 battingSweetSpot;
 	public Vector2 pitchingSweetSpot;
