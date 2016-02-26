@@ -37,7 +37,7 @@ public abstract class BatterController : MonoBehaviour {
 	
 	protected virtual void Awake() {
 		_sprite = GetComponent<BatterSprite>();
-		_characterStats = new Character();
+		_characterStats = Character.GetCharacter();
 		_strikeZoneView = StrikeZoneView.GetInstance();
 	}
 

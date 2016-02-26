@@ -4,12 +4,12 @@ using System.Collections;
 
 [RequireComponent(typeof(Canvas))]
 public class PitchIconView : MonoBehaviour {
-	private FieldingUIController _UIController;
+	private PitchUIController _UIController;
 	private Canvas _canvas;
 	private Button[] _icons;
 	
 	void Awake() {
-		_UIController = FieldingUIController.GetInstance();
+		_UIController = PitchUIController.GetInstance() as PitchUIController;
 		_icons = GetComponentsInChildren<Button>();
 	}
 	

@@ -16,7 +16,7 @@ public abstract class PitcherController : MonoBehaviour {
 	protected bool _pitchReady;
 
 	protected virtual void Awake() {
-		_characterStats = new Character();
+		_characterStats = Character.GetCharacter();
 		_sprite = GetComponent<PitcherSprite>();
 	}
 
@@ -69,12 +69,8 @@ public abstract class PitcherController : MonoBehaviour {
 		_sprite.SetDirection(character.isRightHanded);
 	}
 
-
-
-	/* ---- BEGIN CALCULATED STATISTIC SECTION ------- */
-
 	public float SpreadRadius(Vector2 pitch_location) {
-		return Vector2.Distance(pitch_location, _characterStats.pitchingSweetSpot);
+		return settings.PitcherSpreadRadius(_characterStats, pitch_location);
 	}
 	
 	protected Vector2 _GetPitchLocationWithSpread(Vector2 pitch_location) {
@@ -83,27 +79,14 @@ public abstract class PitcherController : MonoBehaviour {
 	}
 	
 	private float _GetMovementMultiplier(Vector2 end_location) {
-		float multiplier = 1.0f;
-		// Distance from sweet spot
-		multiplier -= SpreadRadius(end_location);
-	
-		// TODO: dexterity stat
-		// TODO: fatigue
-		
-		multiplier = Mathf.Clamp01(multiplier);
+		return settings.PitchMovementMultiplier(_characterStats, end_location);
 
-		return multiplier;
+
 	}
 	
 	private float _GetSpeedMultiplier(Vector2 end_location) {
-		// TODO: strength stat
-		// TODO: fatigue
-		return 1;
+		return settings.PitchSpeedMultiplier(_characterStats, end_location);
 	}
-
-	/* ---- END CALCULATED STATISTIC SECTION ------- */
-
-
 
 	
 	public ThrownPitch GetThrownPitch() {
@@ -123,7 +106,7 @@ public abstract class PitcherController : MonoBehaviour {
 	}
 	
 	public void SpawnPitch() {
-		GameController.getInstance().SpawnPitch();
+		GameController.GetInstance().SpawnPitch();
 	}
 
 	public void BeforeTurn() {

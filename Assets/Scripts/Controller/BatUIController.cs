@@ -41,8 +41,4 @@ public class BatUIController : FieldingUIController {
 		cursor.SetVisible (true);
 		radiusView.SetVisible(true);
 	}
-	
-	public override void PitchDone() {
-		_ChangeToWaitView();
-	}
 }

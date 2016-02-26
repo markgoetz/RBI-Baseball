@@ -19,7 +19,7 @@ public class PitchUIController : FieldingUIController {
 		_ChangeToSelectionView();
 	}
 
-	public override void PitchSelected(int pitch_number) {
+	public void PitchSelected(int pitch_number) {
 		_pitcherController.SelectPitch(pitch_number);
 		
 		_ChangeToLocationView();
@@ -46,9 +46,5 @@ public class PitchUIController : FieldingUIController {
 		pitchIcons.SetVisible(true);
 		cursor.SetVisible(false);
 		strikeZone.SetVisible(true);
-	}
-	
-	public override void PitchDone() {
-		_ChangeToSelectionView();
 	}
 }

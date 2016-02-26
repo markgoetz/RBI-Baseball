@@ -14,7 +14,6 @@ public class GameSettings : ScriptableObject {
 	}
 
 	public float PitcherSpreadRadius(Character pitcher_stats, Vector2 pitching_location) {
-		Debug.Log(Vector2.Distance(pitcher_stats.pitchingSweetSpot, pitching_location));
 		return Vector2.Distance(pitcher_stats.pitchingSweetSpot, pitching_location);
 	}
 

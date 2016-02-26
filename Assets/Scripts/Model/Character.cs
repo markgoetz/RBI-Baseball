@@ -19,29 +19,32 @@ public class Character {
 	public int knuckleball;
 	public int slider;
 
-
-	public Character() {
-		battingSweetSpot  = new Vector2(Random.value, Random.value);
-		pitchingSweetSpot = new Vector2(Random.value, Random.value);
-
-		strength    = _RollRandomStat();
-		dexterity   = _RollRandomStat();
-		runSpeed    = _RollRandomStat();
-		throwSpeed  = _RollRandomStat();
-		perception  = _RollRandomStat();
-		stamina     = _RollRandomStat();
-
-		isRightHanded = (Random.value > .5);
-
-		fastball    = _RollRandomStat();
-		curveball   = _RollRandomStat();
-		knuckleball = _RollRandomStat();
-		slider      = _RollRandomStat();
-	}
-
-	private int _RollRandomStat() {
+	private static int _RollRandomStat() {
 		return Mathf.FloorToInt(Random.value * STAT_MAX);
 	}
 
 	public static int STAT_MAX = 100;
+
+	public static Character GetCharacter() {
+		Character c = new Character();
+
+		c.battingSweetSpot  = new Vector2(Random.value, Random.value);
+		c.pitchingSweetSpot = new Vector2(Random.value, Random.value);
+
+		c.strength    = _RollRandomStat();
+		c.dexterity   = _RollRandomStat();
+		c.runSpeed    = _RollRandomStat();
+		c.throwSpeed  = _RollRandomStat();
+		c.perception  = _RollRandomStat();
+		c.stamina     = _RollRandomStat();
+
+		c.isRightHanded = (Random.value > .5);
+
+		c.fastball    = _RollRandomStat();
+		c.curveball   = _RollRandomStat();
+		c.knuckleball = _RollRandomStat();
+		c.slider      = _RollRandomStat();
+
+		return c;
+	}
 }

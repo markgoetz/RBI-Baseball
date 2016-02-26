@@ -70,7 +70,7 @@ public class GameController : MonoBehaviour {
 			_batter.Swing();
 			
 			// Step 5: process the outcome.
-			PitchResult result = _pitchResult.GetPitchResult(_pitcher.pitchLocation, _batter.swingLocation);
+			PitchResult result = _pitchResult.GetPitchResult(_pitcher.character, _pitcher.pitchLocation, _batter.character, _batter.swingLocation);
 			
 			if (result.type == PitchResultType.InPlay) {
 				_outs += result.outs;
@@ -122,7 +122,7 @@ public class GameController : MonoBehaviour {
 		_isPitchDone = true; // stub
 	}
 										
-	public static GameController getInstance() {
+	public static GameController GetInstance() {
 		return GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
 	}
 }
