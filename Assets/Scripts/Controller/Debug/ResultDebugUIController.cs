@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(ResultDebugView))]
 public class ResultDebugUIController : FieldingUIController {
 	public GameObject pitchIcon;
 	public GameObject swingIcon;
@@ -12,7 +13,10 @@ public class ResultDebugUIController : FieldingUIController {
 	private GameObject _pitchIcon;
 	private GameObject _swingIcon;
 
+	private ResultDebugView _view;
+
 	void Awake () {
+		_view = GetComponent<ResultDebugView>();
 		_ResetPitch();
 	}
 	
@@ -38,6 +42,16 @@ public class ResultDebugUIController : FieldingUIController {
 		}
 	}
 
+	public void DisplayResult(Vector2 location) {
+		_view.Display(location);
+	}
+
+	public void Clear() {
+		Destroy(_swingIcon);
+		Destroy(_pitchIcon);
+		_ResetPitch();
+	}
+
 	public Vector2 pitchLocation {
 		get { return _pitchLocation; }
 	}
@@ -51,10 +65,6 @@ public class ResultDebugUIController : FieldingUIController {
 	}
 
 	public bool resultDone {
-		get { return (_mode == 3); }
-	}
-
-	public void finishResult() {
-		_mode = 3;
+		get { return (_mode == 2 && _view.Done); }
 	}
 }

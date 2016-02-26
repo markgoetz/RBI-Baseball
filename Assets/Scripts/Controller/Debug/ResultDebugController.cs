@@ -38,9 +38,13 @@ public class ResultDebugController : MonoBehaviour {
 			// TODO: Display the vector.
 			Debug.Log(location);
 
+			_uiController.DisplayResult(location);
+
 			while (!_uiController.resultDone) {
 				yield return null;
 			}
+
+			_uiController.Clear();
 		}
 	}
 }

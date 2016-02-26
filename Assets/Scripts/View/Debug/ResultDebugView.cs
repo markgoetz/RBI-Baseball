@@ -1,15 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(Sprite))]
 public class ResultDebugView : MonoBehaviour {
+	public float delayAfterIcon;
 
-	// Use this for initialization
-	void Start () {
-	
+	private bool _done;
+
+	void Awake() {
+		_done = false;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+
+	public void Display(Vector2 location) {
+		StartCoroutine(_DisplayCoroutine(location));
+	}
+
+	private IEnumerator _DisplayCoroutine(Vector2 location) {
+		_done = false;
+
+		yield return new WaitForSeconds(delayAfterIcon);
+
+		_done = true;
+	}
+
+	public bool Done {
+		get { return _done; }
 	}
 }
