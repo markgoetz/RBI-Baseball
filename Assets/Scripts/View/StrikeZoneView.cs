@@ -37,7 +37,9 @@ public class StrikeZoneView : MonoBehaviour {
 		return true;
 	}
 	
-	public void Clicked(Vector2 screen_point) {
+	public void Clicked() {
+		Vector2 screen_point = Input.mousePosition;
+
 		if (!IsInsideStrikeZone(screen_point))
 			return;
 		

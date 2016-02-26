@@ -14,8 +14,8 @@ public class ResultDebugController : MonoBehaviour {
 	void Awake () {
 		_pitchResultController = PitchResultController.GetInstance();
 		_uiController = ResultDebugUIController.GetInstance() as ResultDebugUIController;
-		pitcher = new Character();
-		batter  = new Character();
+		pitcher = Character.GetCharacter();
+		batter  = Character.GetCharacter();
 	}
 
 	void Start() {
@@ -36,6 +36,7 @@ public class ResultDebugController : MonoBehaviour {
 			);
 
 			// TODO: Display the vector.
+			Debug.Log(location);
 
 			while (!_uiController.resultDone) {
 				yield return null;

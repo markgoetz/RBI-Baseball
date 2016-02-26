@@ -38,6 +38,6 @@ public class BattingRadiusView : MonoBehaviour {
 
 	public void Clicked() {
 		if (!_visible) return;
-		_view.Clicked(Input.mousePosition);
+		_view.Clicked();
 	}
 }

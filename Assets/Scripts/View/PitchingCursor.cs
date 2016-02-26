@@ -48,7 +48,7 @@ public class PitchingCursor : MonoBehaviour {
 		if (!active)
 			return;
 	
-		_view.Clicked(Input.mousePosition);
+		_view.Clicked();
 	}
 	
 	public bool insideStrikeZone {

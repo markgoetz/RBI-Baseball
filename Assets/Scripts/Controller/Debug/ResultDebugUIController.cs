@@ -3,11 +3,14 @@ using System.Collections;
 
 public class ResultDebugUIController : FieldingUIController {
 	public GameObject pitchIcon;
-	public GameObject hitIcon;
+	public GameObject swingIcon;
 
 	private int _mode;
 	private Vector2 _pitchLocation;
 	private Vector2 _swingLocation;
+
+	private GameObject _pitchIcon;
+	private GameObject _swingIcon;
 
 	void Awake () {
 		_ResetPitch();
@@ -19,13 +22,19 @@ public class ResultDebugUIController : FieldingUIController {
 
 	public override void LocationSelected(Vector2 location) {
 		// TODO: Show the icons in the proper place.
+
 		if (_mode == 0) {
 			_pitchLocation = location;
 			_mode = 1;
+			_pitchIcon = Instantiate(pitchIcon, strikeZone.StrikeZoneToWorldSpace(_pitchLocation), Quaternion.identity) as GameObject;
+			_pitchIcon.GetComponent<SpriteFader>().enabled = false;
 		}
 		else if (_mode == 1) {
 			_swingLocation = location;
 			_mode = 2;
+			_swingIcon = Instantiate(swingIcon, strikeZone.StrikeZoneToWorldSpace(_swingLocation), Quaternion.identity) as GameObject;
+			_swingIcon.GetComponent<SpriteFader>().enabled = false;
+
 		}
 	}
 
