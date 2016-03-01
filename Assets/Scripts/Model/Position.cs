@@ -1,5 +1,6 @@
 ﻿public enum Position {
-	Pitcher,
+	sPitcher,
+	rPitcher,
 	Catcher,
 	FirstBase,
 	SecondBase,
@@ -9,3 +10,4 @@
 	CenterField,
 	LeftField
 }
+
