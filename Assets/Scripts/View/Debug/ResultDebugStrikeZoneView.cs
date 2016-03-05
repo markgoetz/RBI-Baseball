@@ -2,7 +2,7 @@
 using System.Collections;
 
 [RequireComponent(typeof(Sprite))]
-public class ResultDebugView : MonoBehaviour {
+public class ResultDebugStrikeZoneView : MonoBehaviour {
 	public float delayAfterIcon;
 
 	private bool _done;

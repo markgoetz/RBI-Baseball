@@ -28,17 +28,14 @@ public class ResultDebugController : MonoBehaviour {
 				yield return null;
 			}
 
-			Vector2 location = _pitchResultController.GetHitVector(
+			BallHit ball_hit = _pitchResultController.GetBallHit(
 				pitcher,
 				_uiController.pitchLocation,
 				batter,
 				_uiController.swingLocation
 			);
 
-			// TODO: Display the vector.
-			Debug.Log(location);
-
-			_uiController.DisplayResult(location);
+			_uiController.DisplayResult(ball_hit);
 
 			while (!_uiController.resultDone) {
 				yield return null;

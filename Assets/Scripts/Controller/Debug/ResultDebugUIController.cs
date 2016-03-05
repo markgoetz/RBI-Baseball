@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(ResultDebugView))]
+[RequireComponent(typeof(ResultDebugStrikeZoneView))]
 public class ResultDebugUIController : FieldingUIController {
 	public GameObject pitchIcon;
 	public GameObject swingIcon;
@@ -13,10 +13,12 @@ public class ResultDebugUIController : FieldingUIController {
 	private GameObject _pitchIcon;
 	private GameObject _swingIcon;
 
-	private ResultDebugView _view;
+	private ResultDebugStrikeZoneView _strikeZoneView;
+	private ResultDebugBallHitView _ballHitView;
 
 	void Awake () {
-		_view = GetComponent<ResultDebugView>();
+		_strikeZoneView = GetComponent<ResultDebugStrikeZoneView>();
+		_ballHitView = ResultDebugBallHitView.GetInstance();
 		_ResetPitch();
 	}
 	
@@ -25,8 +27,6 @@ public class ResultDebugUIController : FieldingUIController {
 	}
 
 	public override void LocationSelected(Vector2 location) {
-		// TODO: Show the icons in the proper place.
-
 		if (_mode == 0) {
 			_pitchLocation = location;
 			_mode = 1;
@@ -42,8 +42,8 @@ public class ResultDebugUIController : FieldingUIController {
 		}
 	}
 
-	public void DisplayResult(Vector2 location) {
-		_view.Display(location);
+	public void DisplayResult(BallHit hit) {
+		_ballHitView.DisplayResult(hit);
 	}
 
 	public void Clear() {
@@ -65,6 +65,6 @@ public class ResultDebugUIController : FieldingUIController {
 	}
 
 	public bool resultDone {
-		get { return (_mode == 2 && _view.Done); }
+		get { return (_mode == 2 && _ballHitView.Done); }
 	}
 }

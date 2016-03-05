@@ -2,6 +2,7 @@
 	public PitchResultType type;
 	public int outs;
 	public int basesAdvanced;
+	public BallHit hit;
 }
 
 public enum PitchResultType {

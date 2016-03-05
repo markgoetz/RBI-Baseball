@@ -11,6 +11,7 @@ TagManager:
   - BaseRunners
   - Pitch Result Controller
   - View Translator
+  - Ball Hit View
   layers:
   - Default
   - TransparentFX

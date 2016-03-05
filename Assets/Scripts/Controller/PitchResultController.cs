@@ -9,8 +9,13 @@ public class PitchResultController : MonoBehaviour {
 		return new PitchResult();
 	}
 
-	public Vector2 GetHitVector(Character pitcher_stats, Vector2 pitch_location, Character batter_stats, Vector2 swing_location) {
-		return new Vector2(0,0);
+	public BallHit GetBallHit(Character pitcher_stats, Vector2 pitch_location, Character batter_stats, Vector2 swing_location) {
+		BallHit bh = new BallHit();
+
+		bh.endPosition = new Vector2(100,0);
+		bh.time = 2.0f;
+
+		return bh;
 	}
 	
 	public static PitchResultController GetInstance() {
