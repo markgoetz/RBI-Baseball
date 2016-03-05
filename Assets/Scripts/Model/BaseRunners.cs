@@ -1,22 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class BaseRunners {
 
-	private bool _firstBase;
-	private bool _secondBase;
-	private bool _thirdBase;
+	private List<bool> _bases;
+
+	public BaseRunners() {
+		_bases = new bool[3];
+	}
 	
 	public bool firstBase  {
-		get { return _firstBase;  }
-		set { _firstBase = value; }
+		get { return _bases[0];  }
+		set { _bases[0] = value; }
 	}
 	public bool secondBase {
-		get { return _secondBase; }
-		set { _secondBase = value; }
+		get { return _bases[1]; }
+		set { _bases[1] = value; }
 	}
 	public bool thirdBase  {
-		get { return _thirdBase;  }
-		set { _thirdBase = value; }
+		get { return _bases[2];  }
+		set { _bases[2] = value; }
+	}
+
+	public void pushBaseRunner(bool base_runner) {
+		_bases.Insert(0, base_runner);
+		_bases.RemoveAt(3);
 	}
 }
