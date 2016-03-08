@@ -7,7 +7,10 @@ public class BaseRunners {
 	private List<bool> _bases;
 
 	public BaseRunners() {
-		_bases = new bool[3];
+		_bases = new List<bool>();
+		_bases.Add(false);
+		_bases.Add(false);
+		_bases.Add(false);
 	}
 	
 	public bool firstBase  {

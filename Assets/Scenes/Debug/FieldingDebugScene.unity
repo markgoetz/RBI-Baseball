@@ -722,5 +722,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9708c68a9833b4dcdaef8dab7fffe766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayAfterHit: 3
   scaleVector: {x: 0.1, y: 0.1}

@@ -13,11 +13,9 @@ public class ResultDebugUIController : FieldingUIController {
 	private GameObject _pitchIcon;
 	private GameObject _swingIcon;
 
-	private ResultDebugStrikeZoneView _strikeZoneView;
 	private ResultDebugBallHitView _ballHitView;
 
 	void Awake () {
-		_strikeZoneView = GetComponent<ResultDebugStrikeZoneView>();
 		_ballHitView = ResultDebugBallHitView.GetInstance();
 		_ResetPitch();
 	}
