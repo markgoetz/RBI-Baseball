@@ -7,11 +7,11 @@ public class BatterComputerController : BatterController {
 
 	protected override void Awake() {
 		base.Awake();
-		_sprite.Fade();
 	}
 	
 	protected override void Start() {
 		base.Start();
+		_sprite.Fade();
 		Reset ();
 	}
 

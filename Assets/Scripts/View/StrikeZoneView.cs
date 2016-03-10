@@ -19,7 +19,7 @@ public class StrikeZoneView : MonoBehaviour {
 		_button = GetComponent<Button>();
 	}
 	
-	void Start() {		
+	void Start() {
 		RectTransform rect_transform = transform as RectTransform;
 		_rect = rect_transform.rect;
 	}
@@ -79,7 +79,9 @@ public class StrikeZoneView : MonoBehaviour {
 	}
 	
 	public float pixelWidth {
-		get { return _rect.width; }
+		get {
+			return (transform as RectTransform).rect.width;
+		}
 	}
 	
 	public static StrikeZoneView GetInstance() {
