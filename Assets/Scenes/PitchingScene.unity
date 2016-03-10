@@ -474,6 +474,7 @@ Transform:
   - {fileID: 1296591566}
   - {fileID: 49373753}
   - {fileID: 2080833563}
+  - {fileID: 1481446467}
   m_Father: {fileID: 1912503269}
   m_RootOrder: 0
 --- !u!1 &594194231
@@ -3195,6 +3196,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7695e8fc515194cb3ac5549233c65e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1481446466
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1481446467}
+  - 114: {fileID: 1481446468}
+  m_Layer: 0
+  m_Name: Count Controller
+  m_TagString: Count Controller
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1481446467
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1481446466}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 571545883}
+  m_RootOrder: 4
+--- !u!114 &1481446468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1481446466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 853fbc66ef1eb4b5e968d720f024e1a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1623693545
 GameObject:
   m_ObjectHideFlags: 0
@@ -3718,10 +3758,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1914453699}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 205bff7f9f3d048b89f0797458d86c28, type: 3}
+  m_Script: {fileID: 11500000, guid: b8aee294f3e784079a5edb3e34344f8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settings: {fileID: 11400000, guid: b14ce034075d44ac888d11fd9cf92e38, type: 2}
 --- !u!1 &1956418439
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,9 +9,6 @@ public class GameController : MonoBehaviour {
 	private BaseRunnerController _baseRunners;
 	private PitchResultController _pitchResult;
 	
-	private int _outs;
-	private bool _isPitchDone;
-	
 	void Awake() {
 		_batter = BatterController.GetInstance();
 		_pitcher = PitcherController.GetInstance();
@@ -27,11 +24,8 @@ public class GameController : MonoBehaviour {
 		
 		_inningStart();
 
-		while (!_isInningOver()) {
-		
-		
-			_isPitchDone = false;
-			
+		while (!_pitchResult.IsInningOver) {
+
 			// Step 1: Wait for the pitcher to select a pitch
 			_pitcher.PromptForPitch();
 			
@@ -70,24 +64,21 @@ public class GameController : MonoBehaviour {
 			_batter.Swing();
 			
 			// Step 5: process the outcome.
-			PitchResult result = _pitchResult.GetPitchResult(_pitcher.character, _pitcher.pitchLocation, _batter.character, _batter.swingLocation);
-			
-			if (result.type == PitchResultType.InPlay) {
-				_outs += result.outs;
-				_baseRunners.AdvanceRunners(result.basesAdvanced);
-			}
-			
-			// Step 6: display the results.
-			_displayResults(result);
-			
-			while (!_isPitchDone) {
+			_pitchResult.HandleResult(_pitcher.character, _pitcher.pitchLocation, _batter.character, _batter.swingLocation);
+
+			while (!_pitchResult.IsDone) {
 				yield return null;
 			}
-			
+
 			// Step 7: Get ready for next time
+			if (_pitchResult.IsBatterDone) {
+				_nextBatter();
+			}
+
 			pitchedBall.Reset();
 			_batter.Reset();
 			_pitcher.Reset();
+			_pitchResult.Reset();
 		}
 		
 		_inningOver();
@@ -96,8 +87,7 @@ public class GameController : MonoBehaviour {
 	public void SpawnPitch() {
 		pitchedBall.Spawn();
 	}
-	
-	
+		
 	public void PitchHit() {
 	
 	}
@@ -107,19 +97,11 @@ public class GameController : MonoBehaviour {
 	}
 	
 	private void _inningStart() {
-		_outs = 0;
 	}
-	
-	private bool _isInningOver() {
-		return (_outs >= 3);
-	}
+
 	
 	private void _inningOver() {
 		
-	}
-	
-	private void _displayResults (PitchResult result) {
-		_isPitchDone = true; // stub
 	}
 										
 	public static GameController GetInstance() {
