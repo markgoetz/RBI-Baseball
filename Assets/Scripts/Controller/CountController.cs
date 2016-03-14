@@ -2,10 +2,15 @@
 using System.Collections;
 
 public class CountController : MonoBehaviour {
-	private Count count;
+	private Count _count;
+	private CountView _view;
+
+	void Awake() {
+		_view = CountView.GetInstance();
+	}
 
 	void Start() {
-		count = new Count();
+		_count = new Count();
 	}
 
 	public void UpdateCount(PitchResult result) {
@@ -20,27 +25,29 @@ public class CountController : MonoBehaviour {
 				_Foul();
 				break;
 		}
+
+		_view.UpdateCount(_count);
 	}
 
 	private void _Strike() {
-		count.strikes++;
+		_count.strikes++;
 	}
 
 	private void _Foul() {
-		if (count.strikes < 2)
-			count.strikes++;
+		if (_count.strikes < 2)
+			_count.strikes++;
 	}
 
 	private void _Ball() {
-		count.balls++;
+		_count.balls++;
 	}
 
 	public bool IsStrikeout {
-		get { return (count.strikes >= 3); }
+		get { return (_count.strikes >= 3); }
 	}
 
 	public bool IsWalk {
-		get { return (count.balls >= 4); }
+		get { return (_count.balls >= 4); }
 	}
 
 	public bool IsBatterDone {
@@ -48,8 +55,9 @@ public class CountController : MonoBehaviour {
 	}
 
 	public void ResetCount() {
-		count.balls = 0;
-		count.strikes = 0;
+		_count.balls = 0;
+		_count.strikes = 0;
+		_view.UpdateCount(_count);
 	}
 
 	public static CountController GetInstance() {
