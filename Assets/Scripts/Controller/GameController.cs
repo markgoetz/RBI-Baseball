@@ -6,13 +6,11 @@ public class GameController : MonoBehaviour {
 		
 	private BatterController _batter;
 	private PitcherController _pitcher;
-	private BaseRunnerController _baseRunners;
 	private PitchResultController _pitchResult;
 	
 	void Awake() {
 		_batter = BatterController.GetInstance();
 		_pitcher = PitcherController.GetInstance();
-		_baseRunners = BaseRunnerController.GetInstance();
 		_pitchResult = PitchResultController.GetInstance();
 	}
 	
