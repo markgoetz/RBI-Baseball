@@ -11,10 +11,15 @@ public class BatterPlayerController : BatterController {
 	
 	protected override void Start() {
 		base.Start();
-		Reset ();
+		ResetAfterPitch ();
 	}
 
 	protected override void PromptForSwing() {
 		_uiController.PromptForSwing();
+	}
+
+	public override void ResetAfterPitch() {
+		base.ResetAfterPitch();
+		_uiController.ResetView();
 	}
 }

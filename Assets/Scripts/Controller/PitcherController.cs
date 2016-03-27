@@ -24,7 +24,7 @@ public abstract class PitcherController : MonoBehaviour {
 		_setCharacter();
 	}
 	
-	public void Reset() {
+	public void ResetAfterPitch() {
 		_selectedPitch = null;
 		_hasPitchLocation = false;
 	}

@@ -6,13 +6,30 @@ public class PitchResultCalculator {
 
 	public PitchResult CalculatePitchResult(Character pitcher_stats, Vector2 pitch_location, Character batter_stats, Vector2 swing_location) {
 		// stub method
-		PitchResult _result = new PitchResult();
+		PitchResult result = new PitchResult();
 
 		// first calculate if the player hit or not
 		// then call GetBallHit()
 		// see how long it takes for the fielder to catch and throw the ball
 		// determine how far the baserunners make it
-		return _result;
+
+		switch (Random.Range(0,3)) {
+			case 0:
+				result.type = PitchResultType.Ball;
+				break;
+			case 1:
+				result.type = PitchResultType.Foul;
+				break;
+			case 2:
+				result.type = PitchResultType.InPlay;
+				break;
+			case 3:
+				result.type = PitchResultType.Strike;
+				break; 
+		}
+  
+
+		return result;
 	}
 
 	public BallHit GetBallHit(Character pitcher_stats, Vector2 pitch_location, Character batter_stats, Vector2 swing_location) {

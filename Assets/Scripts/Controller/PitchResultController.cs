@@ -5,7 +5,7 @@ public class PitchResultController : MonoBehaviour {
 	private PitchResultCalculator _calculator;
 	private CountController _count;
 	private BaseRunnerController _baseRunners;
-	private bool _isDone;
+	private bool _isResultDone;
 	private bool _isBatterDone;
 
 	private int _outs;
@@ -50,24 +50,24 @@ public class PitchResultController : MonoBehaviour {
 
 	private void _DisplayResult(PitchResult result) {
 		// TODO: Implement the views
-		_isDone = true;
+		_isResultDone = true;
 	}
 
 	public bool IsInningOver {
 		get { return _outs >= 3; }
 	}
 
-	public bool IsDone {
-		get { return _isDone; }
+	public bool IsResultDone {
+		get { return _isResultDone; }
 	}
 
 	public bool IsBatterDone {
 		get { return _isBatterDone; }
 	}
 
-	public void Reset() {
+	public void ResetAfterPitch() {
 		_isBatterDone = false;
-		_isDone = false;
+		_isResultDone = false;
 	}
 
 	private void _AddRuns(int run_count) {

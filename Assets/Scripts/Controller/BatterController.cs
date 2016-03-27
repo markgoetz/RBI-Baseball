@@ -14,7 +14,7 @@ public abstract class BatterController : MonoBehaviour {
 		
 	protected bool _swingReady;
 	
-	public void Reset() {
+	public virtual void ResetAfterPitch() {
 		_swingReady = false;
 		swingLocation = _characterStats.battingSweetSpot;
 	}
@@ -75,6 +75,10 @@ public abstract class BatterController : MonoBehaviour {
 	
 	public bool isInsideRadius(Vector2 strike_zone_location) {
 		return (strike_zone_location - swingLocation).magnitude <= swingAdjustRadius;
+	}
+
+	public bool IsSwinging {
+		get {  return _sprite.IsSwinging;  }
 	}
 	
 	

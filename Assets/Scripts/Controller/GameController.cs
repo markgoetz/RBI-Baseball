@@ -60,11 +60,15 @@ public class GameController : MonoBehaviour {
 			
 			// Step 4: Batter swings at the pitch
 			_batter.Swing();
+
+			while (_batter.IsSwinging) {
+				yield return null;
+			}
 			
 			// Step 5: process the outcome.
 			_pitchResult.HandleResult(_pitcher.character, _pitcher.pitchLocation, _batter.character, _batter.swingLocation);
 
-			while (!_pitchResult.IsDone) {
+			while (!_pitchResult.IsResultDone) {
 				yield return null;
 			}
 
@@ -74,9 +78,9 @@ public class GameController : MonoBehaviour {
 			}
 
 			pitchedBall.Reset();
-			_batter.Reset();
-			_pitcher.Reset();
-			_pitchResult.Reset();
+			_batter.ResetAfterPitch();
+			_pitcher.ResetAfterPitch();
+			_pitchResult.ResetAfterPitch();
 		}
 		
 		_inningOver();

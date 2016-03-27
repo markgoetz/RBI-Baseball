@@ -33,7 +33,7 @@ public class BatUIController : FieldingUIController {
 	
 	private void _ChangeToWaitView() {
 		cursor.SetVisible(false);
-		radiusView.SetVisible(false);
+		radiusView.SetVisible(true);
 	}
 	
 	private void _ChangeToSwingView() {

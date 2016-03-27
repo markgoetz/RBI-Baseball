@@ -12,7 +12,7 @@ public class BatterComputerController : BatterController {
 	protected override void Start() {
 		base.Start();
 		_sprite.Fade();
-		Reset ();
+		ResetAfterPitch ();
 	}
 
 	protected override void PromptForSwing() {
