@@ -90,7 +90,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 2045264087}
+    m_TransformParent: {fileID: 1161074013}
     m_Modifications:
     - target: {fileID: 22471620, guid: 960a7d89db9224dfe8a6a1dd097997b3, type: 2}
       propertyPath: m_LocalPosition.x
@@ -122,7 +122,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22471620, guid: 960a7d89db9224dfe8a6a1dd097997b3, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 22471620, guid: 960a7d89db9224dfe8a6a1dd097997b3, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -164,26 +164,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 11490280, guid: 960a7d89db9224dfe8a6a1dd097997b3, type: 2}
-      propertyPath: thickness
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11490280, guid: 960a7d89db9224dfe8a6a1dd097997b3, type: 2}
-      propertyPath: fill
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11490280, guid: 960a7d89db9224dfe8a6a1dd097997b3, type: 2}
-      propertyPath: fillPercent
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 11490280, guid: 960a7d89db9224dfe8a6a1dd097997b3, type: 2}
-      propertyPath: m_Texture
-      value: 
-      objectReference: {fileID: 2800000, guid: 1815167d024724cd1b4ca3834db8a9d8, type: 3}
-    - target: {fileID: 11490280, guid: 960a7d89db9224dfe8a6a1dd097997b3, type: 2}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 960a7d89db9224dfe8a6a1dd097997b3, type: 2}
   m_IsPrefabParent: 0
@@ -232,7 +212,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22471790, guid: 78b51dfaa153f4db98179365df552fbb, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 22433254, guid: 78b51dfaa153f4db98179365df552fbb, type: 2}
       propertyPath: m_RootOrder
@@ -426,7 +406,3 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1237033451}
   m_Script: {fileID: 11500000, guid: 7695e8fc515194cb3ac5549233c65e56, type: 3}
---- !u!4 &2045264087 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 493606, guid: 78b51dfaa153f4db98179365df552fbb, type: 2}
-  m_PrefabInternal: {fileID: 292590256}
