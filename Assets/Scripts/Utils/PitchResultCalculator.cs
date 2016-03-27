@@ -22,6 +22,7 @@ public class PitchResultCalculator {
 				break;
 			case 2:
 				result.type = PitchResultType.InPlay;
+				result.basesAdvanced = Random.Range(1,4);
 				break;
 			case 3:
 				result.type = PitchResultType.Strike;

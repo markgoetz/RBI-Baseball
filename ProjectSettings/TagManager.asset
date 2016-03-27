@@ -14,6 +14,7 @@ TagManager:
   - Ball Hit View
   - Master Controller
   - Count Controller
+  - Pitch Result View
   layers:
   - Default
   - TransparentFX
