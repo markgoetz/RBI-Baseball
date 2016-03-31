@@ -3,9 +3,7 @@ using System.Collections;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(SpriteRenderer))]
-public class ThrownPitchView : MonoBehaviour {
-	public GameObject pitchLandedIcon;
-	
+public class ThrownPitchView : MonoBehaviour {	
 	public bool DEBUGShowPerspective;
 	
 	private Animator _anim;
@@ -38,10 +36,6 @@ public class ThrownPitchView : MonoBehaviour {
 		_anim.SetFloat ("z", _ScaleZ(location.z));
 		_ball.transform.localPosition = _PitchToSpritePosition(location);
 		_ballTrail.startSize = _ballTrailScale * _ball.transform.lossyScale.x;
-	}
-	
-	public void ShowIcon() {
-		Instantiate(pitchLandedIcon, _ball.transform.position, Quaternion.identity);
 	}
 	
 	private Vector2 _PitchToSpritePosition(Vector2 pitch_location) {

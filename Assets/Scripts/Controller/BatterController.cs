@@ -3,10 +3,8 @@ using System.Collections;
 
 [RequireComponent(typeof(BatterSprite))]
 public abstract class BatterController : MonoBehaviour {
-	public GameObject batterSwingIcon;
 	public GameSettings settings;
 	
-	protected StrikeZoneView _strikeZoneView;
 	protected Character _characterStats;
 	protected BatterSprite _sprite;
 	
@@ -38,7 +36,6 @@ public abstract class BatterController : MonoBehaviour {
 	protected virtual void Awake() {
 		_sprite = GetComponent<BatterSprite>();
 		_characterStats = Character.GetCharacter();
-		_strikeZoneView = StrikeZoneView.GetInstance();
 	}
 
 	protected virtual void Start() {
@@ -47,7 +44,6 @@ public abstract class BatterController : MonoBehaviour {
 	
 	public void Swing() {
 		_sprite.PlaySwingAnimation(swingLocation);
-		ShowIcon(swingLocation);
 	}
 	
 	// The time between prompts to swing.
@@ -80,12 +76,6 @@ public abstract class BatterController : MonoBehaviour {
 	public bool IsSwinging {
 		get {  return _sprite.IsSwinging;  }
 	}
-	
-	
-	public void ShowIcon(Vector2 strike_zone_location) {	
-		Vector2 icon_position = _strikeZoneView.StrikeZoneToWorldSpace(strike_zone_location);
-		Instantiate(batterSwingIcon, icon_position, Quaternion.identity);
-	}
 
 	public Character character {
 		get { return _characterStats; }
@@ -109,7 +99,7 @@ public abstract class BatterController : MonoBehaviour {
 		
 			Gizmos.color = Color.magenta;
 			Gizmos.DrawSphere(
-				_strikeZoneView.StrikeZoneToWorldSpace(
+				StrikeZoneView.GetInstance().StrikeZoneToWorldSpace(
 					swingLocation
 			),
 			.1f);

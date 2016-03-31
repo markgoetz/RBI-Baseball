@@ -226,6 +226,10 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Clicked
       objectReference: {fileID: 0}
+    - target: {fileID: 11437734, guid: 78b51dfaa153f4db98179365df552fbb, type: 2}
+      propertyPath: isPlayer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 78b51dfaa153f4db98179365df552fbb, type: 2}
   m_IsPrefabParent: 0
@@ -396,7 +400,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33ffa8dab1cb54637be4574c7bab9d43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  batterSwingIcon: {fileID: 134226, guid: cd2f877c603b945feb1d810b428a7145, type: 2}
   settings: {fileID: 11400000, guid: b14ce034075d44ac888d11fd9cf92e38, type: 2}
   thrownPitch: {fileID: 294426812}
   delayBeforeSwing: 0.8

@@ -76,8 +76,6 @@ public class ThrownPitchController : MonoBehaviour {
 	public void Finish() {
 		_isMoving = false;
 		_isDone = true;
-	
-		_view.ShowIcon();
 	}
 	
 	public void Reset() {
@@ -96,6 +94,10 @@ public class ThrownPitchController : MonoBehaviour {
 	
 	public bool isSpawned {
 		get { return _isSpawned; }
+	}
+
+	public Vector2 location {
+		get { return _thrownPitch.endLocation; }
 	}
 	
 	void OnDrawGizmos() {

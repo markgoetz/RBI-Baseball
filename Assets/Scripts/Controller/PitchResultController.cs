@@ -22,7 +22,7 @@ public class PitchResultController : MonoBehaviour {
 		PitchResult result = _calculator.CalculatePitchResult(pitcher_stats, pitch_location, batter_stats, swing_location);
 
 		_UpdateGameState(result);
-		_view.DisplayResult(result);
+		_view.DisplayResult(pitch_location, swing_location, result);
 	}
 
 	private void _UpdateGameState(PitchResult result) {

@@ -3,6 +3,8 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class PitchResultView : MonoBehaviour {
+	public Image pitchIcon;
+	public Image swingIcon;
 	public Text strikeText;
 	public Text ballText;
 	public Text foulText;
@@ -11,8 +13,18 @@ public class PitchResultView : MonoBehaviour {
 
 	private bool _isDone;
 
-	public void DisplayResult(PitchResult result) {
+	public void Start() {
+		_hideAll();
+	}
+
+	public void DisplayResult(Vector2 pitch_location, Vector2 swing_location, PitchResult result) {
 		_isDone = false;
+
+		_moveStrikeZoneIcon(pitchIcon, pitch_location);
+		_moveStrikeZoneIcon(swingIcon, swing_location);
+
+		_setStrikeZoneIcon(pitchIcon, true);
+		_setStrikeZoneIcon(swingIcon, true);
 
 		switch (result.type) {
 			case PitchResultType.Ball:
@@ -25,7 +37,7 @@ public class PitchResultView : MonoBehaviour {
 				StartCoroutine(_FlashTextCoroutine(strikeText));
 				break;
 			case PitchResultType.InPlay:
-				_isDone = true;
+				_FinishView();
 				break;
 		}
 	}
@@ -46,7 +58,12 @@ public class PitchResultView : MonoBehaviour {
 			yield return null;
 			time += Time.deltaTime;
 		}
-		t.enabled = false;
+
+		_FinishView();
+	}
+
+	private void _FinishView() {
+		_hideAll();
 		_isDone = true;
 	}
 
@@ -54,7 +71,30 @@ public class PitchResultView : MonoBehaviour {
 		get { return _isDone; }
 	}
 
+	private void _setStrikeZoneIcon(Image img, bool visible) {
+		img.enabled = visible;
+	}
 
+	private void _moveStrikeZoneIcon(Image img, Vector2 location) {
+		img.rectTransform.anchorMax = location;
+		img.rectTransform.anchorMin = location;
+	}
+
+	private void _hideAll() {
+		_hideNotifications();
+		_hideIcons();
+	}
+
+	private void _hideNotifications() {
+		strikeText.enabled = false;
+		ballText.enabled = false;
+		foulText.enabled = false;
+	}
+
+	private void _hideIcons() {
+		_setStrikeZoneIcon(pitchIcon, false);
+		_setStrikeZoneIcon(swingIcon, false);
+	}
 
 	public static PitchResultView GetInstance() {
 		return GameObject.FindGameObjectWithTag("Pitch Result View").GetComponent<PitchResultView>();

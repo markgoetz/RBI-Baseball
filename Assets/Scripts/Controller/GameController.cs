@@ -66,7 +66,7 @@ public class GameController : MonoBehaviour {
 			}
 			
 			// Step 5: process the outcome.
-			_pitchResult.HandleResult(_pitcher.character, _pitcher.pitchLocation, _batter.character, _batter.swingLocation);
+			_pitchResult.HandleResult(_pitcher.character, pitchedBall.location, _batter.character, _batter.swingLocation);
 
 			while (!_pitchResult.IsResultDone) {
 				yield return null;
