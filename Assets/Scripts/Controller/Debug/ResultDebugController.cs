@@ -8,11 +8,11 @@ public class ResultDebugController : MonoBehaviour {
 
 	private ResultDebugUIController _uiController;
 
-	private PitchResultCalculator _pitchResultController;
+	private PitchResultCalculator _calculator;
 
 	// Use this for initialization
 	void Awake () {
-		_pitchResultController = new PitchResultCalculator();
+		_calculator = new PitchResultCalculator();
 		_uiController = ResultDebugUIController.GetInstance() as ResultDebugUIController;
 		pitcher = Character.GetCharacter();
 		batter  = Character.GetCharacter();
@@ -29,7 +29,7 @@ public class ResultDebugController : MonoBehaviour {
 			}
 
 
-			BallHit ball_hit = _pitchResultController.GetBallHit(
+			BallHit ball_hit = _calculator.GetBallHit(
 				pitcher,
 				_uiController.pitchLocation,
 				batter,

@@ -117,8 +117,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   strikeZone: {fileID: 1395072951}
-  pitchIcon: {fileID: 113366, guid: b1eafc9ecabe244e69b7d6320239e5d0, type: 2}
-  swingIcon: {fileID: 134226, guid: cd2f877c603b945feb1d810b428a7145, type: 2}
+  pitchIcon: {fileID: 163280, guid: 5bd219d2a28ac4c1f95c9c8affe855ab, type: 2}
+  swingIcon: {fileID: 139596, guid: 1a0ab3dc1c45d43fe95de1f3440bcdf0, type: 2}
 --- !u!114 &588847796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,6 +174,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -190,7 +191,7 @@ RectTransform:
   m_Children:
   - {fileID: 1395072955}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -274,7 +275,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!1 &1292353708
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,7 +422,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!1 &1395072950
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,7 +595,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -859400101
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 16b1e84d874d04789975977ffdb1c7ec, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -611,47 +612,7 @@ Transform:
   m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
---- !u!1 &1685085701
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1685085703}
-  - 114: {fileID: 1685085702}
-  m_Layer: 0
-  m_Name: PitchResultController
-  m_TagString: Pitch Result Controller
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1685085702
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1685085701}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 205bff7f9f3d048b89f0797458d86c28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  settings: {fileID: 11400000, guid: b14ce034075d44ac888d11fd9cf92e38, type: 2}
---- !u!4 &1685085703
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1685085701}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.29399997, y: 2.145, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!1 &2128787531
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,7 +654,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -2089958769
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4c4baac6d7a734c60ac57931955549bf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -710,7 +671,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!114 &2128787534
 MonoBehaviour:
   m_ObjectHideFlags: 0
