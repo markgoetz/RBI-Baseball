@@ -21,14 +21,18 @@ public class BaseRunnerController : MonoBehaviour {
 	// AdvanceRunners - update the current state of base runners when there's a hit.  Do not use this on a walk.
 	// int base_count - the number of bases that each runner advances.  For instance, if it's a double, base_count should be 2.
 	// return value: the number of runners that scored.
-	public int AdvanceRunners(int base_count) {
+	public int AdvanceRunners(Character hitter, int base_count) {
 		int runs = 0;
 
 		for (int i = 0; i < base_count; i++) {
-			if (_baseRunners.thirdBase) runs++;
+			if (_baseRunners.thirdBase != null) runs++;
 
-			// This will result in a "true" on the base that the batter arrived at, and a "false" at all prior bases.
-			_baseRunners.pushBaseRunner((i == 0));
+			if (i == 0) {
+				_baseRunners.pushBaseRunner(hitter);
+			}
+			else {
+				_baseRunners.pushBaseRunner(null);
+			}
 		}
 
 		_view.UpdateView(_baseRunners);
@@ -37,25 +41,31 @@ public class BaseRunnerController : MonoBehaviour {
 
 	// WalkRunners - update the current state of the base runners when there is a walk.  Do not use this on a hit.
 	// return value: the number of runners that scored.
-	public int WalkRunners() {
+	public int WalkRunners(Character walker) {
 		int runs = 0;
 
-		if (!_baseRunners.firstBase) {
-			_baseRunners.firstBase = true;
+		if (_baseRunners.firstBase == null) {
+			_baseRunners.firstBase  = walker;
 			return 0;
 		}
 
-		else if (!_baseRunners.secondBase) {
-			_baseRunners.secondBase = true;
+		else if (_baseRunners.secondBase == null) {
+			_baseRunners.secondBase = _baseRunners.firstBase;
+			_baseRunners.firstBase  = walker;
 			return 0;
 		}
 
-		else if (!_baseRunners.thirdBase) {
-			_baseRunners.thirdBase = true;
+		else if (_baseRunners.thirdBase == null) {
+			_baseRunners.thirdBase  = _baseRunners.secondBase;
+			_baseRunners.secondBase = _baseRunners.firstBase;
+			_baseRunners.firstBase  = walker;
 			return 0;
 		}
 
 		else {
+			_baseRunners.thirdBase  = _baseRunners.secondBase;
+			_baseRunners.secondBase = _baseRunners.firstBase;
+			_baseRunners.firstBase  = walker;
 			return 1;
 		}
 	}

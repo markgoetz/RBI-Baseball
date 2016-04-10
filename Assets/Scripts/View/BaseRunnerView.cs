@@ -24,9 +24,9 @@ public class BaseRunnerView : MonoBehaviour {
 	
 	public void UpdateView(BaseRunners runners) {	
 		// TODO: Tween this shit
-		firstBase.color  = (runners.firstBase)  ? Color.white : Color.clear;
-		secondBase.color = (runners.secondBase) ? Color.white : Color.clear;
-		thirdBase.color  = (runners.thirdBase)  ? Color.white : Color.clear;
+		firstBase.color  = (runners.firstBase  != null) ? Color.white : Color.clear;
+		secondBase.color = (runners.secondBase != null) ? Color.white : Color.clear;
+		thirdBase.color  = (runners.thirdBase  != null) ? Color.white : Color.clear;
 	}
 
 	static public BaseRunnerView GetInstance() {

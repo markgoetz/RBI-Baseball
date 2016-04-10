@@ -4,29 +4,29 @@ using System.Collections.Generic;
 
 public class BaseRunners {
 
-	private List<bool> _bases;
+	private List<Character> _bases;
 
 	public BaseRunners() {
-		_bases = new List<bool>();
-		_bases.Add(false);
-		_bases.Add(false);
-		_bases.Add(false);
+		_bases = new List<Character>();
+		_bases.Add(null);
+		_bases.Add(null);
+		_bases.Add(null);
 	}
-	
-	public bool firstBase  {
+
+	public Character firstBase  {
 		get { return _bases[0];  }
 		set { _bases[0] = value; }
 	}
-	public bool secondBase {
+	public Character secondBase {
 		get { return _bases[1]; }
 		set { _bases[1] = value; }
 	}
-	public bool thirdBase  {
+	public Character thirdBase  {
 		get { return _bases[2];  }
 		set { _bases[2] = value; }
 	}
 
-	public void pushBaseRunner(bool base_runner) {
+	public void pushBaseRunner(Character base_runner) {
 		_bases.Insert(0, base_runner);
 		_bases.RemoveAt(3);
 	}

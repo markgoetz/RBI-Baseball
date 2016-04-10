@@ -9,6 +9,9 @@ public class PitchResultController : MonoBehaviour {
 	private PitchResultView _view;
 	private OutsView _outsView;
 
+	private Character _pitcher;
+	private Character _batter;
+
 	private int _outs;
 
 	// Use this for initialization
@@ -21,6 +24,9 @@ public class PitchResultController : MonoBehaviour {
 	}
 
 	public void HandleResult(Character pitcher_stats, Vector2 pitch_location, Character batter_stats, Vector2 swing_location) {
+		_pitcher = pitcher_stats;
+		_batter  = batter_stats;
+
 		PitchResult result = _calculator.CalculatePitchResult(pitcher_stats, pitch_location, batter_stats, swing_location);
 
 		_UpdateGameState(result);
@@ -33,7 +39,7 @@ public class PitchResultController : MonoBehaviour {
 
 			_outs += result.outs;
 			_outsView.SetOuts(_outs);
-			_AddRuns(_baseRunners.AdvanceRunners(result.basesAdvanced));
+			_AddRuns(_baseRunners.AdvanceRunners(_batter, result.basesAdvanced));
 
 			_count.ResetCount();
 		}
@@ -41,7 +47,7 @@ public class PitchResultController : MonoBehaviour {
 			_count.UpdateCount(result);
 			if (_count.IsWalk) {
 				_count.ResetCount();
-				_AddRuns(_baseRunners.WalkRunners());
+				_AddRuns(_baseRunners.WalkRunners(_batter));
 				_isBatterDone = true;
 			}
 			else if (_count.IsStrikeout) {
