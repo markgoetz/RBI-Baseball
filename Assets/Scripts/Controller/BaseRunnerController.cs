@@ -18,7 +18,7 @@ public class BaseRunnerController : MonoBehaviour {
 		_view.UpdateView(_baseRunners);
 	}
 
-	// AdvanceRunners - update the current state of base runners when there's a hit.
+	// AdvanceRunners - update the current state of base runners when there's a hit.  Do not use this on a walk.
 	// int base_count - the number of bases that each runner advances.  For instance, if it's a double, base_count should be 2.
 	// return value: the number of runners that scored.
 	public int AdvanceRunners(int base_count) {
@@ -33,6 +33,31 @@ public class BaseRunnerController : MonoBehaviour {
 
 		_view.UpdateView(_baseRunners);
 		return runs;
+	}
+
+	// WalkRunners - update the current state of the base runners when there is a walk.  Do not use this on a hit.
+	// return value: the number of runners that scored.
+	public int WalkRunners() {
+		int runs = 0;
+
+		if (!_baseRunners.firstBase) {
+			_baseRunners.firstBase = true;
+			return 0;
+		}
+
+		else if (!_baseRunners.secondBase) {
+			_baseRunners.secondBase = true;
+			return 0;
+		}
+
+		else if (!_baseRunners.thirdBase) {
+			_baseRunners.thirdBase = true;
+			return 0;
+		}
+
+		else {
+			return 1;
+		}
 	}
 	
 	public BaseRunners baseRunners {

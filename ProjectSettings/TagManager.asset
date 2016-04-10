@@ -15,6 +15,7 @@ TagManager:
   - Master Controller
   - Count Controller
   - Pitch Result View
+  - Outs View
   layers:
   - Default
   - TransparentFX
